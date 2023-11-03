@@ -34,6 +34,7 @@
 		927A94662AF53499007889A4 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 927A94652AF53499007889A4 /* FirebaseRemoteConfig */; };
 		927A94682AF53CE9007889A4 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927A94672AF53CE9007889A4 /* GoogleService-Info-Debug.plist */; };
 		927A946A2AF53D42007889A4 /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927A94692AF53D42007889A4 /* GoogleService-Info-Release.plist */; };
+		927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A946D2AF540FC007889A4 /* CardsSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		927A94572AF52F43007889A4 /* UIModification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModification.swift; sourceTree = "<group>"; };
 		927A94672AF53CE9007889A4 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
 		927A94692AF53D42007889A4 /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
+		927A946D2AF540FC007889A4 /* CardsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				927A94512AF52F43007889A4 /* SubscriptionView.swift */,
 				927A94522AF52F43007889A4 /* LaunchScreenView.swift */,
 				927A94532AF52F43007889A4 /* OnboardingView.swift */,
+				927A946D2AF540FC007889A4 /* CardsSample.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				927A94612AF52F43007889A4 /* EmodjiIcon.swift in Sources */,
 				927A94632AF52F43007889A4 /* UIModification.swift in Sources */,
 				927A945D2AF52F43007889A4 /* ScreenContentView.swift in Sources */,
+				927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */,
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,

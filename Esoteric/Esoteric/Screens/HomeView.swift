@@ -35,6 +35,7 @@ struct HomeView: View {
     @State var animate: Bool = false
     @State var finish: Bool = false
     
+    @State var degree: Double = 0.0
     
     var body: some View {
         ZStack {
@@ -47,6 +48,17 @@ struct HomeView: View {
                         .frame(width: UIScreen.main.bounds.width, height: 30)
                     
                     VStack (alignment: .leading, spacing: 20) {
+                        
+                        NavigationLink {
+                            VStack {
+                                CardFlipHero(text: "card1")
+                                CardFlipHero(text: "card2")
+                                CardFlipHero(text: "card3")
+                            }
+                        } label: {
+                            Text("Card")
+                        }.GreenButtonStyle()
+                            .padding(.horizontal,16)
                         
                             HStack(spacing: 16) {
                                 EmodjiIcon(iconText: "👋")
