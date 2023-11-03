@@ -11,11 +11,17 @@ import Combine
 
 class HomeModel: ObservableObject {
     var subscriptions = Set<AnyCancellable>()
+    var gpt = GPTService()
     
     init() {
         User.shared.$isProUser.sink {_ in
             self.objectWillChange.send()
         }.store(in: &subscriptions)
+        
+        gpt.test(promt: "Придумай мне гороскоп на день. Пара предложений.") { result in
+            print(result)
+        }
+        
     }
     
     
@@ -35,8 +41,6 @@ struct HomeView: View {
     @State var animate: Bool = false
     @State var finish: Bool = false
     
-    @State var degree: Double = 0.0
-    
     var body: some View {
         ZStack {
             if animate == false {
@@ -50,11 +54,9 @@ struct HomeView: View {
                     VStack (alignment: .leading, spacing: 20) {
                         
                         NavigationLink {
-                            VStack {
-                                CardFlipHero(text: "card1")
-                                CardFlipHero(text: "card2")
-                                CardFlipHero(text: "card3")
-                            }
+                            
+                           CardsTableView()
+                            
                         } label: {
                             Text("Card")
                         }.GreenButtonStyle()
