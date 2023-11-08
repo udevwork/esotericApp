@@ -155,7 +155,7 @@ struct EsotericApp: App {
                         .transition(.opacity)
                         .environmentObject(model)
                 }
-            }.preferredColorScheme(.light)
+            }.preferredColorScheme(.dark)
                 .animation(.easeInOut, value: model.screenTransitionAnimation)
         }
     }

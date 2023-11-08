@@ -24,10 +24,10 @@ struct ButtonModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .padding(.vertical)
-            .padding(.horizontal,25)
+            .padding(.vertical,16)
+            .padding(.horizontal,20)
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: 24 , style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 15 , style: .continuous))
     }
 }
 
@@ -59,7 +59,7 @@ struct GradientViewModifier: ViewModifier {
 
 struct LightShadow: ViewModifier {
     func body(content: Content) -> some View {
-        content.shadow(color: Color.shadowColor, radius: 14, x: 0, y: 10)
+        content
     }
 }
 
@@ -68,7 +68,7 @@ struct ButtonFont: ViewModifier {
     var color: Color = .white
     
     func body(content: Content) -> some View {
-        content.font(.system(.body, design: .monospaced, weight: .black)).foregroundColor(color)
+        content.font(.system(.body, design: .serif, weight: .black)).foregroundColor(color)
     }
 }
 
@@ -84,6 +84,10 @@ struct FooterFont: ViewModifier {
 extension View {
     
     // Button
+    func DefButtonStyle() -> some View {
+        modifier(ButtonModifier(color: .buttonDefColor)).modifier(ButtonFont())
+    }
+    
     func GrayButtonStyle() -> some View {
         modifier(ButtonModifier(color: .buttonGray)).modifier(ButtonFont())
     }

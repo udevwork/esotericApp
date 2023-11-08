@@ -44,6 +44,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             if animate == false {
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     Image("homescreenheader")
@@ -51,52 +52,55 @@ struct HomeView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width, height: 30)
                     
+                    
+                    
                     VStack (alignment: .leading, spacing: 20) {
                         
-                        NavigationLink {
-                            
-                           CardsTableView()
-                            
-                        } label: {
-                            Text("Card")
-                        }.GreenButtonStyle()
-                            .padding(.horizontal,16)
-                        
+                  
                             HStack(spacing: 16) {
-                                EmodjiIcon(iconText: "👋")
+                                EmodjiIcon(iconText: "🔮")
                                 VStack(alignment: .leading, spacing: 1) {
-                                    SectionTitleView(text: "L_HomeSectionCreateTitle", alignment: .leading)
-                                    ArticleView(text: "L_HomeSectionCreateSubtitle", alignment: .leading)
+                                    SectionTitleView(text: "Карта таро", alignment: .leading)
+                                    ArticleView(text: "Предсказание дня", alignment: .leading)
                                 }
                             }.padding(.horizontal,16)
                         
-                      
+                        HorMenuSnap()
+                            .frame(height: 300)
                         
                         if User.shared.isProUser == false {
-                            ScreenContentView(color: .buttonBlue) {
+                            ScreenContentView(color: .clear) {
                          
                                     VStack(alignment: .leading, spacing: 28) {
                                         
                                         VStack(alignment: .leading, spacing: 8) {
-                                            SectionTitleView(textColor: .white, text: "L_HomeSectionMainTitle", alignment: .leading)
+                                            SectionTitleView(textColor: .white, text: "Гадание по одной карте", alignment: .leading)
                                                 .padding(.horizontal, horPadding)
                                             
-                                            ArticleView(textColor: .white, text: "L_HomeSectionMainSubtitle").padding(.horizontal, horPadding)
+                                            ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                         }
+                                        NavigationLink {
+                                            
+                                           CardsTableView()
+                                        } label: {
+                                            Text("Открыть карты")
+                                        }.DefButtonStyle()
+                                            .padding(.horizontal, horPadding)
+                                        
                                         Button {
                                             showingSheet.toggle()
                                         } label: {
-                                            Text("L_PremiumUppercase")
-                                        }.WhiteButtonStyle()
+                                            Text("Подписка")
+                                        }.DefButtonStyle()
                                             .sheet(isPresented: $showingSheet) {
                                                 SubscriptionView()
                                             }
                                             .padding(.horizontal, horPadding)
                                     }.background {
-                                        Image("whiteFigures")
+                                        Image("esoteric")
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
-                                            .opacity(0.4)
+                                            .opacity(0.1)
                                             .scaleEffect(0.9)
                                     }
                                 
@@ -106,28 +110,21 @@ struct HomeView: View {
                         
                     
                             
+                        
+                        VStack(alignment: .leading,spacing: 10) {
+                            SectionTitleView(text: "Прогноз на будущее", alignment: .leading)
                             
-                            VStack(alignment: .leading,spacing: 10) {
-                                SectionTitleView(text: "L_HomeAuthorWeLove", alignment: .leading)
-                                
-                                ArticleView(text: "L_HomeExploreAuthor", alignment: .leading)
-                            }.padding(.horizontal,16)
-                            if let git = mainModel.git {
-                              //  FavoriteCreatorsView(creators: git.favoriteCreators)
-                            }
-                            
-                            SectionTitleView(text: "L_HomeSectionTemplates", alignment: .leading)
-                                .padding(.horizontal,16)
-                            
+                            ArticleView(text: "Работа, отношения, путешествие, покупка, продажа и т.д", alignment: .leading)
+                        }.padding(.horizontal,35)
                         
                         
-                 
-                        ScreenContentView(color: .buttonBlue) {
+                        
+                        ScreenContentView(color: .clear) {
                      
                                 VStack(alignment: .leading, spacing: 20) {
                                     
                                     VStack(alignment: .leading, spacing: 8) {
-                                        SectionTitleView(textColor: .white, text: "L_HaveQuastions", alignment: .leading)
+                                        SectionTitleView(textColor: .white, text: "Есть вопросы?", alignment: .leading)
                                             .padding(.horizontal, horPadding)
                                
                                     }
@@ -136,17 +133,17 @@ struct HomeView: View {
                                             openURL(url)
                                         }
                                     } label: {
-                                        Text("L_MailToTelegram")
-                                    }.WhiteButtonStyle()
+                                        Text("Напиши нам!")
+                                    }.DefButtonStyle()
                                         .sheet(isPresented: $showingSheet) {
                                             SubscriptionView()
                                         }
                                         .padding(.horizontal, horPadding)
                                 }.background {
-                                    Image("emailus")
+                                    Image("Logo")
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .opacity(0.4)
+                                        .opacity(0.2)
                                         .scaleEffect(0.9)
                                 }
                             
@@ -157,7 +154,7 @@ struct HomeView: View {
                         
                     }
                     
-                }  .background(BGColor)
+                }.background(BackGroundView())
                     .navigationBarHidden(true)
                     .onAppear {
                         AnalyticsWrapper.onScreanAppear("Home")
@@ -168,6 +165,7 @@ struct HomeView: View {
                
             }
         }.animation(Animation.easeInOut(duration: 0.25), value: animate)
+        
     }
 }
 

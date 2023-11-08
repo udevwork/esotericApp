@@ -15,13 +15,7 @@ import RevenueCat
 let horPadding: CGFloat = 40
 let verPadding: CGFloat = 10
 
-let BGColor = Color(uiColor: UIColor(hex: "F4F8FE")!)
-let EditorBGColor = Color(uiColor: UIColor(hex: "f5f8fc")!)
-
-let BGEditorColor = Color(uiColor: UIColor(hex: "bfbfbf")!)
-
-
-let accentColor2 = Color(uiColor: UIColor(hex: "323735")!)
+let BGColor = Color(uiColor: UIColor(hex: "1D1614")!)
 
 class AnalyticsWrapper {
     
@@ -131,17 +125,18 @@ extension Color {
     
     static let lightGray = Color(uiColor: UIColor(hex: "E8F0FE")!)
 
+    static let buttonDefColor = Color(uiColor: UIColor(hex: "937E5A")!)
     static let buttonBlue = Color(uiColor: UIColor(hex: "5A9CFF")!)
     static let buttonGreen = Color(uiColor: UIColor(hex: "14D6A7")!)
     static let buttonRed = Color(uiColor: UIColor(hex: "E44561")!)
     static let buttonGray = Color(uiColor: UIColor(hex: "464646")!)
     
-    static let shadowColor = Color(uiColor: UIColor(hex: "E3EBF3")!)
-    static let textColor = Color(uiColor: UIColor(hex: "193B68")!)
-    static let secondaryTextColor = Color(uiColor: UIColor(hex: "929FB3")!)
+    static let textColor = Color(uiColor: UIColor(hex: "FFFAF2")!)
+    static let secondaryTextColor = Color(uiColor: UIColor(hex: "B3A692")!)
     
-   
-    
+    static let borderColor = Color(uiColor: UIColor(hex: "3A3937")!)
+
+    static let contentBlock = Color(uiColor: UIColor(hex: "171717")!)
 }
 
 
@@ -202,7 +197,6 @@ class PurchasesHelper {
 
 
 struct GithubAppData: Codable {
-    var favoriteCreators: [FavoriteCreator]
     var creatorOfTheWeek: FavoriteCreator
 }
 
@@ -221,7 +215,7 @@ class GithubFetcher {
     
 
     func getRawTextFromGithub(_ completion: @escaping (GithubAppData?)->()) {
-        let urlString = "https://raw.githubusercontent.com/udevwork/InstaSwipeDB/main/data"
+        let urlString = "https://raw.githubusercontent.com/udevwork/esotericAppDB/main/data"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
@@ -235,7 +229,6 @@ class GithubFetcher {
                 do {
                     // Декодирование полученных данных
                     let result = try JSONDecoder().decode(GithubAppData.self, from: data)
-                    print(result.favoriteCreators.first!.profileAvatarImageURL)
                     completion(result)
                 } catch {
                     print("Error during JSON serialization: \(error.localizedDescription)")

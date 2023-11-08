@@ -22,9 +22,11 @@ struct ScreenContentView<Content: View>: View {
             content
         }
         .padding(.vertical, 40)
-        .background(color)
-        .clipShape(RoundedRectangle(cornerRadius: 34, style: .continuous))
-        .shadow(color: Color.shadowColor, radius: 14, x: 0, y: 10)
+        .background(Color.contentBlock)
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.borderColor, lineWidth: 1))
         .padding(.horizontal, 16)
     
     }

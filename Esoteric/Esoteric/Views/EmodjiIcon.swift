@@ -17,7 +17,7 @@ struct EmodjiIcon: View {
         Text(iconText)
             .font(.system(size: 30))
             .padding()
-            .background(color)
+            .background(color.opacity(0.1))
             .clipShape(RoundedRectangle(cornerRadius: 20 , style: .continuous))
 
     }

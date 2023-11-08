@@ -11,7 +11,7 @@ import RevenueCat
 
 struct ConditionsTermsView: View {
     var body: some View {
-        ScreenContentView {
+        ScreenContentView(color: .clear) {
             
             HStack {
             VStack(alignment: .leading, spacing: 30) {
@@ -19,40 +19,40 @@ struct ConditionsTermsView: View {
                 HStack(spacing: 10) {
                     Image(systemName: "doc.fill")
                     Link(destination: URL(string: "end_user_license_agreement_url".remote())!) {
-                        Text("L_LicenseLabel").multilineTextAlignment(.leading)
+                        Text("License").multilineTextAlignment(.leading)
                     }
                     Spacer()
                     Image(systemName: "chevron.right")
                     
-                }  .foregroundColor(.buttonBlue)
-                    .font(.system(size: 15, weight: .black))
+                }  .foregroundColor(.textColor)
+                    .font(.custom("ElMessiri-Bold", size: 18))
                 
                 HStack(spacing: 10) {
                     Image(systemName: "doc.fill")
                     Link(destination: URL(string: "privacy_policy_url".remote())!) {
-                        Text("L_PrivacyPolicyLabel").multilineTextAlignment(.leading)
+                        Text("Privacy Policy").multilineTextAlignment(.leading)
                     }
                     Spacer()
                     Image(systemName: "chevron.right")
-                }  .foregroundColor(.buttonBlue)
-                    .font(.system(size: 15, weight: .black))
+                }  .foregroundColor(.textColor)
+                    .font(.custom("ElMessiri-Bold", size: 18))
                 
                 HStack(spacing: 10) {
                     Image(systemName: "doc.fill")
                     Link(destination: URL(string: "Terms_Conditions_url".remote())!) {
-                        Text("L_TermsConditionsLabel").multilineTextAlignment(.leading)
+                        Text("Terms Conditionsl").multilineTextAlignment(.leading)
                     }
                     Spacer()
                     Image(systemName: "chevron.right")
-                } .foregroundColor(.buttonBlue)
-                    .font(.system(size: 15, weight: .black))
+                } .foregroundColor(.textColor)
+                    .font(.custom("ElMessiri-Bold", size: 18))
                 Button {
                     Purchases.shared.restorePurchases()
                 } label: {
                     HStack(spacing: 10) {
                         Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
-                        Text("L_restore purchaselabel")
-                    }.font(.system(size: 15, weight: .black)).foregroundColor(.buttonRed)
+                        Text("Restore purchase")
+                    }.font(.custom("ElMessiri-Bold", size: 18)).foregroundColor(.buttonRed)
                 }
                 
             }

@@ -22,7 +22,7 @@ struct ArticleView: View {
     var body: some View {
         Text(text)
             .multilineTextAlignment(alignment)
-            .font(.system(.body, design: .rounded, weight: .medium))
+            .font(.custom("ElMessiri-Regular", size: 15))
             .foregroundColor(textColor)
     }
 }
@@ -49,7 +49,7 @@ struct SectionTitleView: View {
                 Text(text)
                     .multilineTextAlignment(.leading)
                     .frame(alignment: .leading)
-                    .font(.system(.title, design: .rounded, weight: .bold))
+                    .font(.custom("ElMessiri-Bold", size: 28))
                     .foregroundColor(textColor)
                 Spacer()
             } else if alignment == .center {
@@ -57,7 +57,7 @@ struct SectionTitleView: View {
                 Text(text)
                     .multilineTextAlignment(.center)
                     .frame(alignment: .center)
-                    .font(.system(.title, design: .rounded, weight: .bold))
+                    .font(.custom("ElMessiri-Bold", size: 28))
                     .foregroundColor(textColor)
                 Spacer()
             } else {
@@ -65,7 +65,7 @@ struct SectionTitleView: View {
                 Text(text)
                     .multilineTextAlignment(.leading)
                     .frame(alignment: .leading)
-                    .font(.system(.title, design: .rounded, weight: .bold))
+                    .font(.custom("ElMessiri-Bold", size: 28))
                     .foregroundColor(textColor)
             }
         }
@@ -94,21 +94,21 @@ struct SubSectionTitleView: View {
                 Text(text)
                     .multilineTextAlignment(.leading)
                     .frame(alignment: .leading)
-                    .font(.system(.title3, design: .rounded, weight: .bold))
+                    .font(.custom("ElMessiri-Medium", size: 24))
                     .foregroundColor(textColor)
                 Spacer()
             } else if alignment == .center {
                 Text(text)
                     .multilineTextAlignment(.center)
                     .frame(alignment: .center)
-                    .font(.system(.title3, design: .rounded, weight: .bold))
+                    .font(.custom("ElMessiri-Medium", size: 24))
                     .foregroundColor(textColor)
             } else {
                 Spacer()
                 Text(text)
                     .multilineTextAlignment(.leading)
                     .frame(alignment: .leading)
-                    .font(.system(.title3, design: .rounded, weight: .bold))
+                    .font(.custom("ElMessiri-Medium", size: 24))
                     .foregroundColor(textColor)
             }
         }

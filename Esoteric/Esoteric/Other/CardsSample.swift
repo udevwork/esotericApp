@@ -12,7 +12,7 @@ import SwiftUI
 
 
 struct CardFlipHero: View {
-    @State var isFlip: Bool = false
+    @State var isFlip: Bool = true
     var text : String
     
     var body : some View {
@@ -20,10 +20,9 @@ struct CardFlipHero: View {
   
         
         return FlipView(
-                front: CardFace(text: "press here for flip", colorBg: .gray),
+                front: CardBack(text: "tarot"),
                 back: CardBack(text: text),
                 showBack: $isFlip)
-            .shadow(color: .black.opacity(0.5), radius: 30, x: 0, y: 20)
          
         
     }

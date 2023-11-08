@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920955532AF7C17C00BEA64D /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 920955522AF7C17C00BEA64D /* FLAnimatedImage */; };
+		920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920955542AF7C31900BEA64D /* BackGroundView.swift */; };
+		9209555B2AF7E46200BEA64D /* ElMessiri-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955572AF7E46200BEA64D /* ElMessiri-Medium.ttf */; };
+		9209555C2AF7E46200BEA64D /* ElMessiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */; };
+		9209555D2AF7E46200BEA64D /* ElMessiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */; };
+		9209555E2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */; };
+		92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */; };
 		927A94122AF52857007889A4 /* EsotericApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94112AF52857007889A4 /* EsotericApp.swift */; };
 		927A94142AF52857007889A4 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94132AF52857007889A4 /* TestView.swift */; };
 		927A94162AF52859007889A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927A94152AF52859007889A4 /* Assets.xcassets */; };
@@ -41,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		920955542AF7C31900BEA64D /* BackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundView.swift; sourceTree = "<group>"; };
+		920955572AF7E46200BEA64D /* ElMessiri-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Medium.ttf"; sourceTree = "<group>"; };
+		920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Regular.ttf"; sourceTree = "<group>"; };
+		920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Bold.ttf"; sourceTree = "<group>"; };
+		9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-SemiBold.ttf"; sourceTree = "<group>"; };
+		92689F2D2AFBE80E0035590A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorMenuSnap.swift; sourceTree = "<group>"; };
 		927A940E2AF52857007889A4 /* Esoteric.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esoteric.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927A94112AF52857007889A4 /* EsotericApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsotericApp.swift; sourceTree = "<group>"; };
 		927A94132AF52857007889A4 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -72,6 +86,7 @@
 				927A943C2AF52BA1007889A4 /* FirebaseAnalyticsSwift in Frameworks */,
 				927A94712AF5621E007889A4 /* OpenAI in Frameworks */,
 				927A943E2AF52BA1007889A4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				920955532AF7C17C00BEA64D /* FLAnimatedImage in Frameworks */,
 				927A94382AF52BA1007889A4 /* FirebaseAnalytics in Frameworks */,
 				927A94432AF52E50007889A4 /* ReceiptParser in Frameworks */,
 				927A94452AF52E50007889A4 /* RevenueCat in Frameworks */,
@@ -86,6 +101,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		920955562AF7E46200BEA64D /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				920955572AF7E46200BEA64D /* ElMessiri-Medium.ttf */,
+				920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */,
+				920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */,
+				9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		927A94052AF52857007889A4 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +132,7 @@
 		927A94102AF52857007889A4 /* Esoteric */ = {
 			isa = PBXGroup;
 			children = (
+				92689F2D2AFBE80E0035590A /* Info.plist */,
 				927A946C2AF53DE1007889A4 /* Other */,
 				927A94542AF52F43007889A4 /* Views */,
 				927A944D2AF52F43007889A4 /* Screens */,
@@ -146,6 +173,8 @@
 				927A94552AF52F43007889A4 /* EmodjiIcon.swift */,
 				927A94562AF52F43007889A4 /* UIThemeView.swift */,
 				927A94572AF52F43007889A4 /* UIModification.swift */,
+				920955542AF7C31900BEA64D /* BackGroundView.swift */,
+				92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +197,7 @@
 		927A946C2AF53DE1007889A4 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				920955562AF7E46200BEA64D /* fonts */,
 				927A94722AF56236007889A4 /* GPTService.swift */,
 				927A94132AF52857007889A4 /* TestView.swift */,
 				927A944C2AF52F43007889A4 /* Helpers.swift */,
@@ -205,6 +235,7 @@
 				927A94462AF52E50007889A4 /* RevenueCatUI */,
 				927A94652AF53499007889A4 /* FirebaseRemoteConfig */,
 				927A94702AF5621E007889A4 /* OpenAI */,
+				920955522AF7C17C00BEA64D /* FLAnimatedImage */,
 			);
 			productName = Esoteric;
 			productReference = 927A940E2AF52857007889A4 /* Esoteric.app */;
@@ -239,6 +270,7 @@
 				927A94362AF52BA1007889A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				927A94412AF52E50007889A4 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 				927A946F2AF5621E007889A4 /* XCRemoteSwiftPackageReference "OpenAI" */,
+				920955512AF7C17C00BEA64D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
 			);
 			productRefGroup = 927A940F2AF52857007889A4 /* Products */;
 			projectDirPath = "";
@@ -256,8 +288,12 @@
 			files = (
 				927A94192AF52859007889A4 /* Preview Assets.xcassets in Resources */,
 				927A94162AF52859007889A4 /* Assets.xcassets in Resources */,
+				9209555D2AF7E46200BEA64D /* ElMessiri-Bold.ttf in Resources */,
+				9209555E2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf in Resources */,
 				927A946A2AF53D42007889A4 /* GoogleService-Info-Release.plist in Resources */,
 				927A94682AF53CE9007889A4 /* GoogleService-Info-Debug.plist in Resources */,
+				9209555B2AF7E46200BEA64D /* ElMessiri-Medium.ttf in Resources */,
+				9209555C2AF7E46200BEA64D /* ElMessiri-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,11 +312,13 @@
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
+				920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */,
 				927A94122AF52857007889A4 /* EsotericApp.swift in Sources */,
 				927A945F2AF52F43007889A4 /* LaunchScreenView.swift in Sources */,
 				927A945B2AF52F43007889A4 /* ConditionsTermsView.swift in Sources */,
 				927A945A2AF52F43007889A4 /* Helpers.swift in Sources */,
 				927A94582AF52F43007889A4 /* User.swift in Sources */,
+				92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */,
 				927A94622AF52F43007889A4 /* UIThemeView.swift in Sources */,
 				927A94602AF52F43007889A4 /* OnboardingView.swift in Sources */,
 				927A94752AF569EF007889A4 /* CardsTableView.swift in Sources */,
@@ -420,6 +458,7 @@
 				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Esoteric/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Taro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -451,6 +490,7 @@
 				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Esoteric/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Taro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -495,6 +535,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		920955512AF7C17C00BEA64D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flipboard/FLAnimatedImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.17;
+			};
+		};
 		927A941F2AF5297B007889A4 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/elai950/AlertToast.git";
@@ -530,6 +578,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		920955522AF7C17C00BEA64D /* FLAnimatedImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 920955512AF7C17C00BEA64D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
+			productName = FLAnimatedImage;
+		};
 		927A94202AF5297B007889A4 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 927A941F2AF5297B007889A4 /* XCRemoteSwiftPackageReference "AlertToast" */;

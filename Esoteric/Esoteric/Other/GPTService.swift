@@ -26,7 +26,7 @@ class GPTService {
             let result = try await openAI.chats(query: query)
             
             result.choices.forEach { choice in
-                completion(choice.message.content ?? "// no answer")
+                completion(choice.message.content ?? "// Будущее туманно...")
             }
             
         }
