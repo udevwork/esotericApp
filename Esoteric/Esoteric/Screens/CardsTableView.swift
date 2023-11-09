@@ -9,53 +9,40 @@ import SwiftUI
 
 class CardsTableViewModel: ObservableObject {
     
-   // var gpt = GPTService()
-    @Published var text: String = "Гадаю на кофейной гуще..."
+    var gpt = GPTService()
+    @Published var text: String = "Туман рассеивается..."
 
-    @Published var selectedCard: FakeCard? = nil
-    @Published var cards: [FakeCard] = [.init(img: "card1"),
-                                    .init(img: "card2"),
-                                    .init(img: "card3"),
-                                    .init(img: "card1"),
-                                    .init(img: "card2"),
-                                    .init(img: "card3"),
-                                    .init(img: "card1"),
-                                    .init(img: "card2"),
-                                    .init(img: "card3")]
-//
+    @Published var selectedCard: Tarot? = nil
+    @Published var cards: [Tarot] = []
+
     
     init() {
-//     
+        self.cards = tarotDB.shuffled()
+    }
+    
+    func getTaroInfo(){
 //#if DEBUG
 //        self.text = "Сегодня тебя ожидают небольшие испытания, но не позволяй им сбить с толку – верь в свои силы и достигнешь успеха."
 //#else
-//        gpt.test(promt: "Придумай мне гороскоп на день.") { [weak self] result in
-//            DispatchQueue.main.async {
-//                self?.text = result
-//            }
-//        }
+        if let card = selectedCard {
+            gpt.test(promt: "Я гадаю на картах таро, мне выпала \(card.name). Что это значит? Мне нужен максимально креативный ответ.") { [weak self] result in
+                DispatchQueue.main.async {
+                    self?.text = result
+                }
+            }
+        }
 //#endif
        
-        
     }
     
     
 }
 
-struct FakeCard : Identifiable, Hashable {
-    var id = UUID().uuidString
-    var img: String
-}
 
 struct CardsTableView: View {
+    
     @StateObject var model: CardsTableViewModel = CardsTableViewModel()
-//    @State var debug: String = "_"
-//    @State var dragAmount = CGSize.zero
-//    
-
     @State var isSelected = false
-//    
-//
   
     var body: some View {
         ZStack {
@@ -63,35 +50,41 @@ struct CardsTableView: View {
             VStack(spacing: 20) {
                 ZStack {
                     if let selectedCard = model.selectedCard {
-                        CardFlipHero(text: selectedCard.img)
+                        CardFlipHero(isSelected: $isSelected, text: "card1")
                             .frame(width: 220, height: 320)
-                            .onTapGesture {
-                                isSelected = true
-                            }
+                            
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                     }
                 }.frame(width: 220, height: 320)
-                
+               
+                   
                 HStack {
-                    Rectangle().frame(height: 1).foregroundStyle(Color.white)
+                    Image("r_arrow").scaleEffect(1.4).offset(x: -10.0, y: 5.0)
                     Text("Выберите карту")
+//                        .overlay(content: {
+//                            CommodityColor.gold.linearGradient
+//                        })
                         .lineLimit(1)
                         .frame(width: 150)
                         .font(.custom("ElMessiri-Bold", size: 18))
-                    Rectangle().frame(height: 1).foregroundStyle(Color.white)
+                    Image("l_arrow").scaleEffect(1.4).offset(x: 10.0, y: 5.0)
+                    
                 }.padding(.horizontal)
                 
                 ScrollView(.horizontal) {
                     HStack(spacing: -20) {
-                        ForEach(model.cards.indices) { i in
-                            if model.cards[i] != model.selectedCard {
+                        ForEach(model.cards, id: \.id) { card in
+                            if card != model.selectedCard {
                                 
-                                FakeCardView(text: model.cards[i].img)
+                                FakeCardView(text: "card1")
                                     .onTapGesture {
-                                        withAnimation {
-                                            if isSelected == false {
-                                                model.selectedCard = model.cards[i]
+                                        if isSelected == false  {
+                                            withAnimation {
+                                                
+                                                model.selectedCard = card
+                                                
                                             }
+                                           
                                         }
                                     }
                                 
@@ -104,10 +97,33 @@ struct CardsTableView: View {
                 
                 
             }
-            if isSelected {
-                Rectangle().frame(width: 200, height: 200, alignment: .center)
-            }
+            
         }
+        .sheet(isPresented: $isSelected, content: {
+            ScrollView(.vertical, content: {
+                VStack(alignment: .leading, content: {
+                    Image("art_delimiter2").resizable().aspectRatio(contentMode: .fill)
+                    
+                    
+                    ShineTitleView(text: model.selectedCard?.name ?? "Будущее туманно")
+                    
+                    ArticleView(text: model.text)
+                        .onAppear(perform: {
+                            
+                            model.getTaroInfo()
+                        })
+                    
+                        
+                }).padding(30)
+            })
+                .presentationBackground(alignment: .bottom) {
+                    Color.buttonDefColor.opacity(0.0).background(.ultraThinMaterial)
+                }
+                .presentationCornerRadius(50)
+                .presentationDetents([.medium, .height(200)])
+        })
+       
+       
     }
     
     

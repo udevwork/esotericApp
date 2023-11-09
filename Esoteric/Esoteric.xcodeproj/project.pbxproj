@@ -14,6 +14,7 @@
 		9209555D2AF7E46200BEA64D /* ElMessiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */; };
 		9209555E2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */; };
 		92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */; };
+		926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D74FA2AFD413400F9CF88 /* TarotDB.swift */; };
 		927A94122AF52857007889A4 /* EsotericApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94112AF52857007889A4 /* EsotericApp.swift */; };
 		927A94142AF52857007889A4 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94132AF52857007889A4 /* TestView.swift */; };
 		927A94162AF52859007889A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927A94152AF52859007889A4 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-SemiBold.ttf"; sourceTree = "<group>"; };
 		92689F2D2AFBE80E0035590A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorMenuSnap.swift; sourceTree = "<group>"; };
+		926D74FA2AFD413400F9CF88 /* TarotDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotDB.swift; sourceTree = "<group>"; };
 		927A940E2AF52857007889A4 /* Esoteric.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esoteric.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927A94112AF52857007889A4 /* EsotericApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsotericApp.swift; sourceTree = "<group>"; };
 		927A94132AF52857007889A4 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				927A944A2AF52F43007889A4 /* User.swift */,
+				926D74FA2AFD413400F9CF88 /* TarotDB.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */,
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
+				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
 				920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */,
 				927A94122AF52857007889A4 /* EsotericApp.swift in Sources */,

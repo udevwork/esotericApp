@@ -12,7 +12,7 @@ import SwiftUI
 
 
 struct CardFlipHero: View {
-    @State var isFlip: Bool = true
+    @Binding var isSelected: Bool
     var text : String
     
     var body : some View {
@@ -22,7 +22,7 @@ struct CardFlipHero: View {
         return FlipView(
                 front: CardBack(text: "tarot"),
                 back: CardBack(text: text),
-                showBack: $isFlip)
+                showBack: $isSelected)
          
         
     }
@@ -39,16 +39,18 @@ struct FlipView<FrontView: View, BackView: View>: View {
       var body: some View {
           ZStack() {
                 front
-                  .modifier(FlipOpacity(percentage: showBack ? 0 : 1))
+                  .modifier(FlipOpacity(percentage: showBack ? 1 : 0))
                   .rotation3DEffect(Angle.degrees(showBack ? 180 : 360), axis: (0,1,0))
                 back
-                  .modifier(FlipOpacity(percentage: showBack ? 1 : 0))
+                  .modifier(FlipOpacity(percentage: showBack ? 0 : 1))
                   .rotation3DEffect(Angle.degrees(showBack ? 0 : 180), axis: (0,1,0))
           }
           .onTapGesture {
-                withAnimation {
+              if showBack == false {
+                  withAnimation {
                       self.showBack.toggle()
-                }
+                  }
+              }
           }
       }
 }
@@ -100,6 +102,6 @@ struct CardBack: View {
 
 struct CardFlipHero_Preview: PreviewProvider {
     static var previews: some View {
-        CardFlipHero(text: "card1")
+        CardFlipHero(isSelected: .constant(true), text: "card1")
     }
 }

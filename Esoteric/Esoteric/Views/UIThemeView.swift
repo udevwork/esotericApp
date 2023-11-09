@@ -114,3 +114,68 @@ struct SubSectionTitleView: View {
         }
     }
 }
+
+struct ShineTitleView: View {
+    
+    let textColor: CommodityColor
+    let text: String
+    let alignment: Alignment
+    
+    init(textColor: CommodityColor = .gold,
+         text: String,
+         alignment: Alignment = .leading) {
+        
+        self.text = text
+        self.textColor = textColor
+        self.alignment = alignment
+        
+    }
+    
+    var body: some View {
+        HStack(spacing: 0) {
+            if alignment == .leading {
+                Text(text)
+                    .font(.custom("ElMessiri-Bold", size: 28))
+                    .multilineTextAlignment(.leading)
+                    .lineSpacing(0)
+                    .overlay {
+                        textColor.linearGradient
+                            .mask(
+                                Text(text)
+                                    .font(.custom("ElMessiri-Bold", size: 28))
+                                    .multilineTextAlignment(.leading)
+                                    .lineSpacing(0)
+                            )
+                    }
+                Spacer()
+            } else if alignment == .center {
+                Spacer()
+                Text(text)
+                    .font(.custom("ElMessiri-Bold", size: 28))
+                    .multilineTextAlignment(.leading)
+                    .overlay {
+                        textColor.linearGradient
+                            .mask(
+                                Text(text)
+                                    .font(.custom("ElMessiri-Bold", size: 28))
+                                    .multilineTextAlignment(.leading)
+                            )
+                    }
+                Spacer()
+            } else {
+                Spacer()
+                Text(text)
+                    .font(.custom("ElMessiri-Bold", size: 28))
+                    .multilineTextAlignment(.leading)
+                    .overlay {
+                        textColor.linearGradient
+                            .mask(
+                                Text(text)
+                                    .font(.custom("ElMessiri-Bold", size: 28))
+                                    .multilineTextAlignment(.leading)
+                            )
+                    }
+            }
+        }
+    }
+}

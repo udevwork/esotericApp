@@ -277,3 +277,77 @@ extension SubscriptionPeriod {
         }
     }
 }
+
+enum CommodityColor {
+    case gold
+    case silver
+    case platinum
+
+    var colors: [Color] {
+        switch self {
+        case .gold: return [  Color(uiColor: UIColor(hex: "DBB400")!),
+                              Color(uiColor: UIColor(hex: "EFAF00")!),
+                             Color(uiColor: UIColor(hex: "F5D100")!),
+                             Color(uiColor: UIColor(hex: "F5D100")!),
+                             Color(uiColor: UIColor(hex: "D1AE15")!),
+                             Color(uiColor: UIColor(hex: "DBB400")!)
+        ]
+            
+        case .silver: return [ Color(uiColor: UIColor(hex: "70706F")!),
+                               Color(uiColor: UIColor(hex: "7D7D7A")!),
+                               Color(uiColor: UIColor(hex: "B3B6B5")!),
+                               Color(uiColor: UIColor(hex: "8E8D8D")!),
+                               Color(uiColor: UIColor(hex: "B3B6B5")!),
+                               Color(uiColor: UIColor(hex: "A1A2A3")!)
+        ]
+                
+            case .platinum: return [
+                Color(uiColor: UIColor(hex: "000000")!),
+                Color(uiColor: UIColor(hex: "444444")!),
+                Color(uiColor: UIColor(hex: "000000")!),
+                Color(uiColor: UIColor(hex: "444444")!),
+                Color(uiColor: UIColor(hex: "111111")!),
+                Color(uiColor: UIColor(hex: "000000")!)
+        ]
+            
+        }
+    }
+    
+    var linearGradient: LinearGradient
+    {
+        return LinearGradient(
+            gradient: Gradient(colors: self.colors),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
+}
+
+extension Int {
+    func toRoman() -> String {
+        let conversionTable: [(intNumber: Int, romanNumber: String)] =
+            [(1000, "M"),
+             (900, "CM"),
+             (500, "D"),
+             (400, "CD"),
+             (100, "C"),
+             (90, "XC"),
+             (50, "L"),
+             (40, "XL"),
+             (10, "X"),
+             (9, "IX"),
+             (5, "V"),
+             (4, "IV"),
+             (1, "I")]
+        var roman = ""
+        var remainder = 0
+        
+        for entry in conversionTable {
+            let quotient = (self - remainder) / entry.intNumber
+            remainder += quotient * entry.intNumber
+            roman += String(repeating: entry.romanNumber, count: quotient)
+        }
+        
+        return roman
+    }
+}

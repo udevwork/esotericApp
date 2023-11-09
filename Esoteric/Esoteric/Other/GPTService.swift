@@ -10,7 +10,7 @@ import OpenAI
 
 class GPTService {
 
-    private let key = "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"
+    private let key = "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"
     private var openAI: OpenAI? = nil
     
     init() {
