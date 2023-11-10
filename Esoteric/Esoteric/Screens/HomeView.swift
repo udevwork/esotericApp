@@ -81,9 +81,25 @@ struct HomeView: View {
                                         }
                                         NavigationLink {
                                             
-                                           CardsTableView()
+                                            CardsTableView(model: CardsTableViewModel(cardsNum: 1))
                                         } label: {
-                                            Text("Открыть карты")
+                                            Text("Гадание по одной карте")
+                                        }.DefButtonStyle()
+                                            .padding(.horizontal, horPadding)
+                                        
+                                        NavigationLink {
+                                            
+                                            CardsTableView(model: CardsTableViewModel(cardsNum: 3))
+                                        } label: {
+                                            Text("Гадать на 3х картах")
+                                        }.DefButtonStyle()
+                                            .padding(.horizontal, horPadding)
+                                        
+                                        NavigationLink {
+                                            
+                                            CardsTableView(model: CardsTableViewModel(cardsNum: 5))
+                                        } label: {
+                                            Text("Открыть 5 карт")
                                         }.DefButtonStyle()
                                             .padding(.horizontal, horPadding)
                                         

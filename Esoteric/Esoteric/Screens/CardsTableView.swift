@@ -16,22 +16,57 @@ class CardsTableViewModel: ObservableObject {
     @Published var cards: [Tarot] = []
 
     
-    init() {
+    var cardsNum: Int
+    var selectedCardsNumber: Int = 0
+    var selectedCards: [Int: Tarot?] = [:]
+    
+    
+    init(cardsNum: Int) {
+        self.cardsNum = cardsNum
+        for index in 1...cardsNum {
+            selectedCards[index] = nil
+        }
         self.cards = tarotDB.shuffled()
     }
     
-    func getTaroInfo(){
-//#if DEBUG
-//        self.text = "Сегодня тебя ожидают небольшие испытания, но не позволяй им сбить с толку – верь в свои силы и достигнешь успеха."
-//#else
-        if let card = selectedCard {
-            gpt.test(promt: "Я гадаю на картах таро, мне выпала \(card.name). Что это значит? Мне нужен максимально креативный ответ.") { [weak self] result in
-                DispatchQueue.main.async {
-                    self?.text = result
-                }
+    func select(card: Tarot) {
+        if selectedCardsNumber == cardsNum {
+            return
+        }
+        selectedCards[selectedCardsNumber] = card
+        selectedCardsNumber += 1
+    
+        if selectedCardsNumber == cardsNum {
+            
+        }
+    }
+    
+    func getTaroInfo() {
+        
+        var names: String = ""
+        selectedCards.forEach { (key: Int, value: Tarot?) in
+            names.append("\(value!.name),")
+        }
+        
+        if names.isEmpty {
+            return
+        }
+        
+        var promt: String = ""
+        
+        if cardsNum == 1 {
+            promt = "Я гадаю на картах таро, мне выпала \(names). Что эта карта может значить?"
+        } else {
+            promt = "Я гадаю на картах таро, мне выпали \(names). Что эти карты вместе могут значить?"
+        }
+        
+        gpt.test(promt: promt) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.text = result
             }
         }
-//#endif
+        
+
        
     }
     
@@ -39,25 +74,34 @@ class CardsTableViewModel: ObservableObject {
 }
 
 
+
 struct CardsTableView: View {
     
-    @StateObject var model: CardsTableViewModel = CardsTableViewModel()
+    @StateObject var model: CardsTableViewModel
     @State var isSelected = false
-  
+    
+   
     var body: some View {
+    
+        
         ZStack {
             BackGroundView()
             VStack(spacing: 20) {
-                ZStack {
-                    if let selectedCard = model.selectedCard {
-                        CardFlipHero(isSelected: $isSelected, text: "card1")
-                            .frame(width: 220, height: 320)
-                            
-                            .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
-                    }
-                }.frame(width: 220, height: 320)
-               
+             
+                Spacer()
+                
+                if model.cardsNum == 1 {
+                    OneCardsLayouts(model: model, isSelected: $isSelected)
+                }
+                if model.cardsNum == 5 {
+                    FiveCardsLayouts(model: model, isSelected: $isSelected)
+                }
+                if model.cardsNum == 3 {
+                    ThreeCardsLayouts(model: model, isSelected: $isSelected)
+                }
                    
+                Spacer()
+                
                 HStack {
                     Image("r_arrow").scaleEffect(1.4).offset(x: -10.0, y: 5.0)
                     Text("Выберите карту")
@@ -78,14 +122,14 @@ struct CardsTableView: View {
                                 
                                 FakeCardView(text: "card1")
                                     .onTapGesture {
-                                        if isSelected == false  {
+                                        model.select(card: card)
                                             withAnimation {
-                                                
+                                              
                                                 model.selectedCard = card
                                                 
                                             }
                                            
-                                        }
+                                        
                                     }
                                 
                             }
@@ -93,6 +137,7 @@ struct CardsTableView: View {
                     }.frame(height: 230)
                     
                 }.scrollIndicators(.hidden)
+                    .frame(height: 150)
                 
                 
                 
@@ -104,8 +149,13 @@ struct CardsTableView: View {
                 VStack(alignment: .leading, content: {
                     Image("art_delimiter2").resizable().aspectRatio(contentMode: .fill)
                     
-                    
-                    ShineTitleView(text: model.selectedCard?.name ?? "Будущее туманно")
+                    ForEach((model.selectedCards.map({ (key: Int, value: Tarot?) in
+                        return value
+                    }) as! [Tarot]), id: \.id) { card in
+                        
+                            ShineTitleView(text: card.name)
+                        
+                    }
                     
                     ArticleView(text: model.text)
                         .onAppear(perform: {
@@ -173,6 +223,6 @@ struct FakeCardView: View {
 
 #Preview {
     NavigationStack {
-        CardsTableView().navigationTitle("lol")
+        CardsTableView(model: CardsTableViewModel(cardsNum: 1)).navigationTitle("lol")
     }.preferredColorScheme(.dark)
 }

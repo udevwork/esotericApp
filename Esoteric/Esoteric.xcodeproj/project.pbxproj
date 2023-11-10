@@ -46,6 +46,7 @@
 		927A94712AF5621E007889A4 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 927A94702AF5621E007889A4 /* OpenAI */; };
 		927A94732AF56236007889A4 /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94722AF56236007889A4 /* GPTService.swift */; };
 		927A94752AF569EF007889A4 /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94742AF569EF007889A4 /* CardsTableView.swift */; };
+		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		927A946D2AF540FC007889A4 /* CardsSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSample.swift; sourceTree = "<group>"; };
 		927A94722AF56236007889A4 /* GPTService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		927A94742AF569EF007889A4 /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
+		927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLayouts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				927A94572AF52F43007889A4 /* UIModification.swift */,
 				920955542AF7C31900BEA64D /* BackGroundView.swift */,
 				92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */,
+				927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				927A94612AF52F43007889A4 /* EmodjiIcon.swift in Sources */,
 				927A94632AF52F43007889A4 /* UIModification.swift in Sources */,
 				927A94732AF56236007889A4 /* GPTService.swift in Sources */,
+				927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */,
 				927A945D2AF52F43007889A4 /* ScreenContentView.swift in Sources */,
 				927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */,
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,
