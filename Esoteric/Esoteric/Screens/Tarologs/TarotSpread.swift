@@ -32,11 +32,12 @@ struct TarotWaitingCardView: View {
 struct TarotSpread: View {
     @State private var questionText: String = ""
     @State private var isQuestionSent: Bool = false
+    let notificationCenter = UserNotifications.shared
 
     var body: some View {
         ZStack {
             BackGroundView()
-                .frame(width: .infinity, height: .infinity)
+//                .frame(width: .infinity, height: .infinity)
 
             VStack {
                 if !isQuestionSent {
@@ -54,6 +55,10 @@ struct TarotSpread: View {
                         withAnimation {
                             isQuestionSent = true
                         }
+                        notificationCenter.requestNotifications()
+
+                        notificationCenter.sendTarotSpreadNotification(afterTime: .fiveSec)
+
                     }) {
                         Text("Отправить вопрос")
                     }.DefButtonStyle()
