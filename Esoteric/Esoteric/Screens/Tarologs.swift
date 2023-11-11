@@ -118,15 +118,19 @@ struct Tarologs: View {
                 .padding()
             }
             .background(
-                Image("people1")
+                Image(returnBackground())
                     .resizable()
-                    .scaledToFill()
+                    .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             )
             .navigationBarHidden(true)
 
         }
+    }
+
+    func returnBackground() -> String {
+        return ["1","2","3","4","5","6"].randomElement()!
     }
 }
 
