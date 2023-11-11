@@ -47,6 +47,7 @@
 		927A94732AF56236007889A4 /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94722AF56236007889A4 /* GPTService.swift */; };
 		927A94752AF569EF007889A4 /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94742AF569EF007889A4 /* CardsTableView.swift */; };
 		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
+		FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA792AFF83DF0096D081 /* Tarologs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		927A94722AF56236007889A4 /* GPTService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		927A94742AF569EF007889A4 /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
 		927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLayouts.swift; sourceTree = "<group>"; };
+		FA27DA792AFF83DF0096D081 /* Tarologs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarologs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				927A94522AF52F43007889A4 /* LaunchScreenView.swift */,
 				927A94532AF52F43007889A4 /* OnboardingView.swift */,
 				927A94742AF569EF007889A4 /* CardsTableView.swift */,
+				FA27DA792AFF83DF0096D081 /* Tarologs.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				927A94632AF52F43007889A4 /* UIModification.swift in Sources */,
 				927A94732AF56236007889A4 /* GPTService.swift in Sources */,
 				927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */,
+				FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */,
 				927A945D2AF52F43007889A4 /* ScreenContentView.swift in Sources */,
 				927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */,
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,

@@ -25,8 +25,8 @@ class HorMenuSnapData: ObservableObject {
     }
     
     init() {
-        cards = [HorMenuSnapCard(title: "Start",
-                                 subTitle: "Contained no UIScene configuration dictionary",
+        cards = [HorMenuSnapCard(title: "Ваш таролог",
+                                 subTitle: "Получите расклад таролога",
                                  image: "art1",
                                  colorHex: "202628"), // green
                  HorMenuSnapCard(title: "Timer",
@@ -43,7 +43,7 @@ class HorMenuSnapData: ObservableObject {
 struct HorMenuSnapCardView: View {
     
     var card: HorMenuSnapCard
-    
+    @State private var isTarologsPresented = false
     var body: some View {
 
         ZStack(alignment: .leading) {
@@ -66,13 +66,19 @@ struct HorMenuSnapCardView: View {
                 }.foregroundColor(.textColor)
 
                 Button {
+                    isTarologsPresented.toggle()
                     Haptics.shared.play(.light)
                 } label: {
                     HStack {
-                        Text("Гадать").bold().foregroundColor(.white)
+                        Text("Выбрать").bold().foregroundColor(.white)
                     }
                 }.frame(height: 20).DefButtonStyle()
             }.padding(20)
+        }
+        .fullScreenCover(isPresented: $isTarologsPresented) {
+            NavigationView {
+                Tarologs()
+            }
         }
 
         .frame(width: 260, height: 300)
