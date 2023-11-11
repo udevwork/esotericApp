@@ -49,7 +49,6 @@ struct EsotericApp: App {
     }
 }
 
-
 class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
@@ -77,7 +76,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        checkApplicationState(application.applicationState)
     }
 
     func checkApplicationState(_ applicationState: UIApplication.State) {
@@ -93,7 +92,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
     }
 }
-
 
 class MainViewModel: ObservableObject {
     

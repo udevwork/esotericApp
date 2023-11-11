@@ -8,19 +8,16 @@
 import SwiftUI
 
 class CardsTableViewModel: ObservableObject {
-    
+
     var gpt = GPTService()
     @Published var text: String = "Туман рассеивается..."
-
     @Published var selectedCard: Tarot? = nil
     @Published var cards: [Tarot] = []
 
-    
     var cardsNum: Int
     var selectedCardsNumber: Int = 0
     var selectedCards: [Int: Tarot?] = [:]
-    
-    
+
     init(cardsNum: Int) {
         self.cardsNum = cardsNum
         for index in 1...cardsNum {
@@ -28,52 +25,60 @@ class CardsTableViewModel: ObservableObject {
         }
         self.cards = tarotDB.shuffled()
     }
-    
+
     func select(card: Tarot) {
         if selectedCardsNumber == cardsNum {
             return
         }
         selectedCards[selectedCardsNumber] = card
         selectedCardsNumber += 1
-    
         if selectedCardsNumber == cardsNum {
-            
         }
     }
-    
+
     func getTaroInfo() {
-        
         var names: String = ""
         selectedCards.forEach { (key: Int, value: Tarot?) in
             names.append("\(value!.name),")
         }
-        
         if names.isEmpty {
             return
         }
-        
         var promt: String = ""
-        
         if cardsNum == 1 {
             promt = "Я гадаю на картах таро, мне выпала \(names). Что эта карта может значить?"
         } else {
             promt = "Я гадаю на картах таро, мне выпали \(names). Что эти карты вместе могут значить?"
         }
-        
         gpt.test(promt: promt) { [weak self] result in
             DispatchQueue.main.async {
                 self?.text = result
             }
         }
-        
-
-       
     }
-    
-    
+
+    func addRandomCards() {
+        let randomCards = generateRandomCards()
+        selectedCardsNumber = 0
+        for card in randomCards {
+            select(card: card)
+        }
+        cards.append(contentsOf: randomCards)
+        var names: String = ""
+        selectedCards.forEach { (key: Int, value: Tarot?) in
+            names.append("\(value!.name),")
+        }
+    }
+
+
+    func generateRandomCards() -> [Tarot] {
+        guard let randomCard1 = tarotDB.randomElement(),
+              let randomCard2 = tarotDB.randomElement(),
+              let randomCard3 = tarotDB.randomElement() else { return [] }
+        return [randomCard1, randomCard2, randomCard3]
+    }
+
 }
-
-
 
 struct CardsTableView: View {
     

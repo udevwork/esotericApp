@@ -65,6 +65,7 @@ struct HomeView: View {
                                         Text("Гадание по одной карте")
                                     }.DefButtonStyle()
                                         .padding(.horizontal, horPadding)
+                                    
                                     NavigationLink {
                                         CardsTableView(model: CardsTableViewModel(cardsNum: 3))
                                     } label: {
@@ -134,6 +135,7 @@ struct HomeView: View {
                     .onAppear {
                         AnalyticsWrapper.onScreanAppear("Home")
                     }
+                
             } else {
 
                 SectionTitleView(text: "kjk", alignment: .leading)

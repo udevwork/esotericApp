@@ -94,14 +94,11 @@ struct ThreeCardsLayouts: View {
     
     @StateObject var model: CardsTableViewModel
     @Binding var isSelected: Bool
-    
-    
+
     var body: some View {
         VStack(alignment: .center, spacing: -120, content: {
-            
             HStack(alignment: .center, spacing: -20) {
                 ZStack {
-                    
                     if model.selectedCards[0] != nil {
                         CardFlipHero(isSelected: $isSelected, text: "card1")
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)

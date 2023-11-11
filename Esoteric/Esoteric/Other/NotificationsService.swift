@@ -15,11 +15,17 @@ enum NotificationIntervals: Double {
     case oneDay = 86_400
 }
 
+protocol UserNotificationsDelegate: AnyObject {
+    func openSpread()
+}
+
 class UserNotifications: NSObject {
 
     enum NotificationIdentifieres: String {
         case tarotSpread = "tarotSpread"
     }
+
+    weak var delegate: UserNotificationsDelegate?
 
     static let shared = UserNotifications()
     private override init() {}
@@ -60,6 +66,6 @@ extension UserNotifications: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         UIApplication.shared.applicationIconBadgeNumber = 0
-        print(#function)
+        
     }
 }

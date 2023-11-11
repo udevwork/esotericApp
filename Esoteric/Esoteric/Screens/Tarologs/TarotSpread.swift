@@ -37,8 +37,6 @@ struct TarotSpread: View {
     var body: some View {
         ZStack {
             BackGroundView()
-//                .frame(width: .infinity, height: .infinity)
-
             VStack {
                 if !isQuestionSent {
                     Text("Какой вопрос вы хотите задать тарологу?")

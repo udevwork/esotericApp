@@ -50,6 +50,7 @@
 		FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA792AFF83DF0096D081 /* Tarologs.swift */; };
 		FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */; };
 		FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */; };
+		FAE4079F2B000943002A85D0 /* TarotSpreadReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		FA27DA792AFF83DF0096D081 /* Tarologs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarologs.swift; sourceTree = "<group>"; };
 		FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotSpread.swift; sourceTree = "<group>"; };
 		FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
+		FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotSpreadReady.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 			children = (
 				FA27DA792AFF83DF0096D081 /* Tarologs.swift */,
 				FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */,
+				FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */,
 			);
 			path = Tarologs;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				927A94612AF52F43007889A4 /* EmodjiIcon.swift in Sources */,
 				927A94632AF52F43007889A4 /* UIModification.swift in Sources */,
+				FAE4079F2B000943002A85D0 /* TarotSpreadReady.swift in Sources */,
 				927A94732AF56236007889A4 /* GPTService.swift in Sources */,
 				927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */,
 				FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */,
