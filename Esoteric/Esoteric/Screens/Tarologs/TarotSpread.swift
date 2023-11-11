@@ -56,9 +56,7 @@ struct TarotSpread: View {
                             isQuestionSent = true
                         }
                         notificationCenter.requestNotifications()
-
                         notificationCenter.sendTarotSpreadNotification(afterTime: .fiveSec)
-
                     }) {
                         Text("Отправить вопрос")
                     }.DefButtonStyle()
@@ -71,7 +69,6 @@ struct TarotSpread: View {
 
                         HStack {
                             TarotWaitingCardView()
-//                            TarotCardView()
                         }
 
                     }

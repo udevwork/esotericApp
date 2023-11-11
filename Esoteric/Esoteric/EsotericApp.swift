@@ -14,8 +14,44 @@ import FirebaseCore
 import FirebaseRemoteConfig
 import RevenueCat
 
+@main
+struct EsotericApp: App {
+
+    @StateObject var model = MainViewModel()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
+    init() { }
+
+    var body: some Scene {
+        WindowGroup {
+            ZStack {
+                if model.isLoadingComplete, model.needToPresentOnboarding == false {
+                    NavigationStack {
+                        HomeView()
+                            .environmentObject(model)
+                    }.transition(.opacity)
+                }
+
+                if model.isLoadingComplete,  model.needToPresentOnboarding {
+                    OnboardingView().environmentObject(model).transition(.opacity)
+                }
+
+                if model.isLoadingComplete == false {
+                    LaunchScreenView()
+                        .transition(.opacity)
+                        .environmentObject(model)
+                }
+
+
+            }.preferredColorScheme(.dark)
+                .animation(.easeInOut, value: model.screenTransitionAnimation)
+        }
+    }
+}
+
+
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
+
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
@@ -31,15 +67,30 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         else {
             fatalError("Couldn't load config file")
         }
-        
         FirebaseApp.configure(options: options)
         PurchasesHelper.configure()
         
         PurchasesHelper.isSubscribed {
             User.shared.isProUser = $0
         }
-        
         return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+
+    func checkApplicationState(_ applicationState: UIApplication.State) {
+        switch applicationState {
+        case .background:
+            break
+        case .inactive:
+            break
+        case .active:
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        @unknown default:
+            break
+        }
     }
 }
 
@@ -48,13 +99,9 @@ class MainViewModel: ObservableObject {
     
     let githubfetcher = GithubFetcher()
     @Published var git: GithubAppData? = nil
-    
     var isGitFetchComplete: Bool = false
     var isFirebaseFetchComplete: Bool = false
-
-    
     @Published var isLoadingComplete: Bool = false
-    
     @Published var needToPresentOnboarding = false
     @Published var screenTransitionAnimation = false
     
@@ -68,7 +115,6 @@ class MainViewModel: ObservableObject {
                 self?.isGitFetchComplete = true
                 self?.checkIfEveryLoadingCompleted()
             }
-           
         }
     }
     
@@ -123,40 +169,3 @@ class MainViewModel: ObservableObject {
     }
     
 }
-
-
-@main
-struct EsotericApp: App {
-    
-    @StateObject var model = MainViewModel()
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
-    init() {
-        
-    }
-    
-    var body: some Scene {
-        WindowGroup {
-            ZStack {
-                if model.isLoadingComplete, model.needToPresentOnboarding == false {
-                    NavigationStack {
-                        HomeView()
-                            .environmentObject(model)
-                    }.transition(.opacity)
-                }
-                
-                if model.isLoadingComplete,  model.needToPresentOnboarding {
-                    OnboardingView().environmentObject(model).transition(.opacity)
-                }
-   
-                if model.isLoadingComplete == false {
-                    LaunchScreenView()
-                        .transition(.opacity)
-                        .environmentObject(model)
-                }
-            }.preferredColorScheme(.dark)
-                .animation(.easeInOut, value: model.screenTransitionAnimation)
-        }
-    }
-}
-

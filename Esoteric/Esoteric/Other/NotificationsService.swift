@@ -10,6 +10,9 @@ import UIKit
 
 enum NotificationIntervals: Double {
     case fiveSec = 5
+    case tenSec = 10
+    case oneHour = 3_600
+    case oneDay = 86_400
 }
 
 class UserNotifications: NSObject {
@@ -23,24 +26,13 @@ class UserNotifications: NSObject {
 
     let notificationCenter = UNUserNotificationCenter.current()
 
-    var badgeNumber: Int {
-        get {
-            return UserDefaults.standard.integer(forKey: "badgeNumber")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "badgeNumber")
-        }
-    }
-
     func requestNotifications() {
         notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             guard granted else { return }
             self.notificationCenter.getNotificationSettings { settings in
                 print(settings)
-
                 guard settings.authorizationStatus == .authorized else { return }
             }
-
         }
         notificationCenter.delegate = self
     }
@@ -50,7 +42,7 @@ class UserNotifications: NSObject {
         content.title = "Tarot App"
         content.body = "Таролог прислал ваш расклад, проверьте в приложении"
         content.sound = UNNotificationSound.default
-        content.badge = (badgeNumber + 1) as NSNumber
+        content.badge = (UIApplication.shared.applicationIconBadgeNumber + 1) as NSNumber
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: afterTime.rawValue, repeats: false)
         let request = UNNotificationRequest(identifier: NotificationIdentifieres.tarotSpread.rawValue, content: content, trigger: trigger)
         notificationCenter.add(request) { error in
@@ -67,6 +59,7 @@ extension UserNotifications: UNUserNotificationCenterDelegate {
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
         print(#function)
     }
 }
