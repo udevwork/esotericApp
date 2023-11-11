@@ -107,7 +107,7 @@ struct Tarologs: View {
                 LazyVGrid(columns: Array(repeating: GridItem(), count: 1), spacing: 25) {
                     ForEach(tarotReaders) { tarotReader in
                         NavigationLink(
-                            destination: DetailView(tarotReader: tarotReader),
+                            destination: TarotSpread(),
                             label: {
                                 TarotReaderCell(tarotReader: tarotReader)
                             }
@@ -131,17 +131,6 @@ struct Tarologs: View {
 
     func returnBackground() -> String {
         return ["1","2","3","4","5","6"].randomElement()!
-    }
-}
-
-struct DetailView: View {
-    var tarotReader: TarotReader
-
-    var body: some View {
-        VStack {
-            Text("Детальная информация о \(tarotReader.name)")
-        }
-        .navigationBarTitle(Text(tarotReader.name), displayMode: .inline)
     }
 }
 

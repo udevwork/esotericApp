@@ -48,6 +48,8 @@
 		927A94752AF569EF007889A4 /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94742AF569EF007889A4 /* CardsTableView.swift */; };
 		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
 		FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA792AFF83DF0096D081 /* Tarologs.swift */; };
+		FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */; };
+		FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		927A94742AF569EF007889A4 /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
 		927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLayouts.swift; sourceTree = "<group>"; };
 		FA27DA792AFF83DF0096D081 /* Tarologs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarologs.swift; sourceTree = "<group>"; };
+		FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotSpread.swift; sourceTree = "<group>"; };
+		FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +173,7 @@
 				927A94522AF52F43007889A4 /* LaunchScreenView.swift */,
 				927A94532AF52F43007889A4 /* OnboardingView.swift */,
 				927A94742AF569EF007889A4 /* CardsTableView.swift */,
-				FA27DA792AFF83DF0096D081 /* Tarologs.swift */,
+				FA27DA7D2AFFADD40096D081 /* Tarologs */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -212,8 +216,18 @@
 				927A944C2AF52F43007889A4 /* Helpers.swift */,
 				927A94502AF52F43007889A4 /* ScreenContentView.swift */,
 				927A946D2AF540FC007889A4 /* CardsSample.swift */,
+				FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		FA27DA7D2AFFADD40096D081 /* Tarologs */ = {
+			isa = PBXGroup;
+			children = (
+				FA27DA792AFF83DF0096D081 /* Tarologs.swift */,
+				FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */,
+			);
+			path = Tarologs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,7 +339,9 @@
 				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
 				920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */,
+				FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */,
 				927A94122AF52857007889A4 /* EsotericApp.swift in Sources */,
+				FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */,
 				927A945F2AF52F43007889A4 /* LaunchScreenView.swift in Sources */,
 				927A945B2AF52F43007889A4 /* ConditionsTermsView.swift in Sources */,
 				927A945A2AF52F43007889A4 /* Helpers.swift in Sources */,
@@ -467,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = 87XM268947;
+				DEVELOPMENT_TEAM = X8KHXL86W5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -478,6 +494,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = 87XM268947;
+				DEVELOPMENT_TEAM = X8KHXL86W5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -510,6 +527,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
