@@ -17,20 +17,36 @@ class GPTService {
         config()
     }
     
-    func test(promt: String, completion: @escaping (String)-> ()) {
-        guard let openAI = openAI else { return }
-        
+    enum GPTErrorType: Error {
+        case networkError
+        case serverError
+        case parsingError
+    }
+
+    // Пример использования:
+    func test(promt: String, completion: @escaping (Result<String, Error>) -> ()) {
+        guard let openAI = openAI else {
+            completion(.failure(GPTErrorType.networkError))
+            return
+        }
         let query = getQuery(with: promt)
-        
         Task {
-            let result = try await openAI.chats(query: query)
-            
-            result.choices.forEach { choice in
-                completion(choice.message.content ?? "// Будущее туманно...")
+            do {
+                let result = try await openAI.chats(query: query)
+                guard let content = result.choices.first?.message.content else {
+                    completion(.failure(GPTErrorType.serverError))
+                    return
+                }
+                completion(.success(content))
+                return
+            } catch {
+                completion(.failure(GPTErrorType.parsingError))
+                return
             }
-            
         }
     }
+
+
     
     private func getQuery(with promt: String) -> ChatQuery {
         

@@ -12,13 +12,13 @@ struct ArticleView: View {
     let textColor: Color
     let text: String
     var alignment: TextAlignment
-    
+
     init(textColor: Color = .textColor, text: String, alignment: TextAlignment = .leading) {
         self.text = text
         self.textColor = textColor
         self.alignment = alignment
     }
-    
+
     var body: some View {
         Text(text)
             .multilineTextAlignment(alignment)
@@ -28,21 +28,21 @@ struct ArticleView: View {
 }
 
 struct SectionTitleView: View {
-    
+
     let textColor: Color
     let text: String
     let alignment: Alignment
-    
+
     init(textColor: Color = .textColor,
          text: String,
          alignment: Alignment = .leading) {
-        
+
         self.text = text
         self.textColor = textColor
         self.alignment = alignment
-        
+
     }
-    
+
     var body: some View {
         HStack(spacing: 0) {
             if alignment == .leading {
@@ -73,21 +73,21 @@ struct SectionTitleView: View {
 }
 
 struct SubSectionTitleView: View {
-    
+
     let textColor: Color
     let text: String
     let alignment: Alignment
-    
+
     init(textColor: Color = .textColor,
          text: String,
          alignment: Alignment = .leading) {
-        
+
         self.text = text
         self.textColor = textColor
         self.alignment = alignment
-        
+
     }
-    
+
     var body: some View {
         HStack(spacing: 0) {
             if alignment == .leading {
@@ -116,21 +116,21 @@ struct SubSectionTitleView: View {
 }
 
 struct ShineTitleView: View {
-    
+
     let textColor: CommodityColor
     let text: String
     let alignment: Alignment
-    
+
     init(textColor: CommodityColor = .gold,
          text: String,
          alignment: Alignment = .leading) {
-        
+
         self.text = text
         self.textColor = textColor
         self.alignment = alignment
-        
+
     }
-    
+
     var body: some View {
         HStack(spacing: 0) {
             if alignment == .leading {

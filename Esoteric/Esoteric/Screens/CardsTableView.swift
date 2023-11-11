@@ -52,7 +52,17 @@ class CardsTableViewModel: ObservableObject {
         }
         gpt.test(promt: promt) { [weak self] result in
             DispatchQueue.main.async {
-                self?.text = result
+                switch result {
+                case .success(let content):
+                    if content.isEmpty {
+                        self?.text = "Туман не рассеялся"
+                    } else {
+                        self?.text = content
+                    }
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    self?.text = "Туман не рассеялся"
+                }
             }
         }
     }
@@ -81,20 +91,20 @@ class CardsTableViewModel: ObservableObject {
 }
 
 struct CardsTableView: View {
-    
+
     @StateObject var model: CardsTableViewModel
     @State var isSelected = false
-    
-   
+
+
     var body: some View {
-    
-        
+
+
         ZStack {
             BackGroundView()
             VStack(spacing: 20) {
-             
+
                 Spacer()
-                
+
                 if model.cardsNum == 1 {
                     OneCardsLayouts(model: model, isSelected: $isSelected)
                 }
@@ -104,84 +114,77 @@ struct CardsTableView: View {
                 if model.cardsNum == 3 {
                     ThreeCardsLayouts(model: model, isSelected: $isSelected)
                 }
-                   
+
                 Spacer()
-                
+
                 HStack {
                     Image("r_arrow").scaleEffect(1.4).offset(x: -10.0, y: 5.0)
                     Text("Выберите карту")
-//                        .overlay(content: {
-//                            CommodityColor.gold.linearGradient
-//                        })
+                    //                        .overlay(content: {
+                    //                            CommodityColor.gold.linearGradient
+                    //                        })
                         .lineLimit(1)
                         .frame(width: 150)
                         .font(.custom("ElMessiri-Bold", size: 18))
                     Image("l_arrow").scaleEffect(1.4).offset(x: 10.0, y: 5.0)
-                    
+
                 }.padding(.horizontal)
-                
+
                 ScrollView(.horizontal) {
                     HStack(spacing: -20) {
                         ForEach(model.cards, id: \.id) { card in
                             if card != model.selectedCard {
-                                
+
                                 FakeCardView(text: "card1")
                                     .onTapGesture {
                                         model.select(card: card)
-                                            withAnimation {
-                                              
-                                                model.selectedCard = card
-                                                
-                                            }
-                                           
-                                        
+                                        withAnimation {
+
+                                            model.selectedCard = card
+
+                                        }
+
+
                                     }
-                                
+
                             }
                         }
                     }.frame(height: 230)
-                    
+
                 }.scrollIndicators(.hidden)
                     .frame(height: 150)
-                
-                
-                
+
+
+
             }
-            
+
         }
         .sheet(isPresented: $isSelected, content: {
             ScrollView(.vertical, content: {
                 VStack(alignment: .leading, content: {
                     Image("art_delimiter2").resizable().aspectRatio(contentMode: .fill)
-                    
+
                     ForEach((model.selectedCards.map({ (key: Int, value: Tarot?) in
                         return value
                     }) as! [Tarot]), id: \.id) { card in
-                        
-                            ShineTitleView(text: card.name)
-                        
+                        ShineTitleView(text: card.name)
                     }
-                    
                     ArticleView(text: model.text)
                         .onAppear(perform: {
-                            
                             model.getTaroInfo()
                         })
-                    
-                        
+                    if model.text == "Туман не рассеялся" {
+                        Image("kek")
+                    }
                 }).padding(30)
             })
-                .presentationBackground(alignment: .bottom) {
-                    Color.buttonDefColor.opacity(0.0).background(.ultraThinMaterial)
-                }
-                .presentationCornerRadius(50)
-                .presentationDetents([.medium, .height(200)])
+            .presentationBackground(alignment: .bottom) {
+                Color.buttonDefColor.opacity(0.0).background(.ultraThinMaterial)
+            }
+            .presentationCornerRadius(50)
+            .presentationDetents([.medium, .height(200)])
         })
-       
-       
     }
-    
-    
 }
 
 struct FakeCardView: View {
