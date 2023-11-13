@@ -22,7 +22,7 @@ struct ArticleView: View {
     var body: some View {
         Text(text)
             .multilineTextAlignment(alignment)
-            .font(.custom("ElMessiri-Regular", size: 15))
+            .font(.custom("ElMessiri-Regular", size: 18))
             .foregroundColor(textColor)
     }
 }

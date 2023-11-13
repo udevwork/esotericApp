@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import Shiny
 
 class HomeModel: ObservableObject {
     var subscriptions = Set<AnyCancellable>()
@@ -37,10 +38,10 @@ struct HomeView: View {
         ZStack {
             if animate == false {
                 ScrollView(.vertical, showsIndicators: false) {
-                    Image("homescreenheader")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width, height: 30)
+              
+                    Text("Таро").font(.custom("ElMessiri-Bold", size: 38))
+                        .shiny(.iridescent)
+                
                     VStack (alignment: .leading, spacing: 20) {
                         HStack(spacing: 16) {
                             EmodjiIcon(iconText: "🔮")

@@ -51,6 +51,7 @@
 		FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */; };
 		FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */; };
 		FAE4079F2B000943002A85D0 /* TarotSpreadReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */; };
+		927CC2302AFEBA2900A77B20 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = 927CC22F2AFEBA2900A77B20 /* Shiny */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 				927A943A2AF52BA1007889A4 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				927A94402AF52BA1007889A4 /* FirebaseAppCheck in Frameworks */,
 				927A94212AF5297B007889A4 /* AlertToast in Frameworks */,
+				927CC2302AFEBA2900A77B20 /* Shiny in Frameworks */,
 				927A94662AF53499007889A4 /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +264,7 @@
 				927A94652AF53499007889A4 /* FirebaseRemoteConfig */,
 				927A94702AF5621E007889A4 /* OpenAI */,
 				920955522AF7C17C00BEA64D /* FLAnimatedImage */,
+				927CC22F2AFEBA2900A77B20 /* Shiny */,
 			);
 			productName = Esoteric;
 			productReference = 927A940E2AF52857007889A4 /* Esoteric.app */;
@@ -297,6 +300,7 @@
 				927A94412AF52E50007889A4 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 				927A946F2AF5621E007889A4 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				920955512AF7C17C00BEA64D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
+				927CC22E2AFEBA2900A77B20 /* XCRemoteSwiftPackageReference "shiny" */,
 			);
 			productRefGroup = 927A940F2AF52857007889A4 /* Products */;
 			projectDirPath = "";
@@ -609,6 +613,14 @@
 				minimumVersion = 0.2.4;
 			};
 		};
+		927CC22E2AFEBA2900A77B20 /* XCRemoteSwiftPackageReference "shiny" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maustinstar/shiny.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -671,6 +683,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 927A946F2AF5621E007889A4 /* XCRemoteSwiftPackageReference "OpenAI" */;
 			productName = OpenAI;
+		};
+		927CC22F2AFEBA2900A77B20 /* Shiny */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 927CC22E2AFEBA2900A77B20 /* XCRemoteSwiftPackageReference "shiny" */;
+			productName = Shiny;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
