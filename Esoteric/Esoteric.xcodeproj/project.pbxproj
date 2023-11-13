@@ -47,11 +47,11 @@
 		927A94732AF56236007889A4 /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94722AF56236007889A4 /* GPTService.swift */; };
 		927A94752AF569EF007889A4 /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94742AF569EF007889A4 /* CardsTableView.swift */; };
 		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
+		927CC2302AFEBA2900A77B20 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = 927CC22F2AFEBA2900A77B20 /* Shiny */; };
 		FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA792AFF83DF0096D081 /* Tarologs.swift */; };
 		FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */; };
 		FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */; };
 		FAE4079F2B000943002A85D0 /* TarotSpreadReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */; };
-		927CC2302AFEBA2900A77B20 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = 927CC22F2AFEBA2900A77B20 /* Shiny */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -491,7 +491,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -524,7 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;

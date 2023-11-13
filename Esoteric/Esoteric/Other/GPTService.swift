@@ -10,7 +10,7 @@ import OpenAI
 
 class GPTService {
 
-    private let key = "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"
+    private let key = "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"
     private var openAI: OpenAI? = nil
     
     init() {
@@ -51,7 +51,7 @@ class GPTService {
     private func getQuery(with promt: String) -> ChatQuery {
         
         let messages: [Chat] = [
-            Chat(role: .user, content: "Мне нужен максимально креативный и загадочный ответ."),
+            Chat(role: .user, content: "Я гадаю на картах таро. Уложись в 2-3 абзаца. Мне нужен максимально креативный и загадочный ответ в первом абзаце, а потом серьезно отвечай. "),
             Chat(role: .user, content: promt)
         ]
         

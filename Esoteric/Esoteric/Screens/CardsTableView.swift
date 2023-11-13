@@ -46,9 +46,9 @@ class CardsTableViewModel: ObservableObject {
         }
         var promt: String = ""
         if cardsNum == 1 {
-            promt = "Я гадаю на картах таро, мне выпала \(names). Что эта карта может значить?"
+            promt = "мне выпала \(names). Что эта карта может значить?"
         } else {
-            promt = "Я гадаю на картах таро, мне выпали \(names). Что эти карты вместе могут значить?"
+            promt = "мне выпали \(names). Что эти карты вместе могут значить?"
         }
         gpt.test(promt: promt) { [weak self] result in
             DispatchQueue.main.async {
