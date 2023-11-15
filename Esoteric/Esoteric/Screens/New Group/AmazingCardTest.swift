@@ -27,7 +27,7 @@ func fuck(_ color: UIColor, intensity: CGFloat = 0.8) -> Gradient {
 struct AmazingCardTest: View {
    
     var body: some View {
-        AmazingCardBack(text: "Group 33")
+        AmazingCardBack(text: "card0")
            
     }
 }
@@ -41,7 +41,7 @@ struct AmazingCardBack: View {
             BackGroundView()
             VStack() {
                 ZStack {
-                    Image(text)
+                    Image("\(text)-img")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -59,7 +59,7 @@ struct AmazingCardBack: View {
                         .mask {
                             ZStack {
                                
-                                Image("Vector")
+                                Image("\(text)-mask")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .clipShape(RoundedRectangle(cornerRadius: 20))

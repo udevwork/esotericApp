@@ -61,9 +61,16 @@ struct HomeView: View {
                                         ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                     }
                                     NavigationLink {
-                                        AmazingCardTest()
+                                        AmazingCardBack(text: "card0")
                                     } label: {
-                                        Text("Ахуеть")
+                                        Text("Ахуеть 1")
+                                    }.DefButtonStyle()
+                                        .padding(.horizontal, horPadding)
+                                    
+                                    NavigationLink {
+                                        AmazingCardBack(text: "card1")
+                                    } label: {
+                                        Text("Ахуеть 2")
                                     }.DefButtonStyle()
                                         .padding(.horizontal, horPadding)
                                     
