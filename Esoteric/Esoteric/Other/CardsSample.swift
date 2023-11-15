@@ -8,9 +8,6 @@
 import Foundation
 import SwiftUI
 
-import SwiftUI
-
-
 struct CardFlipHero: View {
     @Binding var isSelected: Bool
     var text : String

@@ -61,6 +61,13 @@ struct HomeView: View {
                                         ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                     }
                                     NavigationLink {
+                                        AmazingCardTest()
+                                    } label: {
+                                        Text("Ахуеть")
+                                    }.DefButtonStyle()
+                                        .padding(.horizontal, horPadding)
+                                    
+                                     NavigationLink {
                                         CardsTableView(model: CardsTableViewModel(cardsNum: 1))
                                     } label: {
                                         Text("Гадание по одной карте")
