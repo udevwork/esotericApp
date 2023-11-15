@@ -8,17 +8,17 @@
 import SwiftUI
 import CoreMotion
 
-func fuck(_ color: UIColor, intensity: CGFloat = 0.5) -> Gradient {
+func fuck(_ color: UIColor, intensity: CGFloat = 0.8) -> Gradient {
     
     let i = min(max(intensity, 0), 1)
     
     let colors = [
         color.withAlphaComponent(1.0 * i),
-        color.withAlphaComponent(0.10 * i),
+        color.withAlphaComponent(0.00 * i),
         color.withAlphaComponent(1.0 * i),
-        color.withAlphaComponent(0.10 * i),
+        color.withAlphaComponent(0.00 * i),
         color.withAlphaComponent(1.0 * i),
-        color.withAlphaComponent(0.10 * i)
+        color.withAlphaComponent(0.00 * i)
     ]
     
     return Gradient(colors: colors.map { Color($0) })
@@ -46,13 +46,24 @@ struct AmazingCardBack: View {
                         .aspectRatio(contentMode: .fill)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                     
-                    Rectangle()
-                        .shiny(fuck(.orange))
+                    ZStack {
+                        Image("gold")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                        Rectangle()
+                            .frame(width: 220, height: 320)
+                            .shiny(fuck(.black))
+                    }
+                    
                         .mask {
-                            Image("Vector")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                            ZStack {
+                               
+                                Image("Vector")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                            }
                         }
                     
                     
@@ -60,7 +71,6 @@ struct AmazingCardBack: View {
                 }.shadow(radius: 30)
             }
             .frame(width: 220, height: 320)
-            .modifier(ParallaxMotionModifier(manager: manager, magnitude: 6))
         }
     }
 }
