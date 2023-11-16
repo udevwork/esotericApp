@@ -17,8 +17,8 @@ struct CardFlipHero: View {
   
         
         return FlipView(
-                front: CardBack(text: "tarot"),
-                back: CardBack(text: text),
+                front: AmazingCardBack(text: text),
+                back: CardBack(text: "card-backward"),
                 showBack: $isSelected)
          
         

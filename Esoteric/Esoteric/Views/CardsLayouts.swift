@@ -17,8 +17,8 @@ struct OneCardsLayouts: View {
         VStack(alignment: .center) {
             ZStack {
                 
-                if model.selectedCards[0] != nil {
-                    CardFlipHero(isSelected: $isSelected, text: "card1")
+                if let card = model.selectedCards[0] {
+                    CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                         .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                     
                 }
@@ -39,8 +39,8 @@ struct FiveCardsLayouts: View {
             HStack(alignment: .center, spacing: -20) {
                 ZStack {
                     
-                    if model.selectedCards[0] != nil {
-                        CardFlipHero(isSelected: $isSelected, text: "card1")
+                    if let card = model.selectedCards[0] {
+                        CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                         
                     }
@@ -48,8 +48,8 @@ struct FiveCardsLayouts: View {
                 
                 ZStack {
                     
-                    if model.selectedCards[1] != nil {
-                        CardFlipHero(isSelected: $isSelected, text: "card1")
+                    if  let card =  model.selectedCards[1] {
+                        CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                         
                     }
@@ -60,8 +60,8 @@ struct FiveCardsLayouts: View {
             HStack(alignment: .center, spacing: -20) {
                 ZStack {
                     
-                    if model.selectedCards[2] != nil {
-                        CardFlipHero(isSelected: $isSelected, text: "card1")
+                    if  let card =  model.selectedCards[2] {
+                        CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                         
                     }
@@ -69,8 +69,8 @@ struct FiveCardsLayouts: View {
                 
                 ZStack {
                     
-                    if model.selectedCards[3] != nil {
-                        CardFlipHero(isSelected: $isSelected, text: "card1")
+                    if  let card =  model.selectedCards[3] {
+                        CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                         
                     }
@@ -79,8 +79,8 @@ struct FiveCardsLayouts: View {
             }
             ZStack {
                 
-                if model.selectedCards[4] != nil {
-                    CardFlipHero(isSelected: $isSelected, text: "card1")
+                if  let card =  model.selectedCards[4] {
+                    CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                         .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                     
                 }
@@ -99,8 +99,8 @@ struct ThreeCardsLayouts: View {
         VStack(alignment: .center, spacing: -120, content: {
             HStack(alignment: .center, spacing: -20) {
                 ZStack {
-                    if model.selectedCards[0] != nil {
-                        CardFlipHero(isSelected: $isSelected, text: "card1")
+                    if  let card =  model.selectedCards[0] {
+                        CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                         
                     }
@@ -108,8 +108,8 @@ struct ThreeCardsLayouts: View {
                 
                 ZStack {
                     
-                    if model.selectedCards[1] != nil {
-                        CardFlipHero(isSelected: $isSelected, text: "card1")
+                    if let card =  model.selectedCards[1] {
+                        CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                             .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                         
                     }
@@ -119,8 +119,8 @@ struct ThreeCardsLayouts: View {
             
             ZStack {
                 
-                if model.selectedCards[2] != nil {
-                    CardFlipHero(isSelected: $isSelected, text: "card1")
+                if let card =  model.selectedCards[2] {
+                    CardFlipHero(isSelected: $isSelected, text: "card\(card?.number ?? 0)")
                         .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                     
                 }

@@ -80,8 +80,8 @@ let tarotDB: [Tarot] = [
     Tarot(image: "", name: "Десятка Жезлов", number: 74),
     Tarot(image: "", name: "Паж Жезлов", number: 75),
     Tarot(image: "", name: "Рыцарь Жезлов", number: 76),
-    Tarot(image: "", name: "Королева Жезлов", number: 76),
-    Tarot(image: "", name: "Король жезлов", number: 76)
+    Tarot(image: "", name: "Королева Жезлов", number: 77),
+    Tarot(image: "", name: "Король жезлов", number: 77)
 ]
 
 import Foundation

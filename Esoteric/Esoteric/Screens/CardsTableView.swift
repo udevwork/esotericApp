@@ -135,7 +135,7 @@ struct CardsTableView: View {
                         ForEach(model.cards, id: \.id) { card in
                             if card != model.selectedCard {
 
-                                FakeCardView(text: "card1")
+                                FakeCardView(text: "card-backward")
                                     .onTapGesture {
                                         model.select(card: card)
                                         withAnimation {

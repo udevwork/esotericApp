@@ -37,41 +37,47 @@ struct AmazingCardBack: View {
     @StateObject var manager = MotionManager()
     var text : String
     var body: some View {
-        ZStack {
-            BackGroundView()
+
+        
             VStack() {
                 ZStack {
-                    Image("\(text)-img")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                    
+                    ZStack {
+                        Image("card-img-back")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                        
+                        Image("\(text)")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .blendMode(.colorDodge)
+                            .opacity(0.9)
+                           
+                    }
                     ZStack {
                         Image("gold")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                        
                         Rectangle()
-                            .frame(width: 220, height: 320)
+                            .frame(width: 220, height: 372)
                             .shiny(fuck(.black))
                     }
                     
-                        .mask {
-                            ZStack {
-                               
-                                Image("\(text)-mask")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                            }
+                    .mask {
+                        ZStack {
+                            Image("\(text)-mask")
+                                .resizable()
                         }
+                    }
                     
                     
                     
-                }.shadow(radius: 30)
+                }
             }
-            .frame(width: 220, height: 320)
-        }
+            .frame(width: 220, height: 372)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+        
+        
     }
 }
 
