@@ -43,10 +43,10 @@ class HorMenuSnapData: ObservableObject {
 struct HorMenuSnapCardView: View {
     
     var card: HorMenuSnapCard
-    @State private var isTarologsPresented = false
     var body: some View {
 
         ZStack(alignment: .leading) {
+            
             Image(card.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -59,27 +59,25 @@ struct HorMenuSnapCardView: View {
             ]), startPoint: .bottomLeading, endPoint: .topTrailing)
             
             VStack(alignment: .leading, spacing: 30) {
+                
                 Spacer()
+                
                 VStack(alignment: .leading, spacing: 5) {
                    Text(card.title).font(.custom("ElMessiri-Bold", size: 35))
-                   Text(card.subTitle).font(.custom("ElMessiri-Regular", size: 14))
+                   Text(card.subTitle).font(.custom("ElMessiri-Regular", size: 19))
                 }.foregroundColor(.textColor)
 
                 Button {
-                    isTarologsPresented.toggle()
                     Haptics.shared.play(.light)
                 } label: {
                     HStack {
                         Text("Выбрать").bold().foregroundColor(.white)
                     }
-                }.frame(height: 20).DefButtonStyle()
-            }.padding(20)
+                }.DefButtonStyle()
+                
+            }.padding()
         }
-        .fullScreenCover(isPresented: $isTarologsPresented) {
-            NavigationView {
-                Tarologs()
-            }
-        }
+      
 
         .frame(width: 260, height: 300)
         .cornerRadius(25)
@@ -91,156 +89,167 @@ struct HorMenuSnap: View {
     
     let onboardData = HorMenuSnapData()
     
-    @State private var scrollEffectValue: Double = 13
     @State public var activePageIndex: Int = 0
     
-    let itemWidth: CGFloat = 260
-    let itemPadding: CGFloat = 20
-    
-    var body: some View {
-        ZStack{
-            VStack(alignment: .center, spacing: 25) {
-           
-                GeometryReader { geometry in
-                    AdaptivePagingScrollView(currentPageIndex: self.$activePageIndex,
-                                             itemsAmount: self.onboardData.cards.count - 1,
-                                             itemWidth: self.itemWidth,
-                                             itemPadding: self.itemPadding,
-                                             pageWidth: geometry.size.width) {
-                        ForEach(onboardData.cards) { card in
-                            GeometryReader { screen in
-                                HorMenuSnapCardView(card: card)
-                                   
-                                    .scaleEffect(activePageIndex == onboardData.cards.firstIndex(of: card) ?? 0 ? 1.05 : 1)
-                            }
-                        }
-                    }
-                }
-                
-                Spacer()
+    let tilePadding: CGFloat = 25
+    let tileWidth: CGFloat = 260
 
-            }.offset(x:-43)
-        }.background(Color.clear)
-    }
-}
-
-struct AdaptivePagingScrollView: View {
-    
-    private let items: [AnyView]
-    private let itemPadding: CGFloat
-    private let itemSpacing: CGFloat
-    private let itemWidth: CGFloat
-    private let itemsAmount: Int
-    private let contentWidth: CGFloat
-    
-    private let leadingOffset: CGFloat
-    private let scrollDampingFactor: CGFloat = 0.66
-    
-    @Binding var currentPageIndex: Int
-    
-    @State private var currentScrollOffset: CGFloat = 0
-    @State private var gestureDragOffset: CGFloat = 0
-        
-    private func countOffset(for pageIndex: Int) -> CGFloat {
-        
-        let activePageOffset = CGFloat(pageIndex) * (itemWidth + itemPadding)
-        return leadingOffset - activePageOffset
-    }
-    
-    private func countPageIndex(for offset: CGFloat) -> Int {
-        
-        guard itemsAmount > 0 else { return 0 }
-        
-        let offset = countLogicalOffset(offset)
-        let floatIndex = (offset)/(itemWidth + itemPadding)
-        
-        var index = Int(round(floatIndex))
-        if max(index, 0) > itemsAmount {
-            index = itemsAmount
-        }
-        
-        return min(max(index, 0), itemsAmount - 1)
-    }
-    
-    private func countCurrentScrollOffset() -> CGFloat {
-        return countOffset(for: currentPageIndex) + gestureDragOffset
-    }
-    
-    private func countLogicalOffset(_ trueOffset: CGFloat) -> CGFloat {
-        return (trueOffset-leadingOffset) * -1.0
-    }
-    
-    init<A: View>(currentPageIndex: Binding<Int>,
-                  itemsAmount: Int,
-                  itemWidth: CGFloat,
-                  itemPadding: CGFloat,
-                  pageWidth: CGFloat,
-                  @ViewBuilder content: () -> A) {
-        
-        let views = content()
-        self.items = [AnyView(views)]
-        
-        self._currentPageIndex = currentPageIndex
-         
-        self.itemsAmount = itemsAmount
-        self.itemSpacing = itemPadding
-        self.itemWidth = itemWidth
-        self.itemPadding = itemPadding
-        self.contentWidth = (itemWidth+itemPadding)*CGFloat(itemsAmount)
-        
-        let itemRemain = (pageWidth-itemWidth-2*itemPadding)/2
-        self.leadingOffset = itemRemain + itemPadding
-    }
-    
-    
     var body: some View {
-        GeometryReader { viewGeometry in
-            HStack(alignment: .center, spacing: itemSpacing) {
-                ForEach(items.indices, id: \.self) { itemIndex in
-                    items[itemIndex].frame(width: itemWidth)
+        
+        
+        PagingScrollView(activePageIndex: self.$activePageIndex, tileWidth:self.tileWidth, tilePadding: self.tilePadding){
+            ForEach(onboardData.cards) { card in
+                GeometryReader { geometry2 in
+                    let g = geometry2.frame(in: .global).minX
+                    HorMenuSnapCardView(card: card)
+                      //  .rotation3DEffect(Angle(degrees: Double((g - self.tileWidth*0.5) / -10 )),
+                //                                axis: (x: 2, y: 11, z: 1))
+                        .scaleEffect(activePageIndex == onboardData.cards.firstIndex(of: card) ?? 0 ? 1.05 : 1)
                 }
             }
-        }
-        .onAppear {
-            currentScrollOffset = countOffset(for: currentPageIndex)
-        }
-        .background(Color.black.opacity(0.00001)) // hack - this allows gesture recognizing even when background is transparent
-        .frame(width: contentWidth)
-        .offset(x: self.currentScrollOffset, y: 0)
-        .simultaneousGesture(
-            DragGesture(minimumDistance: 1, coordinateSpace: .local)
-                .onChanged { value in
-                    gestureDragOffset = value.translation.width
-                    currentScrollOffset = countCurrentScrollOffset()
-                }
-                .onEnded { value in
-                    let cleanOffset = (value.predictedEndTranslation.width - gestureDragOffset)
-                    let velocityDiff = cleanOffset * scrollDampingFactor
-                    
-                    var newPageIndex = countPageIndex(for: currentScrollOffset + velocityDiff)
-                    
-                    let currentItemOffset = CGFloat(currentPageIndex) * (itemWidth + itemPadding)
-                    
-                    if currentScrollOffset < -(currentItemOffset),
-                       newPageIndex == currentPageIndex {
-                        newPageIndex += 1
-                    }
-                    
-                    gestureDragOffset = 0
-                    
-                    withAnimation(.interpolatingSpring(mass: 0.1,
-                                                       stiffness: 20,
-                                                       damping: 1.5,
-                                                       initialVelocity: 0)) {
-                        self.currentPageIndex = newPageIndex
-                        self.currentScrollOffset = self.countCurrentScrollOffset()
-                    }
-                }
-        )
+        }//.offset(x:-40)
+
     }
 }
 
-import UIKit
+struct FrameMeasurePreferenceKey: PreferenceKey {
+    typealias Value = [String: CGRect]
+
+    static var defaultValue: Value = Value()
+
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        value.merge(nextValue()) { current, new in
+            new
+        }
+    }
+}
+
+struct MeasureGeometry: View {
+    let space: CoordinateSpace
+    let identifier: String
+    // this dummy view will measure the view and store its width to preference value
+    var body: some View {
+        GeometryReader { geometry in
+            Color.clear
+                .preference(key: FrameMeasurePreferenceKey.self, value: [identifier: geometry.frame(in: space)])
+        }
+    }
+}
+
+struct PagingScrollView: View {
+    let items: [AnyView]
+
+    public init<Data, id,  Content: View>(activePageIndex:Binding<Int>, tileWidth:CGFloat, tilePadding: CGFloat, @ViewBuilder content: () -> ForEach<Data, id, Content>) {
+        let views = content()
+        self.items = views.data.map({ AnyView(views.content($0)) })
+        
+        let itemCount = views.data.count
+        
+        self._activePageIndex = activePageIndex
+        
+        self.tileWidth = tileWidth
+        self.tilePadding = tilePadding
+        self.itemCount = itemCount
+    }
+      
+    /// index of current page 0..N-1
+    @Binding var activePageIndex : Int
+    
+    /// pageWidth==frameWidth used to properly compute offsets
+    @State var pageWidth: CGFloat = 0
+    
+    /// width of item / tile
+    let tileWidth : CGFloat
+    
+    /// padding between items
+    private let tilePadding : CGFloat
+        
+    private let itemCount : Int
+    
+    /// some damping factor to reduce liveness
+    private let scrollDampingFactor: CGFloat = 0.66
+    
+    /// drag offset during drag gesture
+    @State private var dragOffset : CGFloat = 0
+    
+    
+    func offsetForPageIndex(_ index: Int)->CGFloat {
+        return -self.baseTileOffset(index: index)
+    }
+    
+    func indexPageForOffset(_ offset : CGFloat) -> Int {
+        guard self.itemCount>0 else {
+            return 0
+        }
+        let offset = self.logicalScrollOffset(trueOffset: offset)
+        let floatIndex = (offset)/(tileWidth+tilePadding)
+        var computedIndex = Int(round(floatIndex))
+        computedIndex = max(computedIndex, 0)
+        return min(computedIndex, self.itemCount-1)
+    }
+    
+    /// current scroll offset applied on items
+    func currentScrollOffset(activePageIndex: Int, dragoffset: CGFloat)->CGFloat {
+        return self.offsetForPageIndex(activePageIndex) + dragOffset
+    }
+    
+    /// logical offset startin at 0 for the first item - this makes computing the page index easier
+    func logicalScrollOffset(trueOffset: CGFloat)->CGFloat {
+        return (trueOffset) * -1.0
+    }
+    
+    private let animation = Animation.interpolatingSpring(mass: 0.1, stiffness: 20, damping: 1.5, initialVelocity: 0)
+   
+    func baseTileOffset(index: Int) -> CGFloat {
+        return CGFloat(index)*(self.tileWidth + self.tilePadding)
+    }
+    
+    var body: some View {
+        
+            ZStack(alignment: .center)  {
+                let globalOffset = self.currentScrollOffset(activePageIndex: self.activePageIndex, dragoffset: self.dragOffset)
+                ForEach(0..<self.items.count, id:\.self) { index in
+                   
+                    self.items[index]
+                        .frame(width: self.tileWidth)
+                        .offset(x: self.baseTileOffset(index: index) + globalOffset)
+                        /*.simultaneousGesture(
+                                TapGesture()
+                                    .onEnded { _ in
+                                        withAnimation(self.animation) {
+                                            self.activePageIndex = index
+                                            self.dragOffset = 0
+                                        }
+                                    }
+                            )*/
+                }
+            }
+            .background(
+                MeasureGeometry(space: .local, identifier: "container")
+            )
+            .onPreferenceChange(FrameMeasurePreferenceKey.self) {
+                guard let frame = $0["container"] else { return }
+                self.pageWidth = frame.size.width
+            }
+            
+            .background(Color.black.opacity(0.00001)) // hack - this allows gesture recognizing even when background is transparent
+            .simultaneousGesture( DragGesture(minimumDistance: 1, coordinateSpace: .local) // can be changed to simultaneous gesture to work with buttons
+                .onChanged { value in
+                    self.dragOffset = value.translation.width
+                }
+                .onEnded { value in
+                    // compute nearest index
+                    let velocityDiff = (value.predictedEndTranslation.width - self.dragOffset)*self.scrollDampingFactor
+                    let targetOffset = self.currentScrollOffset(activePageIndex: self.activePageIndex, dragoffset: self.dragOffset)
+                    
+                    withAnimation(self.animation){
+                        self.dragOffset = 0
+                        self.activePageIndex = self.indexPageForOffset(targetOffset+velocityDiff)
+                    }
+                }
+            )
+    }
+}
 
 class Haptics {
     static let shared = Haptics()

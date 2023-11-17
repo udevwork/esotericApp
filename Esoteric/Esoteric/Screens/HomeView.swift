@@ -39,19 +39,18 @@ struct HomeView: View {
             if animate == false {
                 ScrollView(.vertical, showsIndicators: false) {
               
-                    Text("Таро").font(.custom("ElMessiri-Bold", size: 38))
-                        .shiny(.iridescent)
-                
+                    
                     VStack (alignment: .leading, spacing: 20) {
                         HStack(spacing: 16) {
                             EmodjiIcon(iconText: "🔮")
-                            VStack(alignment: .leading, spacing: 1) {
+                            VStack(alignment: .leading, spacing: -10) {
                                 SectionTitleView(text: "Карта таро", alignment: .leading)
                                 ArticleView(text: "Предсказание дня", alignment: .leading)
                             }
                         }.padding(.horizontal,16)
-                        HorMenuSnap()
-                            .frame(height: 300)
+                        
+                        HorMenuSnap().frame(height: 300).padding(.horizontal,20)
+                        
                         if User.shared.isProUser == false {
                             ScreenContentView(color: .clear) {
                                 VStack(alignment: .leading, spacing: 28) {
@@ -60,19 +59,7 @@ struct HomeView: View {
                                             .padding(.horizontal, horPadding)
                                         ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                     }
-                                    NavigationLink {
-                                        AmazingCardBack(text: "card0")
-                                    } label: {
-                                        Text("Ахуеть 1")
-                                    }.DefButtonStyle()
-                                        .padding(.horizontal, horPadding)
                                     
-                                    NavigationLink {
-                                        AmazingCardBack(text: "card1")
-                                    } label: {
-                                        Text("Ахуеть 2")
-                                    }.DefButtonStyle()
-                                        .padding(.horizontal, horPadding)
                                     
                                      NavigationLink {
                                         CardsTableView(model: CardsTableViewModel(cardsNum: 1))

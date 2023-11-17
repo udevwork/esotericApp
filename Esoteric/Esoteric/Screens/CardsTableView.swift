@@ -94,7 +94,7 @@ struct CardsTableView: View {
 
     @StateObject var model: CardsTableViewModel
     @State var isSelected = false
-
+    @State var showModalView = false
 
     var body: some View {
 
@@ -115,51 +115,47 @@ struct CardsTableView: View {
                     ThreeCardsLayouts(model: model, isSelected: $isSelected)
                 }
 
-                Spacer()
+                Spacer().onChange(of: isSelected) { newValue in
+                    print("Name changed to \(isSelected)!")
+                    withAnimation {
+                      
+                            showModalView = isSelected
+                      
+                    }
+                }
 
                 HStack {
                     Image("r_arrow").scaleEffect(1.4).offset(x: -10.0, y: 5.0)
                     Text("Выберите карту")
-                    //                        .overlay(content: {
-                    //                            CommodityColor.gold.linearGradient
-                    //                        })
                         .lineLimit(1)
                         .frame(width: 150)
                         .font(.custom("ElMessiri-Bold", size: 18))
                     Image("l_arrow").scaleEffect(1.4).offset(x: 10.0, y: 5.0)
-
                 }.padding(.horizontal)
 
-                ScrollView(.horizontal) {
-                    HStack(spacing: -20) {
-                        ForEach(model.cards, id: \.id) { card in
-                            if card != model.selectedCard {
-
-                                FakeCardView(text: "card-backward")
-                                    .onTapGesture {
-                                        model.select(card: card)
-                                        withAnimation {
-
-                                            model.selectedCard = card
-
+                if isSelected == false {
+                    ScrollView(.horizontal) {
+                        HStack(spacing: -20) {
+                            ForEach(model.cards, id: \.id) { card in
+                                if card != model.selectedCard {
+                                    FakeCardView(text: "card-backward")
+                                        .onTapGesture {
+                                            model.select(card: card)
+                                            withAnimation {
+                                                model.selectedCard = card
+                                            }
                                         }
-
-
-                                    }
-
+                                }
                             }
-                        }
-                    }.frame(height: 230)
-
-                }.scrollIndicators(.hidden)
-                    .frame(height: 150)
-
-
-
+                        }.frame(height: 230)
+                    }.scrollIndicators(.hidden)
+                        .frame(height: 150)
+                        
+                }
             }
 
         }
-        .sheet(isPresented: $isSelected, content: {
+        .sheet(isPresented: $showModalView, content: {
             ScrollView(.vertical, content: {
                 VStack(alignment: .leading, content: {
                     Image("art_delimiter2").resizable().aspectRatio(contentMode: .fill)
