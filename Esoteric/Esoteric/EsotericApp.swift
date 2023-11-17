@@ -45,6 +45,11 @@ struct EsotericApp: App {
 
             }.preferredColorScheme(.dark)
                 .animation(.easeInOut, value: model.screenTransitionAnimation)
+                .onAppear {
+                    let user = User.shared
+                    user.getTime()
+                    user.saveTime()
+                }
         }
     }
 }

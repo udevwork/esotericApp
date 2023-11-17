@@ -49,6 +49,7 @@
 		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
 		927CC2302AFEBA2900A77B20 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = 927CC22F2AFEBA2900A77B20 /* Shiny */; };
 		92F8BB602B052C4200DF3ADA /* AmazingCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8BB5F2B052C4200DF3ADA /* AmazingCardTest.swift */; };
+		92FBD3D12B07F06400BD1446 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 92FBD3D02B07F06400BD1446 /* SwiftDate */; };
 		FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA792AFF83DF0096D081 /* Tarologs.swift */; };
 		FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */; };
 		FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */; };
@@ -102,6 +103,7 @@
 				927A94712AF5621E007889A4 /* OpenAI in Frameworks */,
 				927A943E2AF52BA1007889A4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				920955532AF7C17C00BEA64D /* FLAnimatedImage in Frameworks */,
+				92FBD3D12B07F06400BD1446 /* SwiftDate in Frameworks */,
 				927A94382AF52BA1007889A4 /* FirebaseAnalytics in Frameworks */,
 				927A94432AF52E50007889A4 /* ReceiptParser in Frameworks */,
 				927A94452AF52E50007889A4 /* RevenueCat in Frameworks */,
@@ -276,6 +278,7 @@
 				927A94702AF5621E007889A4 /* OpenAI */,
 				920955522AF7C17C00BEA64D /* FLAnimatedImage */,
 				927CC22F2AFEBA2900A77B20 /* Shiny */,
+				92FBD3D02B07F06400BD1446 /* SwiftDate */,
 			);
 			productName = Esoteric;
 			productReference = 927A940E2AF52857007889A4 /* Esoteric.app */;
@@ -312,6 +315,7 @@
 				927A946F2AF5621E007889A4 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				920955512AF7C17C00BEA64D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
 				927CC22E2AFEBA2900A77B20 /* XCRemoteSwiftPackageReference "shiny" */,
+				92FBD3CF2B07F06400BD1446 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 927A940F2AF52857007889A4 /* Products */;
 			projectDirPath = "";
@@ -633,6 +637,14 @@
 				kind = branch;
 			};
 		};
+		92FBD3CF2B07F06400BD1446 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -700,6 +712,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 927CC22E2AFEBA2900A77B20 /* XCRemoteSwiftPackageReference "shiny" */;
 			productName = Shiny;
+		};
+		92FBD3D02B07F06400BD1446 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92FBD3CF2B07F06400BD1446 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

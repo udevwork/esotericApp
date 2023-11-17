@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftDate
 
 class User {
 
@@ -36,4 +37,23 @@ class User {
         }
     }
     
+}
+
+extension User {
+    func saveTime() {
+        let db = UserDefaults.standard
+        let date = Date()
+        db.set(date, forKey: "date")
+    }
+    
+    func getTime(){
+        let db = UserDefaults.standard
+        if let date = db.value(forKey: "date") as? Date {
+            let diff = Date() - date
+            print("Last app use ", diff, "ago")
+            if let seconds = diff.second, seconds > 30 {
+                print("Ваш расклад готов")
+            }
+        }
+    }
 }
