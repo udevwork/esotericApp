@@ -17,17 +17,20 @@ struct LaunchScreenView: View {
         ZStack {
             BackGroundView().opacity(0.5)
             VStack(alignment: .leading) {
-               
-                
-                Image("Logo")
-                    .resizable()
-                    .padding()
-                    .aspectRatio(1/1, contentMode: .fit)
                 Text("TAROT")
                     .font(.custom("ElMessiri-Bold", size: 60))
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .foregroundColor(.textColor)
+                    .foregroundColor(.accentColor)
 
+                HStack{
+                    Spacer()
+                    Image("home_header_logo")
+                    //.resizable()
+                        .padding()
+                    // .aspectRatio(1/1, contentMode: .fill)
+                    Spacer()
+                }
+               
             }
         }
     }

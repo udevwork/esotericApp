@@ -39,15 +39,14 @@ struct HomeView: View {
             if animate == false {
                 ScrollView(.vertical, showsIndicators: false) {
               
-                    
+                    Image("home_header_logo").resizable().frame(width: 120, height: 60)
                     VStack (alignment: .leading, spacing: 20) {
-                        HStack(spacing: 16) {
-                            EmodjiIcon(iconText: "🔮")
-                            VStack(alignment: .leading, spacing: -10) {
-                                SectionTitleView(text: "Карта таро", alignment: .leading)
-                                ArticleView(text: "Предсказание дня", alignment: .leading)
-                            }
-                        }.padding(.horizontal,16)
+                        VStack(spacing: -10) {
+                            
+                            SectionTitleView(text: "Tarot", alignment: .center)
+                            ArticleView(text: "Вселенная у вас в кармане", alignment: .leading).opacity(0.6)
+                            
+                        }.offset(y: -15)
                         
                         HorMenuSnap()
                         

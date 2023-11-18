@@ -58,7 +58,7 @@ struct SectionTitleView: View {
                     .multilineTextAlignment(.center)
                     .frame(alignment: .center)
                     .font(.custom("ElMessiri-Bold", size: 28))
-                    .foregroundColor(textColor)
+                    .foregroundColor(.accentColor)
                 Spacer()
             } else {
                 Spacer()
