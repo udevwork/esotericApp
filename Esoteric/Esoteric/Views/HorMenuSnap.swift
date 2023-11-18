@@ -13,7 +13,6 @@ struct HorMenuSnapCard: Codable, Identifiable, Equatable {
     var title: String
     var subTitle: String
     var image: String
-    var colorHex: String
 }
 
 class HorMenuSnapData: ObservableObject {
@@ -25,90 +24,121 @@ class HorMenuSnapData: ObservableObject {
     }
     
     init() {
-        cards = [HorMenuSnapCard(title: "Ваш таролог",
-                                 subTitle: "Получите расклад таролога",
-                                 image: "art1",
-                                 colorHex: "202628"), // green
-                 HorMenuSnapCard(title: "Timer",
-                                 subTitle: "Your experience with AVPlayer has been, from the beginning, a love/hate thing, hasn’t it?",
-                                 image: "art2",
-                                 colorHex: "202628"), // red
-                 HorMenuSnapCard(title: "Think",
-                                 subTitle: "Maybe you’ve reached a point in your experience with AVPlayer that demanded you to fade in.",
-                                 image: "art3",
-                                 colorHex: "202628")] // blue
+        cards = [
+            HorMenuSnapCard(title: "Карта Дня!",
+                            subTitle: "Выберите карту вашего дня!",
+                            image: "hands_cards_art"),
+            
+            HorMenuSnapCard(title: "Ваш таролог",
+                            subTitle: "Таролог ответит вам через несколько минут!",
+                            image: "sun_cards_art"),
+            
+            HorMenuSnapCard(title: "Одна карта",
+                            subTitle: "Расклад с одной картой.",
+                            image: "1_cards_art"),
+            
+            HorMenuSnapCard(title: "Три Карты",
+                            subTitle: "Точный прогноз для вашего запроса!",
+                            image: "3_cards_art"),
+            
+            HorMenuSnapCard(title: "Пять Карт",
+                            subTitle: "Глубокий анализ ваших вопросов для вселенной!",
+                            image: "5_cards_art")
+        ]
     }
 }
 
-struct HorMenuSnapCardView: View {
+struct HorMenuSnapCardView<Content>: View where Content: View {
     
     var card: HorMenuSnapCard
+    
+    let content: Content
+
+    init(card: HorMenuSnapCard, @ViewBuilder _ content: @escaping () -> Content) {
+        self.card = card
+        self.content = content()
+    }
+    
     var body: some View {
-
-        ZStack(alignment: .leading) {
-            
-            Image(card.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 260, height: 300)
-            
-            LinearGradient(gradient: Gradient(colors: [
-                Color(uiColor: UIColor(hex: card.colorHex)!),
-                Color(uiColor: UIColor(hex: card.colorHex)!).opacity(0.9),
-                Color(uiColor: UIColor(hex: card.colorHex)!).opacity(0)
-            ]), startPoint: .bottomLeading, endPoint: .topTrailing)
-            
-            VStack(alignment: .leading, spacing: 30) {
+        ZStack {
+            ZStack(alignment: .leading) {
                 
+                Image("Hor_menu_card_bg")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .leading, spacing: -4) {
+                        Text(card.title).font(.custom("ElMessiri-Bold", size: 30))
+                        Text(card.subTitle)
+                            .opacity(0.7)
+                    }.foregroundColor(.textColor)
+                    
+                    NavigationLink(destination: content) {
+                        Text("Открыть").bold().foregroundColor(.white)
+                    }.frame(height: 10).DefButtonStyle()
+                        
+                    
+                }.padding(30)
+            }.cornerRadius(25)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color.borderColor, lineWidth: 4))
+                .shadow(radius: 20)
+            
+            VStack(alignment: .trailing, spacing: 0, content: {
+                HStack {
+                    Spacer()
+                    Image(card.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 250, height: 250)
+                        .offset(x: 10.0, y: -10.0)
+                    
+                }
                 Spacer()
-                
-                VStack(alignment: .leading, spacing: 5) {
-                   Text(card.title).font(.custom("ElMessiri-Bold", size: 35))
-                   Text(card.subTitle).font(.custom("ElMessiri-Regular", size: 19))
-                }.foregroundColor(.textColor)
-
-                Button {
-                    Haptics.shared.play(.light)
-                } label: {
-                    HStack {
-                        Text("Выбрать").bold().foregroundColor(.white)
-                    }
-                }.DefButtonStyle()
-                
-            }.padding()
+            })
         }
-      
-
-        .frame(width: 260, height: 300)
-        .cornerRadius(25)
     }
 }
 
 
 struct HorMenuSnap: View {
     
+    @State public var activePageIndex: Int = 0
     let onboardData = HorMenuSnapData()
     
-    @State public var activePageIndex: Int = 0
-    
-    let tilePadding: CGFloat = 25
-    let tileWidth: CGFloat = 260
+    let tilePadding: CGFloat = 85
+    let tileWidth: CGFloat = 225
+    let tileHeight: CGFloat = 400
 
     var body: some View {
         
-        
-        PagingScrollView(activePageIndex: self.$activePageIndex, tileWidth:self.tileWidth, tilePadding: self.tilePadding){
+        PagingScrollView(activePageIndex  : $activePageIndex,
+                         tileWidth        : tileWidth,
+                         tilePadding      : tilePadding) {
+            
             ForEach(onboardData.cards) { card in
-                GeometryReader { geometry2 in
-                    let g = geometry2.frame(in: .global).minX
-                    HorMenuSnapCardView(card: card)
-                      //  .rotation3DEffect(Angle(degrees: Double((g - self.tileWidth*0.5) / -10 )),
-                //                                axis: (x: 2, y: 11, z: 1))
-                        .scaleEffect(activePageIndex == onboardData.cards.firstIndex(of: card) ?? 0 ? 1.05 : 1)
+                HorMenuSnapCardView(card: card) {
+                    if activePageIndex == 0 {
+                        Text("0")
+                    } else {
+                        Text("1")
+                    }
                 }
+                .frame(width: tileWidth, height: tileHeight)
+                .scaleEffect(scale(for: card))
             }
-        }//.offset(x:-40)
-
+            
+        }.offset(x:65).frame(height: tileHeight)
+    }
+    
+    private func scale(for card: HorMenuSnapCard) -> CGFloat {
+        activePageIndex == onboardData.cards.firstIndex(of: card) ?? 0 ? 1 : 0.90
     }
 }
 
@@ -213,7 +243,7 @@ struct PagingScrollView: View {
                     self.items[index]
                         .frame(width: self.tileWidth)
                         .offset(x: self.baseTileOffset(index: index) + globalOffset)
-                        /*.simultaneousGesture(
+                        .simultaneousGesture(
                                 TapGesture()
                                     .onEnded { _ in
                                         withAnimation(self.animation) {
@@ -221,7 +251,7 @@ struct PagingScrollView: View {
                                             self.dragOffset = 0
                                         }
                                     }
-                            )*/
+                            )
                 }
             }
             .background(

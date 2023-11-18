@@ -39,6 +39,7 @@ class User {
     
 }
 
+// MARK: - Time extension
 extension User {
     func saveTime() {
         let db = UserDefaults.standard
@@ -46,7 +47,7 @@ extension User {
         db.set(date, forKey: "date")
     }
     
-    func getTime(){
+    func getTime() {
         let db = UserDefaults.standard
         if let date = db.value(forKey: "date") as? Date {
             let diff = Date() - date

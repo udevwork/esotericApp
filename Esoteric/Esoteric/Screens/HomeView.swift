@@ -49,7 +49,7 @@ struct HomeView: View {
                             }
                         }.padding(.horizontal,16)
                         
-                        HorMenuSnap().frame(height: 300).padding(.horizontal,20)
+                        HorMenuSnap()
                         
                         if User.shared.isProUser == false {
                             ScreenContentView(color: .clear) {
