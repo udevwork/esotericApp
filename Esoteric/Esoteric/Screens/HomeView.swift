@@ -140,7 +140,7 @@ struct HomeView_Previews: PreviewProvider {
                     .environmentObject(model)
             }.transition(.opacity)
 
-        }.preferredColorScheme(.light)
+        }.preferredColorScheme(.dark)
             .animation(.easeInOut, value: model.screenTransitionAnimation)
     }
 }

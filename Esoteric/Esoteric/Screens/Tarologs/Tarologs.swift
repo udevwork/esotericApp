@@ -19,12 +19,9 @@ struct TarotReader: Identifiable {
 class TarologsModel: ObservableObject {
     
     @Published var tarotReaders: [TarotReader] = [
-        TarotReader(name: "Joan", photo: "face1", readingsCount: 50, isOnline: true, rating: 4),
-        TarotReader(name: "Jane Smith", photo: "face1", readingsCount: 30, isOnline: false, rating: 5),
-        TarotReader(name: "Jane Smith", photo: "face1", readingsCount: 30, isOnline: true, rating: 5),
-        TarotReader(name: "Jane Smith", photo: "face1", readingsCount: 30, isOnline: false, rating: 5),
-        TarotReader(name: "Jane Smith", photo: "face1", readingsCount: 30, isOnline: true, rating: 5),
-        TarotReader(name: "Jane Smith", photo: "face1", readingsCount: 30, isOnline: false, rating: 5),
+        TarotReader(name: "Queen of spades", photo: "face3", readingsCount: 53, isOnline: true, rating: 4),
+        TarotReader(name: "Taroat Reader", photo: "face2", readingsCount: 230, isOnline: false, rating: 3),
+        TarotReader(name: "Jane Smith", photo: "face1", readingsCount: 340, isOnline: true, rating: 5)
     ]
 
     init() {
