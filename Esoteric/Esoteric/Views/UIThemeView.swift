@@ -8,6 +8,25 @@
 import Foundation
 import SwiftUI
 
+struct H1TitleView: View {
+    let textColor: Color
+    let text: String
+    var alignment: TextAlignment
+
+    init(textColor: Color = .textColor, text: String, alignment: TextAlignment = .center) {
+        self.text = text
+        self.textColor = textColor
+        self.alignment = alignment
+    }
+
+    var body: some View {
+        Text(text)
+            .multilineTextAlignment(alignment)
+            .font(.custom("ElMessiri-Regular", size: 48))
+            .foregroundColor(textColor)
+    }
+}
+
 struct ArticleView: View {
     let textColor: Color
     let text: String
@@ -22,7 +41,7 @@ struct ArticleView: View {
     var body: some View {
         Text(text)
             .multilineTextAlignment(alignment)
-            .font(.custom("ElMessiri-Regular", size: 18))
+            //.font(.custom("ElMessiri-Regular", size: 18))
             .foregroundColor(textColor)
     }
 }

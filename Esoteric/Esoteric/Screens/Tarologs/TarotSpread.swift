@@ -36,18 +36,16 @@ struct TarotSpread: View {
 
     var body: some View {
         ZStack {
-            BackGroundView()
-            VStack {
+            TarotReaderSpreadBackGroundView()
+            VStack(alignment: .leading, spacing: 20) {
                 if !isQuestionSent {
-                    Text("Какой вопрос вы хотите задать тарологу?")
-                        .font(.custom("ElMessiri-Bold", size: 25))
-                        .foregroundColor(.white)
-                        .padding()
-
-                    TextField("Ваш вопрос", text: $questionText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(width: UIScreen.main.bounds.width - 42)
-                        .padding()
+                    SectionTitleView(textColor: .accentColor, text: "Какой вопрос вы хотите задать тарологу?", alignment: .leading)
+                    ArticleView(text: "Запросить расклад прямо сейчас!", alignment: .leading).opacity(0.6)
+                    
+                    TextField("Ваш вопрос", text: $questionText, axis: .vertical)
+                        .textFieldStyle(.roundedBorder)
+                    
+                    
 
                     Button(action: {
                         withAnimation {
@@ -58,6 +56,7 @@ struct TarotSpread: View {
                     }) {
                         Text("Отправить вопрос")
                     }.DefButtonStyle()
+                    
                 } else {
                     VStack {
                         Text("Когда таролог ответит, мы пришлем вам уведомление")
@@ -71,7 +70,7 @@ struct TarotSpread: View {
 
                     }
                 }
-            }
+            }.padding(40)
         }
     }
 }

@@ -11,8 +11,31 @@ struct BackGroundView: View {
     var body: some View 
     {
         ZStack {
-            Image("BGimg").resizable().aspectRatio(contentMode: .fill)
+            Image("BGimg")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
+        }
+    }
+}
+
+struct TarotReaderSpreadBackGroundView: View {
+    var body: some View
+    {
+        ZStack {
+            Image("BGimg_tarotReaderSpread")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+        }
+    }
+}
+
+struct TarotReaderBackGroundView: View {
+    var body: some View
+    {
+        ZStack {
+            Color(uiColor: UIColor(hex: "181818")!)
             VStack(content: {
                 HStack(content: {
                     Image("TL")

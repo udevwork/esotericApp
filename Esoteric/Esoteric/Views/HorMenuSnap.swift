@@ -124,11 +124,16 @@ struct HorMenuSnap: View {
             
             ForEach(onboardData.cards) { card in
                 HorMenuSnapCardView(card: card) {
-                    if activePageIndex == 0 {
-                        Text("0")
-                    } else {
-                        Text("1")
+                    
+                    switch activePageIndex {
+                        case 0 : CardsTableView(model: CardsTableViewModel(cardsNum: 1))
+                        case 1 : Tarologs()
+                        case 2 : CardsTableView(model: CardsTableViewModel(cardsNum: 1))
+                        case 3 : CardsTableView(model: CardsTableViewModel(cardsNum: 3))
+                        case 4 : CardsTableView(model: CardsTableViewModel(cardsNum: 5))
+                        default: Text("Easter egg")
                     }
+                 
                 }
                 .frame(width: tileWidth, height: tileHeight)
                 .scaleEffect(scale(for: card))

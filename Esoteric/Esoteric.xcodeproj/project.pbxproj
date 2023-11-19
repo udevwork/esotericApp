@@ -48,6 +48,8 @@
 		927A94752AF569EF007889A4 /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94742AF569EF007889A4 /* CardsTableView.swift */; };
 		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
 		927CC2302AFEBA2900A77B20 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = 927CC22F2AFEBA2900A77B20 /* Shiny */; };
+		92E414D92B0A5776000393EF /* FortuneTeller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E414D82B0A5776000393EF /* FortuneTeller.swift */; };
+		92E414DB2B0AA9C4000393EF /* TextFieldCustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E414DA2B0AA9C4000393EF /* TextFieldCustomStyle.swift */; };
 		92F8BB602B052C4200DF3ADA /* AmazingCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8BB5F2B052C4200DF3ADA /* AmazingCardTest.swift */; };
 		92FBD3D12B07F06400BD1446 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 92FBD3D02B07F06400BD1446 /* SwiftDate */; };
 		FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA792AFF83DF0096D081 /* Tarologs.swift */; };
@@ -87,6 +89,8 @@
 		927A94722AF56236007889A4 /* GPTService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		927A94742AF569EF007889A4 /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
 		927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLayouts.swift; sourceTree = "<group>"; };
+		92E414D82B0A5776000393EF /* FortuneTeller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneTeller.swift; sourceTree = "<group>"; };
+		92E414DA2B0AA9C4000393EF /* TextFieldCustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomStyle.swift; sourceTree = "<group>"; };
 		92F8BB5F2B052C4200DF3ADA /* AmazingCardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingCardTest.swift; sourceTree = "<group>"; };
 		FA27DA792AFF83DF0096D081 /* Tarologs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarologs.swift; sourceTree = "<group>"; };
 		FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotSpread.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 			children = (
 				927A944A2AF52F43007889A4 /* User.swift */,
 				926D74FA2AFD413400F9CF88 /* TarotDB.swift */,
+				92E414D82B0A5776000393EF /* FortuneTeller.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				927A94502AF52F43007889A4 /* ScreenContentView.swift */,
 				927A946D2AF540FC007889A4 /* CardsSample.swift */,
 				FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */,
+				92E414DA2B0AA9C4000393EF /* TextFieldCustomStyle.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				92F8BB602B052C4200DF3ADA /* AmazingCardTest.swift in Sources */,
 				927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */,
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,
+				92E414DB2B0AA9C4000393EF /* TextFieldCustomStyle.swift in Sources */,
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
 				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
@@ -366,6 +373,7 @@
 				FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */,
 				927A94122AF52857007889A4 /* EsotericApp.swift in Sources */,
 				FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */,
+				92E414D92B0A5776000393EF /* FortuneTeller.swift in Sources */,
 				927A945F2AF52F43007889A4 /* LaunchScreenView.swift in Sources */,
 				927A945B2AF52F43007889A4 /* ConditionsTermsView.swift in Sources */,
 				927A945A2AF52F43007889A4 /* Helpers.swift in Sources */,

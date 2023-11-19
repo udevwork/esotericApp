@@ -40,13 +40,16 @@ struct HomeView: View {
                 ScrollView(.vertical, showsIndicators: false) {
               
                     Image("home_header_logo").resizable().frame(width: 120, height: 60)
-                    VStack (alignment: .leading, spacing: 20) {
-                        VStack(spacing: -10) {
-                            
-                            SectionTitleView(text: "Tarot", alignment: .center)
-                            ArticleView(text: "Вселенная у вас в кармане", alignment: .leading).opacity(0.6)
-                            
-                        }.offset(y: -15)
+                    VStack (alignment: .leading, spacing: 40) {
+                        
+                        HStack {
+                            Spacer()
+                            VStack(spacing: -10) {
+                                H1TitleView(textColor: .accentColor,text: "Tarot", alignment: .center)
+                                ArticleView(text: "Вселенная у вас в кармане", alignment: .leading).opacity(0.6)
+                            }.offset(y: -15)
+                            Spacer()
+                        }
                         
                         HorMenuSnap()
                         
@@ -58,27 +61,7 @@ struct HomeView: View {
                                             .padding(.horizontal, horPadding)
                                         ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                     }
-                                    
-                                    
-                                     NavigationLink {
-                                        CardsTableView(model: CardsTableViewModel(cardsNum: 1))
-                                    } label: {
-                                        Text("Гадание по одной карте")
-                                    }.DefButtonStyle()
-                                        .padding(.horizontal, horPadding)
-                                    
-                                    NavigationLink {
-                                        CardsTableView(model: CardsTableViewModel(cardsNum: 3))
-                                    } label: {
-                                        Text("Гадать на 3х картах")
-                                    }.DefButtonStyle()
-                                        .padding(.horizontal, horPadding)
-                                    NavigationLink {
-                                        CardsTableView(model: CardsTableViewModel(cardsNum: 5))
-                                    } label: {
-                                        Text("Открыть 5 карт")
-                                    }.DefButtonStyle()
-                                        .padding(.horizontal, horPadding)
+                                 
                                     Button {
                                         showingSheet.toggle()
                                     } label: {
