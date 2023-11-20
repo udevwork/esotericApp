@@ -21,6 +21,7 @@ class GPTService {
         case networkError
         case serverError
         case parsingError
+        case error(String)
     }
 
     // Пример использования:
@@ -39,8 +40,8 @@ class GPTService {
                 }
                 completion(.success(content))
                 return
-            } catch {
-                completion(.failure(GPTErrorType.parsingError))
+            } catch let err {
+                completion(.failure(GPTErrorType.error(err.localizedDescription) ))
                 return
             }
         }
