@@ -26,7 +26,7 @@ struct EsotericApp: App {
         WindowGroup {
             ZStack {
                 if model.isLoadingComplete, model.needToPresentOnboarding == false {
-                    if !model.needToPresentTarotSpread {
+                    if model.needToPresentTarotSpread {
                         NavigationStack {
                             TarotSpreadReady(model: CardsTableViewModel(cardsNum: 3))
                         }.transition(.opacity)
