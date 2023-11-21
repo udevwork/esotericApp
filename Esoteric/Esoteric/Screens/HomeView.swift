@@ -18,9 +18,7 @@ class HomeModel: ObservableObject {
         User.shared.$isProUser.sink {_ in
             self.objectWillChange.send()
         }.store(in: &subscriptions)
-        gpt.test(promt: "Придумай мне гороскоп на день. Пара предложений.") { result in
-            print(result)
-        }
+        
     }
 }
 

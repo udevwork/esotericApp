@@ -43,7 +43,6 @@
 		927A94682AF53CE9007889A4 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927A94672AF53CE9007889A4 /* GoogleService-Info-Debug.plist */; };
 		927A946A2AF53D42007889A4 /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927A94692AF53D42007889A4 /* GoogleService-Info-Release.plist */; };
 		927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A946D2AF540FC007889A4 /* CardsSample.swift */; };
-		927A94712AF5621E007889A4 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 927A94702AF5621E007889A4 /* OpenAI */; };
 		927A94732AF56236007889A4 /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94722AF56236007889A4 /* GPTService.swift */; };
 		927A94752AF569EF007889A4 /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94742AF569EF007889A4 /* CardsTableView.swift */; };
 		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
@@ -104,7 +103,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				927A943C2AF52BA1007889A4 /* FirebaseAnalyticsSwift in Frameworks */,
-				927A94712AF5621E007889A4 /* OpenAI in Frameworks */,
 				927A943E2AF52BA1007889A4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				920955532AF7C17C00BEA64D /* FLAnimatedImage in Frameworks */,
 				92FBD3D12B07F06400BD1446 /* SwiftDate in Frameworks */,
@@ -281,7 +279,6 @@
 				927A94442AF52E50007889A4 /* RevenueCat */,
 				927A94462AF52E50007889A4 /* RevenueCatUI */,
 				927A94652AF53499007889A4 /* FirebaseRemoteConfig */,
-				927A94702AF5621E007889A4 /* OpenAI */,
 				920955522AF7C17C00BEA64D /* FLAnimatedImage */,
 				927CC22F2AFEBA2900A77B20 /* Shiny */,
 				92FBD3D02B07F06400BD1446 /* SwiftDate */,
@@ -318,7 +315,6 @@
 				927A941F2AF5297B007889A4 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				927A94362AF52BA1007889A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				927A94412AF52E50007889A4 /* XCRemoteSwiftPackageReference "purchases-ios" */,
-				927A946F2AF5621E007889A4 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				920955512AF7C17C00BEA64D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
 				927CC22E2AFEBA2900A77B20 /* XCRemoteSwiftPackageReference "shiny" */,
 				92FBD3CF2B07F06400BD1446 /* XCRemoteSwiftPackageReference "SwiftDate" */,
@@ -627,14 +623,6 @@
 				minimumVersion = 4.30.2;
 			};
 		};
-		927A946F2AF5621E007889A4 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.4;
-			};
-		};
 		927CC22E2AFEBA2900A77B20 /* XCRemoteSwiftPackageReference "shiny" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maustinstar/shiny.git";
@@ -708,11 +696,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 927A94362AF52BA1007889A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
-		};
-		927A94702AF5621E007889A4 /* OpenAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 927A946F2AF5621E007889A4 /* XCRemoteSwiftPackageReference "OpenAI" */;
-			productName = OpenAI;
 		};
 		927CC22F2AFEBA2900A77B20 /* Shiny */ = {
 			isa = XCSwiftPackageProductDependency;
