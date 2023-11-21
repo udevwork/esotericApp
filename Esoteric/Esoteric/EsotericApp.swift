@@ -26,10 +26,16 @@ struct EsotericApp: App {
         WindowGroup {
             ZStack {
                 if model.isLoadingComplete, model.needToPresentOnboarding == false {
-                    NavigationStack {
-                        HomeView()
-                            .environmentObject(model)
-                    }.transition(.opacity)
+                    if !model.needToPresentTarotSpread {
+                        NavigationStack {
+                            TarotSpreadReady(model: CardsTableViewModel(cardsNum: 3))
+                        }.transition(.opacity)
+                    } else {
+                        NavigationStack {
+                            HomeView()
+                                .environmentObject(model)
+                        }.transition(.opacity)
+                    }
                 }
 
                 if model.isLoadingComplete,  model.needToPresentOnboarding {
@@ -58,7 +64,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
         var firebasePlistFileName = ""
         #if DEBUG
         firebasePlistFileName = "GoogleService-Info-Debug"
@@ -80,22 +85,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        checkApplicationState(application.applicationState)
-    }
+//    func applicationDidBecomeActive(_ application: UIApplication) {
+//        checkApplicationState(application.applicationState)
+//    }
 
-    func checkApplicationState(_ applicationState: UIApplication.State) {
-        switch applicationState {
-        case .background:
-            break
-        case .inactive:
-            break
-        case .active:
-            UIApplication.shared.applicationIconBadgeNumber = 0
-        @unknown default:
-            break
-        }
-    }
+//    func checkApplicationState(_ applicationState: UIApplication.State) {
+//        switch applicationState {
+//        case .background:
+//            break
+//        case .inactive:
+//            break
+//        case .active:
+//            UIApplication.shared.applicationIconBadgeNumber = 0
+//        @unknown default:
+//            break
+//        }
+//    }
 }
 
 class MainViewModel: ObservableObject {
@@ -107,7 +112,9 @@ class MainViewModel: ObservableObject {
     @Published var isLoadingComplete: Bool = false
     @Published var needToPresentOnboarding = false
     @Published var screenTransitionAnimation = false
-    
+    @Published var needToPresentTarotSpread = false
+    let storageService = LocalStorageService.shared
+
     init() {
         Task {
             try await startFetching()
@@ -158,12 +165,19 @@ class MainViewModel: ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
                 self.isLoadingComplete = true
                 self.checkIfNeedToShowOnboarding()
+                self.checkIfNeedToShowSpread()
                 self.screenTransitionAnimation.toggle()
             })
             
         }
     }
-    
+
+    func checkIfNeedToShowSpread() {
+        let currentTimeInterval = Date().timeIntervalSince1970
+        let dataDiff = (storageService.loadQuestion(key: SavingKeys.question.rawValue)?.time ?? 0) - currentTimeInterval
+        needToPresentTarotSpread = dataDiff == NotificationIntervals.fiveSec.rawValue
+    }
+
     func checkIfNeedToShowOnboarding(){
         let OnboardingWasShowed = UserDefaults.standard.bool(forKey: "OnboardingWasShowed")
         if OnboardingWasShowed == false {

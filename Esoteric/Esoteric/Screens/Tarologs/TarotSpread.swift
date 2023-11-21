@@ -33,6 +33,7 @@ struct TarotSpread: View {
     @State private var questionText: String = ""
     @State private var isQuestionSent: Bool = false
     let notificationCenter = UserNotifications.shared
+    let storageService = LocalStorageService.shared
 
     var body: some View {
         ZStack {
@@ -44,15 +45,14 @@ struct TarotSpread: View {
                     
                     TextField("Ваш вопрос", text: $questionText, axis: .vertical)
                         .textFieldStyle(.roundedBorder)
-                    
-                    
-
                     Button(action: {
                         withAnimation {
                             isQuestionSent = true
                         }
                         notificationCenter.requestNotifications()
                         notificationCenter.sendTarotSpreadNotification(afterTime: .fiveSec)
+                        let currentTimeInterval = Date().timeIntervalSince1970
+                        storageService.saveQuestion(text: TarotModel(userQuestion: questionText, answer: "1", time: currentTimeInterval), key: SavingKeys.question.rawValue)
                     }) {
                         Text("Отправить вопрос")
                     }.DefButtonStyle()
