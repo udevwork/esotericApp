@@ -113,7 +113,7 @@ class MainViewModel: ObservableObject {
     @Published var needToPresentOnboarding = false
     @Published var screenTransitionAnimation = false
     @Published var needToPresentTarotSpread = false
-    let storageService = LocalStorageService.shared
+    let storageService = StorageService.shared
 
     init() {
         Task {

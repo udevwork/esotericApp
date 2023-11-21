@@ -33,7 +33,7 @@ struct TarotSpread: View {
     @State private var questionText: String = ""
     @State private var isQuestionSent: Bool = false
     let notificationCenter = UserNotifications.shared
-    let storageService = LocalStorageService.shared
+    let storageService = StorageService.shared
 
     var body: some View {
         ZStack {

@@ -12,7 +12,7 @@ struct TarotSpreadReady: View {
     @StateObject var model: CardsTableViewModel
     @State var isSelected = false
 
-    var storageService = LocalStorageService.shared
+    var storageService = StorageService.shared
 
     init(model: CardsTableViewModel) {
         self._model = StateObject(wrappedValue: model)
