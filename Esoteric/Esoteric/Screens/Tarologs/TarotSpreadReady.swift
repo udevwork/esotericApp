@@ -12,6 +12,8 @@ struct TarotSpreadReady: View {
     @StateObject var model: CardsTableViewModel
     @State var isSelected = false
 
+    var storageService = StorageService.shared
+
     init(model: CardsTableViewModel) {
         self._model = StateObject(wrappedValue: model)
         model.addRandomCards()
@@ -36,7 +38,9 @@ struct TarotSpreadReady: View {
                     }) as! [Tarot]), id: \.id) { card in
                         ShineTitleView(text: card.name)
                     }
-                    ArticleView(text: model.text)
+
+                    let answer = storageService.loadQuestion(key: SavingKeys.question.rawValue)
+                    ArticleView(text: answer?.answer ?? "")
                         .onAppear(perform: {
                             model.getTaroInfo()
                         })
