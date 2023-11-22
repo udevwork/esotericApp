@@ -174,8 +174,11 @@ class MainViewModel: ObservableObject {
 
     func checkIfNeedToShowSpread() {
         let currentTimeInterval = Date().timeIntervalSince1970
-        let dataDiff = (storageService.loadQuestion(key: SavingKeys.question.rawValue)?.time ?? 0) - currentTimeInterval
-        needToPresentTarotSpread = dataDiff == NotificationIntervals.fiveSec.rawValue
+        let storageTime = storageService.loadQuestion(key: SavingKeys.question.rawValue)?.time
+        let dataDiff = currentTimeInterval - (storageTime ?? 0)
+        guard let storageTime else { return }
+        needToPresentTarotSpread = dataDiff >= NotificationIntervals.fiveSec.rawValue
+        storageService.clearSavedData()
     }
 
     func checkIfNeedToShowOnboarding(){
