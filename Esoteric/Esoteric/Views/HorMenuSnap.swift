@@ -39,11 +39,7 @@ class HorMenuSnapData: ObservableObject {
             
             HorMenuSnapCard(title: "Три Карты",
                             subTitle: "Точный прогноз для вашего запроса!",
-                            image: "3_cards_art"),
-            
-            HorMenuSnapCard(title: "Пять Карт",
-                            subTitle: "Глубокий анализ ваших вопросов для вселенной!",
-                            image: "5_cards_art")
+                            image: "3_cards_art")
         ]
     }
 }
@@ -130,7 +126,6 @@ struct HorMenuSnap: View {
                         case 1 : Tarologs()
                         case 2 : CardsTableView(model: CardsTableViewModel(cardsNum: 1))
                         case 3 : CardsTableView(model: CardsTableViewModel(cardsNum: 3))
-                        case 4 : CardsTableView(model: CardsTableViewModel(cardsNum: 5))
                         default: Text("Easter egg")
                     }
                  

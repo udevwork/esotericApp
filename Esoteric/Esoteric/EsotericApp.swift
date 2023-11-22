@@ -1,7 +1,3 @@
-
-
-
-
 //
 //  APP.swift
 //  esotericApp

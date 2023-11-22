@@ -7,8 +7,20 @@
 
 import SwiftUI
 
+struct TaroDeckBackGroundView: View {
+    var body: some View
+    {
+        ZStack {
+            Image("BGimg_TaroDeck")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+        }
+    }
+}
+
 struct BackGroundView: View {
-    var body: some View 
+    var body: some View
     {
         ZStack {
             Image("BGimg")

@@ -11,17 +11,12 @@ import SwiftUI
 struct CardFlipHero: View {
     @Binding var isSelected: Bool
     var text : String
-    
-    var body : some View {
 
-  
-        
+    var body : some View {
         return FlipView(
                 front: AmazingCardBack(text: text),
                 back: CardBack(text: "card-backward"),
                 showBack: $isSelected)
-         
-        
     }
 }
 
@@ -31,14 +26,17 @@ struct FlipView<FrontView: View, BackView: View>: View {
       let front: FrontView
       let back: BackView
 
+  
       @Binding var showBack: Bool
 
       var body: some View {
           ZStack() {
                 front
+                  .frame(width: screenWidthPart(2.5), height: screenPart(3))
                   .modifier(FlipOpacity(percentage: showBack ? 1 : 0))
                   .rotation3DEffect(Angle.degrees(showBack ? 180 : 360), axis: (0,1,0))
                 back
+                  .frame(width: screenWidthPart(2.5), height: screenPart(3))
                   .modifier(FlipOpacity(percentage: showBack ? 0 : 1))
                   .rotation3DEffect(Angle.degrees(showBack ? 0 : 180), axis: (0,1,0))
           }
@@ -61,22 +59,8 @@ private struct FlipOpacity: AnimatableModifier {
    }
    
    func body(content: Content) -> some View {
-      content
-           .opacity(Double(percentage.rounded()))
+      content.opacity(Double(percentage.rounded()))
    }
-}
-
-struct CardFace : View {
-    var text : String
-    var colorBg: Color
-
-    var body: some View {
-          Text(text)
-                .multilineTextAlignment(.center)
-                .padding(5)
-                .frame(width: 220, height: 320)
-                .background(colorBg, in: RoundedRectangle(cornerRadius: 20))
-    }
 }
 
 
@@ -87,10 +71,10 @@ struct CardBack: View {
             Image(text)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 
         }
-        .frame(width: 220, height: 320)
+       
         .background(.orange, in: RoundedRectangle(cornerRadius: 20))
 
     }

@@ -13,6 +13,9 @@
 		9209555C2AF7E46200BEA64D /* ElMessiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */; };
 		9209555D2AF7E46200BEA64D /* ElMessiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */; };
 		9209555E2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */; };
+		922B0CFF2B0D26E200FF7241 /* ChooseYourCardArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0CFE2B0D26E200FF7241 /* ChooseYourCardArtView.swift */; };
+		922B0D012B0D457500FF7241 /* StupidHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */; };
+		922B0D6E2B0E55B500FF7241 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */; };
 		92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */; };
 		926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D74FA2AFD413400F9CF88 /* TarotDB.swift */; };
 		927A94122AF52857007889A4 /* EsotericApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94112AF52857007889A4 /* EsotericApp.swift */; };
@@ -63,6 +66,9 @@
 		920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Regular.ttf"; sourceTree = "<group>"; };
 		920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Bold.ttf"; sourceTree = "<group>"; };
 		9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-SemiBold.ttf"; sourceTree = "<group>"; };
+		922B0CFE2B0D26E200FF7241 /* ChooseYourCardArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseYourCardArtView.swift; sourceTree = "<group>"; };
+		922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StupidHeightHelper.swift; sourceTree = "<group>"; };
+		922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		92689F2D2AFBE80E0035590A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorMenuSnap.swift; sourceTree = "<group>"; };
 		926D74FA2AFD413400F9CF88 /* TarotDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotDB.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 				920955542AF7C31900BEA64D /* BackGroundView.swift */,
 				92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */,
 				927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */,
+				922B0CFE2B0D26E200FF7241 /* ChooseYourCardArtView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +237,8 @@
 				927A946D2AF540FC007889A4 /* CardsSample.swift */,
 				FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */,
 				92E414DA2B0AA9C4000393EF /* TextFieldCustomStyle.swift */,
+				922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */,
+				922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -358,10 +367,12 @@
 				927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */,
 				FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */,
 				927A945D2AF52F43007889A4 /* ScreenContentView.swift in Sources */,
+				922B0D012B0D457500FF7241 /* StupidHeightHelper.swift in Sources */,
 				92F8BB602B052C4200DF3ADA /* AmazingCardTest.swift in Sources */,
 				927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */,
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,
 				92E414DB2B0AA9C4000393EF /* TextFieldCustomStyle.swift in Sources */,
+				922B0D6E2B0E55B500FF7241 /* LoadingIndicator.swift in Sources */,
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
 				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
@@ -373,6 +384,7 @@
 				927A945F2AF52F43007889A4 /* LaunchScreenView.swift in Sources */,
 				927A945B2AF52F43007889A4 /* ConditionsTermsView.swift in Sources */,
 				927A945A2AF52F43007889A4 /* Helpers.swift in Sources */,
+				922B0CFF2B0D26E200FF7241 /* ChooseYourCardArtView.swift in Sources */,
 				927A94582AF52F43007889A4 /* User.swift in Sources */,
 				92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */,
 				927A94622AF52F43007889A4 /* UIThemeView.swift in Sources */,

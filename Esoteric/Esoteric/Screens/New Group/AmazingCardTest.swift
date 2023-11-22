@@ -34,7 +34,11 @@ struct AmazingCardTest: View {
 
 
 struct AmazingCardBack: View {
+    
     @StateObject var manager = MotionManager()
+    let tileWidth: CGFloat = screenWidthPart(2.5)
+    let tileHeight: CGFloat = screenPart(3)
+    
     var text : String
     var body: some View {
 
@@ -59,8 +63,9 @@ struct AmazingCardBack: View {
                             .aspectRatio(contentMode: .fill)
                         
                         Rectangle()
-                            .frame(width: 220, height: 372)
+                            
                             .shiny(fuck(.black))
+                            .frame(width: tileWidth, height: tileHeight)
                     }
                     
                     .mask {
@@ -69,14 +74,13 @@ struct AmazingCardBack: View {
                                 .resizable()
                         }
                     }
-                    
-                    
-                    
+        
+            
                 }
             }
-            .frame(width: 220, height: 372)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-        
+            .frame(width: tileWidth, height: tileHeight)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+           
         
     }
 }
