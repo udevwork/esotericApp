@@ -15,6 +15,8 @@ class CardsTableViewModel: ObservableObject {
     @Published var selectedCard: Tarot? = nil
     @Published var cards: [Tarot] = []
     @Published var isSelected = false
+    @Published var activePageIndex: Int = 0
+
 
     var cardsNum: Int
     var selectedCardsNumber: Int = 0
@@ -40,7 +42,12 @@ class CardsTableViewModel: ObservableObject {
             return
         }
         selectedCards[selectedCardsNumber] = card
+        withAnimation {
+            activePageIndex = selectedCardsNumber
+        }
+       
         selectedCardsNumber += 1
+      
         if selectedCardsNumber == cardsNum {
         }
     }
@@ -110,7 +117,6 @@ class CardsTableViewModel: ObservableObject {
 struct CardsTableView: View {
     
     @StateObject var model: CardsTableViewModel
-    @State public var activePageIndex: Int = 0
     
     var body: some View {
         ZStack {
@@ -128,7 +134,7 @@ struct CardsTableView: View {
                 Spacer()
                 ZStack {
                    
-                    PagingScrollView(activePageIndex  : $activePageIndex,
+                    PagingScrollView(activePageIndex  : $model.activePageIndex,
                                      tileWidth        : model.tileWidth,
                                      tilePadding      : model.tilePadding) {
                         
@@ -189,8 +195,7 @@ struct CardsTableView: View {
         .sheet(isPresented: $model.showModalView, content: {
             ScrollView(.vertical, content: {
                 VStack(alignment: .center) {
-                    
-                    
+                                        
                     ForEach((model.selectedCards.map({ (key: Int, value: Tarot?) in
                         return value
                     }) as! [Tarot]), id: \.id) { card in
