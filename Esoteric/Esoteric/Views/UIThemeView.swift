@@ -41,6 +41,7 @@ struct ArticleView: View {
     var body: some View {
         Text(text)
             .multilineTextAlignment(alignment)
+            .font(.system(size: 19))
             //.font(.custom("ElMessiri-Regular", size: 18))
             .foregroundColor(textColor)
     }

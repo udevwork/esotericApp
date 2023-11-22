@@ -10,14 +10,23 @@ import SwiftUI
 class CardsTableViewModel: ObservableObject {
 
     var gpt = GPTService()
-    @Published var text: String = "Туман рассеивается..."
+    @Published var text: String = ""
+    @Published var isGPTloading: Bool = false
     @Published var selectedCard: Tarot? = nil
     @Published var cards: [Tarot] = []
+    @Published var isSelected = false
 
     var cardsNum: Int
     var selectedCardsNumber: Int = 0
     var selectedCards: [Int: Tarot?] = [:]
 
+    let onboardData = HorMenuSnapData()
+    let tilePadding: CGFloat = 45
+    let tileWidth: CGFloat = screenWidthPart(2.5)
+    let tileHeight: CGFloat = screenPart(3)
+    
+    @Published var showModalView = false
+    
     init(cardsNum: Int) {
         self.cardsNum = cardsNum
         for index in 1...cardsNum {
@@ -37,6 +46,10 @@ class CardsTableViewModel: ObservableObject {
     }
 
     func getTaroInfo() {
+        if text.isEmpty == false {
+            showModalView = true
+            return
+        }
         var names: String = ""
         selectedCards.forEach { (key: Int, value: Tarot?) in
             names.append("\(value!.name),")
@@ -50,6 +63,8 @@ class CardsTableViewModel: ObservableObject {
         } else {
             promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
         }
+          //  text = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+        isGPTloading = true
         gpt.test(promt: promt) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -58,6 +73,8 @@ class CardsTableViewModel: ObservableObject {
                         self?.text = "Туман не рассеялся"
                     } else {
                         self?.text = content
+                        self?.isGPTloading = false
+                        self?.showModalView = true
                     }
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
@@ -91,122 +108,130 @@ class CardsTableViewModel: ObservableObject {
 }
 
 struct CardsTableView: View {
-
+    
     @StateObject var model: CardsTableViewModel
-    @State var isSelected = false
-    @State var showModalView = false
-
+    @State public var activePageIndex: Int = 0
+    
     var body: some View {
-
-
         ZStack {
-            BackGroundView()
-            VStack(spacing: 20) {
-
+            TaroDeckBackGroundView()
+            VStack(spacing: 0) {
                 Spacer()
-
-                if model.cardsNum == 1 {
-                    OneCardsLayouts(model: model, isSelected: $isSelected)
-                }
-                if model.cardsNum == 5 {
-                    FiveCardsLayouts(model: model, isSelected: $isSelected)
-                }
-                if model.cardsNum == 3 {
-                    ThreeCardsLayouts(model: model, isSelected: $isSelected)
-                }
-
-                Spacer().onChange(of: isSelected) { newValue in
-                    print("Name changed to \(isSelected)!")
-                    withAnimation {
-                      
-                            showModalView = isSelected
-                      
-                    }
-                }
-
                 HStack {
-                    Image("r_arrow").scaleEffect(1.4).offset(x: -10.0, y: 5.0)
-                    Text("Выберите карту")
-                        .lineLimit(1)
-                        .frame(width: 150)
-                        .font(.custom("ElMessiri-Bold", size: 18))
-                    Image("l_arrow").scaleEffect(1.4).offset(x: 10.0, y: 5.0)
-                }.padding(.horizontal)
-
-                if isSelected == false {
-                    ScrollView(.horizontal) {
-                        HStack(spacing: -20) {
-                            ForEach(model.cards, id: \.id) { card in
-                                if card != model.selectedCard {
-                                    FakeCardView(text: "card-backward")
-                                        .onTapGesture {
-                                            model.select(card: card)
-                                            withAnimation {
-                                                model.selectedCard = card
-                                            }
-                                        }
-                                }
-                            }
-                        }.frame(height: 230)
-                    }.scrollIndicators(.hidden)
-                        .frame(height: 150)
-                        
+                    
+                    VStack(spacing: -10) {
+                        H1TitleView(textColor: .accentColor,text: "Карта дня", alignment: .center)
+                        ArticleView(text: "Запрос во вселенную", alignment: .leading).opacity(0.6)
+                    }
+                    
                 }
+                Spacer()
+                ZStack {
+                   
+                    PagingScrollView(activePageIndex  : $activePageIndex,
+                                     tileWidth        : model.tileWidth,
+                                     tilePadding      : model.tilePadding) {
+                        
+                        ForEach(model.selectedCards.map({
+                            return $1!
+                        })) { card in
+    
+                    
+                            CardFlipHero(isSelected: $model.isSelected,
+                                             text: "card\(card.number )")
+                            
+                                .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
+                        }
+                        
+                    }
+                    
+                } .frame(height: model.tileHeight)
+                    .offset(y:-20)
+                
+                
+                if model.isSelected == false {
+                    VStack() {
+                        ChooseYourCardArtView()
+                        
+                        ScrollView(.horizontal) {
+                            HStack(spacing: -20) {
+                                ForEach(model.cards, id: \.id) { card in
+                                    if card != model.selectedCard {
+                                        FakeCardView()
+                                            .onTapGesture {
+                                                model.select(card: card)
+                                                withAnimation {
+                                                    model.selectedCard = card
+                                                }
+                                            }
+                                    }
+                                }
+                            }.frame(height: screenPart(4.2))
+                        }.frame(height: screenPart(7.2)).scrollIndicators(.hidden)
+                        SwipeCardsCardArtView()
+                    }
+                } else {
+                    ZStack{
+                        Button(action: {
+                            model.getTaroInfo()
+                        }, label: {
+                            Text("Открыть предсказание")
+                        }).DefButtonStyle()
+                    }.frame(height: screenPart(4))
+                }
+                Spacer()
             }
-
+            if model.isGPTloading {
+                LoadingIndicator().transition(.opacity)
+            }
         }
-        .sheet(isPresented: $showModalView, content: {
-            ScrollView(.vertical, content: {
-                VStack(alignment: .leading, content: {
-                    Image("art_delimiter2").resizable().aspectRatio(contentMode: .fill)
 
+        .sheet(isPresented: $model.showModalView, content: {
+            ScrollView(.vertical, content: {
+                VStack(alignment: .center) {
+                    
+                    
                     ForEach((model.selectedCards.map({ (key: Int, value: Tarot?) in
                         return value
                     }) as! [Tarot]), id: \.id) { card in
-                        ShineTitleView(text: card.name)
+                        ShineTitleView(text: card.name, alignment: .center)
                     }
+                    
+                    Image("art_delimiter2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 15)
+                        .offset(y:-10)
+                    
+                    
                     ArticleView(text: model.text)
-                        .onAppear(perform: {
-                            model.getTaroInfo()
-                        })
-                    if model.text == "Туман не рассеялся" {
-                        Image("kek")
-                    }
-                }).padding(30)
+                    
+                }.padding(.horizontal, 40).padding(.vertical, 50)
             })
             .presentationBackground(alignment: .bottom) {
-                Color.buttonDefColor.opacity(0.0).background(.ultraThinMaterial)
+                TarotReaderBackGroundView()
             }
-            .presentationCornerRadius(50)
-            .presentationDetents([.medium, .height(200)])
+            .presentationCornerRadius(5)
+            .presentationDetents([.medium, .large])
         })
     }
 }
 
 struct FakeCardView: View {
-
-    var text : String
     
     var body: some View {
-     
-        
         GeometryReader(content: { geo in
-            
-            Image(text)
-                
+            Image("card-backward")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-               
+                .aspectRatio(contentMode: .fit)
                 .background(.orange, in: RoundedRectangle(cornerRadius: 20))
-                .frame(width: 110, height: 160)
                 .rotation3DEffect(.degrees(self.rotationAngle(for: geo.frame(in: .global).midX)),
-                                                           axis: (x: 0, y: 1, z: -1))
+                                                           axis: (x: 0, y: 2, z: -1))
             
                 .offset(x: 0, y: self.offset(for: geo.frame(in: .global).midX))
 
-        }) .frame(width: 110, height: 160)
-        
+        }) .frame(width: 80, height: 110)
+            .shadow(color: .black.opacity(0.6), radius: 5, x: -20, y: 0)
     }
     
     func rotationAngle(for xPosition: CGFloat) -> Double {
@@ -227,6 +252,6 @@ struct FakeCardView: View {
 
 #Preview {
     NavigationStack {
-        CardsTableView(model: CardsTableViewModel(cardsNum: 1)).navigationTitle("lol")
+        CardsTableView(model: CardsTableViewModel(cardsNum: 3))
     }.preferredColorScheme(.dark)
 }
