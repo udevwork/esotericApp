@@ -70,5 +70,5 @@ struct ThreeCardsLayouts: View {
 
 
 #Preview {
-    OneCardsLayouts(model: CardsTableViewModel(cardsNum: 1), isSelected: .constant(false))
+    OneCardsLayouts(model: CardsTableViewModel(deckType: .OneCard), isSelected: .constant(false))
 }

@@ -9,6 +9,10 @@ import SwiftUI
 
 class CardsTableViewModel: ObservableObject {
 
+    enum DeckType {
+        case OneCard, ThreeCards, TarotReader
+    }
+    
     var gpt = GPTService()
     @Published var text: String = ""
     @Published var isGPTloading: Bool = false
@@ -29,14 +33,36 @@ class CardsTableViewModel: ObservableObject {
     
     @Published var showModalView = false
     
-    init(cardsNum: Int) {
-        self.cardsNum = cardsNum
-        for index in 1...cardsNum {
-            selectedCards[index] = nil
-        }
+    init(deckType: CardsTableViewModel.DeckType) {
         self.cards = tarotDB.shuffled()
+        switch deckType {
+      
+            case .OneCard:
+                self.cardsNum = 1
+                for index in 1...cardsNum {
+                    selectedCards[index] = nil
+                }
+            case .ThreeCards:
+                self.cardsNum = 3
+                for index in 1...cardsNum {
+                    selectedCards[index] = nil
+                }
+            case .TarotReader:
+                self.cardsNum = 3
+                for index in 1...cardsNum {
+                    selectedCards[index] = nil
+                }
+                select(card: self.cards.randomElement()!)
+                select(card: self.cards.randomElement()!)
+                select(card: self.cards.randomElement()!)
+                activePageIndex = 0
+                isSelected = true
+        }
+        
+        
+       
     }
-
+    
     func select(card: Tarot) {
         if selectedCardsNumber == cardsNum {
             return
@@ -65,11 +91,16 @@ class CardsTableViewModel: ObservableObject {
             return
         }
         var promt: String = ""
-        if cardsNum == 1 {
-            promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
-        } else {
-            promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
-        }
+        promt = """
+Я гадаю на картах таро. Мой запрос был "Стоит ли менять работу?".
+мне выпали \(names). Что эти карты вместе могут значить в рамках моего запроса?
+Ответь так, будто ты человек и пишешь неформальное письмо.
+"""
+//        if cardsNum == 1 {
+//            promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
+//        } else {
+//            promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+//        }
           //  text = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
         isGPTloading = true
         gpt.test(promt: promt) { [weak self] result in
@@ -257,6 +288,6 @@ struct FakeCardView: View {
 
 #Preview {
     NavigationStack {
-        CardsTableView(model: CardsTableViewModel(cardsNum: 3))
+        CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
     }.preferredColorScheme(.dark)
 }

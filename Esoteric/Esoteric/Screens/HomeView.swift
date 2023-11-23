@@ -59,7 +59,12 @@ struct HomeView: View {
                                             .padding(.horizontal, horPadding)
                                         ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                     }
-                                 
+                                    NavigationLink {
+                                        CardsTableView(model: CardsTableViewModel())
+                                    } label: {
+                                        Text("ОТкрыть")
+                                    }
+
                                     Button {
                                         showingSheet.toggle()
                                     } label: {
