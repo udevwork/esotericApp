@@ -82,9 +82,9 @@ struct HorMenuSnapCardView<Content>: View where Content: View {
                 }.padding(30)
             }.cornerRadius(25)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 25)
+                    RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.borderColor, lineWidth: 4))
-                .shadow(radius: 20)
+                
             
             VStack(alignment: .trailing, spacing: 0, content: {
                 HStack {

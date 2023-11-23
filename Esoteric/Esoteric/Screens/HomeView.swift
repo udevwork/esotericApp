@@ -37,13 +37,14 @@ struct HomeView: View {
             if animate == false {
                 ScrollView(.vertical, showsIndicators: false) {
               
-                    Image("home_header_logo").resizable().frame(width: 120, height: 60)
+                   
                     VStack (alignment: .leading, spacing: 40) {
                         
                         HStack {
                             Spacer()
                             VStack(spacing: -10) {
-                                H1TitleView(textColor: .accentColor,text: "Tarot", alignment: .center)
+                                Image("home_header_logo").resizable().frame(width: 120, height: 60)
+                                H1TitleView(textColor: .accentColor,text: "ESOTERICA", alignment: .center)
                                 ArticleView(text: "Вселенная у вас в кармане", alignment: .leading).opacity(0.6)
                             }.offset(y: -15)
                             Spacer()

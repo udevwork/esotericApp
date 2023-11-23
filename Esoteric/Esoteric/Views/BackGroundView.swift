@@ -10,7 +10,7 @@ import SwiftUI
 struct TaroDeckBackGroundView: View {
     var body: some View
     {
-        ZStack {
+        ZStack(alignment: .center) {
             Image("BGimg_TaroDeck")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
