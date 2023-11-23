@@ -65,6 +65,29 @@ struct TarotReaderBackGroundView: View {
     }
 }
 
+struct SubscriptionBackGroundView: View {
+    var body: some View
+    {
+        ZStack {
+            Image("subscription_bg_mid")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+            VStack {
+                Image("subscription_bg_top")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .ignoresSafeArea()
+                Spacer()
+                Image("subscription_bg_bottom")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .ignoresSafeArea()
+            }
+        }
+    }
+}
+
 #Preview {
-    BackGroundView()
+    SubscriptionBackGroundView()
 }
