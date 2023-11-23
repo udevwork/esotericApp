@@ -52,6 +52,44 @@ struct HomeView: View {
                         HorMenuSnap()
                         
                         if User.shared.isProUser == false {
+                            
+                            if let reader = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue) {
+                                ScreenContentView(color: .clear) {
+                                    VStack(alignment: .leading, spacing: 28) {
+                                        
+                                        if reader.time <= Date() {
+                                            VStack(alignment: .leading, spacing: 8) {
+                                                SectionTitleView(textColor: .white, text: "Расклад готов!!", alignment: .leading)
+                                                    .padding(.horizontal, horPadding)
+                                                ArticleView(textColor: .white, text: "Прочитайте его прямо сейчас!").padding(.horizontal, horPadding)
+                                            }
+                                            NavigationLink {
+                                                CardsTableView(model: CardsTableViewModel(deckType: .TarotReader))
+                                            } label: {
+                                                Text("Посмотреть расклад!")
+                                            }.DefButtonStyle()
+                                        } else {
+                                            VStack(alignment: .leading, spacing: 8) {
+                                                SectionTitleView(textColor: .white, text: "Расклад готовится", alignment: .leading)
+                                                    .padding(.horizontal, horPadding)
+                                                ArticleView(textColor: .white, text: "Вы получите уведомление когда таролог закончит расклад!").padding(.horizontal, horPadding)
+                                            }
+                                         
+                                        }
+                                       
+                                        
+                                        
+                                    }.background {
+                                        Image("esoteric")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .opacity(0.1)
+                                            .scaleEffect(0.9)
+                                            .offset(x:50, y: -40)
+                                    }
+                                }
+                            }
+                            
                             ScreenContentView(color: .clear) {
                                 VStack(alignment: .leading, spacing: 28) {
                                     VStack(alignment: .leading, spacing: 8) {
@@ -59,12 +97,19 @@ struct HomeView: View {
                                             .padding(.horizontal, horPadding)
                                         ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                     }
-                                    NavigationLink {
-                                        CardsTableView(model: CardsTableViewModel())
-                                    } label: {
-                                        Text("ОТкрыть")
+                                    
+                                    if let reader = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue) {
+                                        if reader.time <= Date() {
+                                            NavigationLink {
+                                                CardsTableView(model: CardsTableViewModel(deckType: .TarotReader))
+                                            } label: {
+                                                Text("Посмотреть расклад!")
+                                            }.DefButtonStyle()
+                                        } else {
+                                            ArticleView(text: "Ваш расклад скоро будет готов!", alignment: .leading)
+                                        }
                                     }
-
+                                    
                                     Button {
                                         showingSheet.toggle()
                                     } label: {

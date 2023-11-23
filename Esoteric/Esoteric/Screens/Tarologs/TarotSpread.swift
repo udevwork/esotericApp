@@ -50,19 +50,26 @@ struct TarotSpread: View {
                             isQuestionSent = true
                         }
                         notificationCenter.requestNotifications()
-                        notificationCenter.sendTarotSpreadNotification(afterTime: .fiveSec)
-                        let currentTimeInterval = Date().timeIntervalSince1970
-                        storageService.saveQuestion(text: TarotModel(userQuestion: questionText, answer: "1", time: currentTimeInterval), key: SavingKeys.question.rawValue)
+                        notificationCenter.sendTarotSpreadNotification(afterTime: .oneMin)
+                        let currentTimeInterval = Date().dateByAdding(1, .minute).date
+                        storageService.saveQuestion(text: TarotModel(userQuestion: questionText, answer: "1", time: currentTimeInterval),
+                                                    key: SavingKeys.question.rawValue)
                     }) {
                         Text("Отправить вопрос")
                     }.DefButtonStyle()
                     
                 } else {
+                    
                     VStack {
-                        Text("Когда таролог ответит, мы пришлем вам уведомление")
-                            .font(.custom("ElMessiri-Bold", size: 25))
-                            .foregroundColor(.white)
-                            .padding()
+                        HStack {
+                            Spacer()
+                            VStack(spacing: -10) {
+                                H1TitleView(textColor: .accentColor,text: "Запрос отправлен!", alignment: .center)
+                                ArticleView(text: "Когда таролог ответит, мы пришлем вам уведомление", alignment: .leading).opacity(0.6)
+                            }.offset(y: -15)
+                            Spacer()
+                        }
+                       
 
                         HStack {
                             TarotWaitingCardView()

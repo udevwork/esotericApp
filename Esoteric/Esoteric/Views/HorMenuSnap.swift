@@ -122,10 +122,10 @@ struct HorMenuSnap: View {
                 HorMenuSnapCardView(card: card) {
                     
                     switch activePageIndex {
-                        case 0 : CardsTableView(model: CardsTableViewModel(cardsNum: 1))
+                        case 0 : CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
                         case 1 : Tarologs()
-                        case 2 : CardsTableView(model: CardsTableViewModel(cardsNum: 1))
-                        case 3 : CardsTableView(model: CardsTableViewModel(cardsNum: 3))
+                        case 2 : CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
+                        case 3 : CardsTableView(model: CardsTableViewModel(deckType: .ThreeCards))
                         default: Text("Easter egg")
                     }
                  

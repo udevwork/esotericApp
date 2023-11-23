@@ -32,8 +32,10 @@ class CardsTableViewModel: ObservableObject {
     let tileHeight: CGFloat = screenPart(3)
     
     @Published var showModalView = false
+    let deckType: CardsTableViewModel.DeckType
     
     init(deckType: CardsTableViewModel.DeckType) {
+        self.deckType = deckType
         self.cards = tarotDB.shuffled()
         switch deckType {
       
@@ -91,17 +93,24 @@ class CardsTableViewModel: ObservableObject {
             return
         }
         var promt: String = ""
-        promt = """
-Я гадаю на картах таро. Мой запрос был "Стоит ли менять работу?".
-мне выпали \(names). Что эти карты вместе могут значить в рамках моего запроса?
-Ответь так, будто ты человек и пишешь неформальное письмо.
-"""
-//        if cardsNum == 1 {
-//            promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
-//        } else {
-//            promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
-//        }
-          //  text = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+        
+        switch deckType {
+                
+            case .OneCard:
+                promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
+            case .ThreeCards:
+                promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+            case .TarotReader:
+                let question = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue)?.userQuestion ?? ""
+                promt = """
+        Я гадаю на картах таро. Мой запрос: "\(question)".
+        мне выпали \(names). Что эти карты вместе могут значить в рамках моего запроса?
+        Ответь по человечески, от лица женщины и пишешь неформальное письмо.
+        """
+        }
+        
+        
+     
         isGPTloading = true
         gpt.test(promt: promt) { [weak self] result in
             DispatchQueue.main.async {
@@ -249,6 +258,11 @@ struct CardsTableView: View {
             }
             .presentationCornerRadius(5)
             .presentationDetents([.medium, .large])
+        }).onAppear(perform: {
+            if model.deckType == .TarotReader {
+                UIApplication.shared.applicationIconBadgeNumber = 0
+                StorageService.shared.clearSavedData()
+            }
         })
     }
 }
