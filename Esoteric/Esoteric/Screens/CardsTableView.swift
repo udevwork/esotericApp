@@ -204,7 +204,7 @@ struct CardsTableView: View {
                             return $1!
                         })) { card in
                             CardFlipHero(isSelected: $model.isSelected,
-                                         text: "card\(card.number )")
+                                         text: card.image)
                             .onTapGesture {
                         
                                     model.openCards()
