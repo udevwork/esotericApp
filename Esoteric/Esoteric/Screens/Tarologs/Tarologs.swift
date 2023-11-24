@@ -6,22 +6,36 @@
 //
 
 import SwiftUI
+import SwiftDate
 
 struct TarotReader: Identifiable {
+    
     var id = UUID()
     var name: String
     var photo: String
-    var readingsCount: Int
-    var isOnline: Bool
     var rating: Int
+    // isMorning, isAfternoon ,isEvening, isNight
+    var workTime: DateComparisonType
+    
+    internal init(_ name: String,_ photo: String, rating: Int, workTime: DateComparisonType) {
+        self.name = name
+        self.photo = photo
+        self.rating = rating
+        self.workTime = workTime
+    }
+    
+    func isOnline() -> Bool {
+        return Date().compare(workTime)
+    }
 }
 
 class TarologsModel: ObservableObject {
     
     @Published var tarotReaders: [TarotReader] = [
-        TarotReader(name: "Queen of spades", photo: "face3", readingsCount: 53, isOnline: true, rating: 4),
-        TarotReader(name: "Taroat Reader", photo: "face2", readingsCount: 230, isOnline: false, rating: 3),
-        TarotReader(name: "Jane Smith", photo: "face1", readingsCount: 340, isOnline: true, rating: 5)
+        TarotReader("isMorning", "face3", rating: 4, workTime: .isMorning),
+        TarotReader("isAfternoon", "face2", rating: 3, workTime: .isAfternoon),
+        TarotReader("isEvening", "face1", rating: 5, workTime: .isEvening),
+        TarotReader("isNight", "face1", rating: 5, workTime: .isNight)
     ]
 
     init() {
@@ -56,11 +70,11 @@ struct TarotReaderCell: View {
             
                         HStack {
                             HStack(spacing:0) {
-                                Image(systemName: tarotReader.isOnline ? "circle.fill" : "circle")
+                                Image(systemName: tarotReader.isOnline() ? "circle.fill" : "circle")
                                     .scaleEffect(0.6)
-                                    .foregroundColor(tarotReader.isOnline ? .green : .red)
+                                    .foregroundColor(tarotReader.isOnline() ? .green : .red)
                                     .overlay(
-                                        tarotReader.isOnline ?
+                                        tarotReader.isOnline() ?
                                         Circle()
                                             .stroke(Color.green, lineWidth: isOnlineAnimation ? 10 : 0)
                                             .scaleEffect(isOnlineAnimation ? 0.9 : 0.6)
@@ -72,9 +86,9 @@ struct TarotReaderCell: View {
                                             } : nil
                                     )
                                 
-                                Text(tarotReader.isOnline ? "В сети" : "Не в сети")
+                                Text(tarotReader.isOnline() ? "В сети" : "Не в сети")
                                     .font(.footnote)
-                                    .foregroundColor(tarotReader.isOnline ? .green : .red)
+                                    .foregroundColor(tarotReader.isOnline() ? .green : .red)
                                     .padding(.leading, 5)
                             }.padding(EdgeInsets(top: 5, leading: 6, bottom: 5, trailing: 14))
                             
@@ -98,15 +112,12 @@ struct TarotReaderCell: View {
                     Text("Рейтинг: \(tarotReader.rating)")
                         .font(.subheadline)
                         .foregroundColor(.orange)
-                    Text("Сделано раскладов: \(tarotReader.readingsCount)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                   
                 }
                 
                 NavigationLink(destination: TarotSpread()) {
                     Text("Заказать расклад").bold().foregroundColor(.white)
                 }.frame(height: 10).DefButtonStyle()
+                    .disabled(!tarotReader.isOnline())
                 
              
             }.padding(.vertical,60)
@@ -170,11 +181,11 @@ struct Tarologs: View {
                 }
                 
                 LazyVGrid(columns: Array(repeating: GridItem(), count: 1), spacing: 25) {
-                    ForEach(model.tarotReaders) { tarotReader in
+                    ForEach(model.tarotReaders.sorted(by: { $0.isOnline() && !$1.isOnline() })) { tarotReader in
                         
                         TarotReaderCell(tarotReader: tarotReader)
                         
-                        
+                
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
