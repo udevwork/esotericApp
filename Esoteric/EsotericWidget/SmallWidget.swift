@@ -8,27 +8,41 @@
 import SwiftUI
 
 struct SmallWidget: View {
-
     //    var count: Int
     var body: some View {
         ZStack {
-            Color(.black).opacity(0.7)
+            Color.black.edgesIgnoringSafeArea(.all)
+
             VStack {
-                Text("Tarot")
+                Spacer()
+                Text("Esoterica")
                     .multilineTextAlignment(.center)
                     .font(.custom("ElMessiri-Regular", size: 17))
                     .foregroundColor(.white)
-                Text("Ваша сила вселенной:")
+                Spacer()
+                Text("Ваша сила")
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 11))
-                //.font(.custom("ElMessiri-Regular", size: 18))
+                    .font(.custom("ElMessiri-Regular", size: 18))
                     .foregroundColor(.white)
-                Text("2")
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 19))
-                //.font(.custom("ElMessiri-Regular", size: 18))
-                    .foregroundColor(.white)
+                Spacer()
+
+                Circle()
+                    .fill(LinearGradient(
+                        gradient: Gradient(colors: [Color.orange, Color.yellow]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ))
+                    .opacity(0.4)
+                    .frame(width: 50, height: 50)
+                    .overlay(
+                        Text("2")
+                            .foregroundColor(.white)
+                            .font(.custom("ElMessiri-Regular", size: 18))
+                    )
+
+                Spacer()
             }
+            .padding()
         }
     }
 }
