@@ -22,7 +22,7 @@ final class StorageService {
     }
 
     func loadQuestion(key: SavingKeys.RawValue) -> TarotModel? {
-        load(key: key)
+        return load(modelType: TarotModel.self, key: key)
     }
 
     func clearSavedData() {
@@ -40,7 +40,7 @@ final class StorageService {
         }
     }
 
-    private func load<T: Codable>(key: String) -> T? {
+    private func load<T>(modelType: T.Type, key: String)  -> T? where T : Codable  {
         guard let data = UserDefaults.standard.data(forKey: key) else { return nil }
         do {
             let object = try JSONDecoder().decode(T.self, from: data)

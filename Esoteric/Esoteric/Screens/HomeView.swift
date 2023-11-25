@@ -48,7 +48,7 @@ struct HomeView: View {
                                 ArticleView(text: "Вселенная у вас в кармане", alignment: .leading).opacity(0.6)
                             }.offset(y: -15)
                             Spacer()
-                        }
+                        }.offset(y: 15)
                         
                         HorMenuSnap()
                         

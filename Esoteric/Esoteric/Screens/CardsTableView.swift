@@ -109,11 +109,18 @@ class CardsTableViewModel: ObservableObject {
             case .ThreeCards:
                 promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
             case .TarotReader:
-                let question = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue)?.userQuestion ?? ""
+                let storage = StorageService.shared
+                let key = SavingKeys.question.rawValue
+                guard let question = storage.loadQuestion(key: key) else {
+                    return
+                }
+                print("userQuestion:", question.userQuestion)
                 promt = """
-        Я гадаю на картах таро. Мой запрос: "\(question)".
-        мне выпали \(names). Что эти карты вместе могут значить в рамках моего запроса?
-        Ответь по человечески, от лица женщины и пишешь неформальное письмо.
+        Ты - женщина таролог, мистический маг.
+        Мой запрос: "\(question)".
+        Мне выпали карты: \(names).
+        Что эти карты вместе могут значить в рамках моего запроса?
+        Какой вывод из этого можно сделать?
         """
             case .CardOfTheDay:
                 promt = """
@@ -125,19 +132,23 @@ class CardsTableViewModel: ObservableObject {
         self.isGPTloading = true
         
         gpt.test(promt: promt) { [weak self] result in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 switch result {
                 case .success(let content):
                     if content.isEmpty {
-                        self?.text = "Туман не рассеялся"
+                        self.text = "Туман не рассеялся"
                     } else {
-                        self?.text = content
-                        self?.isGPTloading = false
-                        self?.showModalView = true
+                        self.text = content
+                        self.isGPTloading = false
+                        self.showModalView = true
+                        if self.deckType == .TarotReader {
+                            StorageService.shared.clearSavedData()
+                        }
                     }
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
-                    self?.text = "Туман не рассеялся"
+                    self.text = "Туман не рассеялся"
                 }
             }
         }
@@ -288,7 +299,7 @@ struct CardsTableView: View {
         }).onAppear(perform: {
             if model.deckType == .TarotReader {
                 UIApplication.shared.applicationIconBadgeNumber = 0
-                StorageService.shared.clearSavedData()
+                
             }
         })
     }
