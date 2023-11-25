@@ -10,5 +10,5 @@ import Foundation
 struct TarotModel: Codable {
     let userQuestion: String
     let answer: String
-    let time: TimeInterval
+    let time: Date
 }

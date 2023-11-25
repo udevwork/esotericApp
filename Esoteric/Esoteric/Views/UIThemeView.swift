@@ -22,7 +22,7 @@ struct H1TitleView: View {
     var body: some View {
         Text(text)
             .multilineTextAlignment(alignment)
-            .font(.custom("ElMessiri-Regular", size: 48))
+            .font(.custom("ElMessiri-Regular", size: 42))
             .foregroundColor(textColor)
     }
 }

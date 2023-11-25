@@ -9,46 +9,82 @@ import SwiftUI
 
 class CardsTableViewModel: ObservableObject {
 
+    enum DeckType {
+        case OneCard, ThreeCards, TarotReader, CardOfTheDay
+    }
+    
     var gpt = GPTService()
     @Published var text: String = ""
+    @Published var isOpenCardsAvalable: Bool = false
     @Published var isGPTloading: Bool = false
-    @Published var selectedCard: Tarot? = nil
     @Published var cards: [Tarot] = []
     @Published var isSelected = false
     @Published var activePageIndex: Int = 0
-
 
     var cardsNum: Int
     var selectedCardsNumber: Int = 0
     var selectedCards: [Int: Tarot?] = [:]
 
-    let onboardData = HorMenuSnapData()
     let tilePadding: CGFloat = 45
     let tileWidth: CGFloat = screenWidthPart(2.5)
     let tileHeight: CGFloat = screenPart(3)
     
     @Published var showModalView = false
+    let deckType: CardsTableViewModel.DeckType
     
-    init(cardsNum: Int) {
-        self.cardsNum = cardsNum
-        for index in 1...cardsNum {
-            selectedCards[index] = nil
-        }
+    init(deckType: CardsTableViewModel.DeckType) {
+        self.deckType = deckType
         self.cards = tarotDB.shuffled()
-    }
-
-    func select(card: Tarot) {
-        if selectedCardsNumber == cardsNum {
-            return
+        switch deckType {
+            case .OneCard:
+                self.cardsNum = 1
+                for index in 1...cardsNum {
+                    selectedCards[index] = nil
+                }
+            case .ThreeCards:
+                self.cardsNum = 3
+                for index in 1...cardsNum {
+                    selectedCards[index] = nil
+                }
+            case .TarotReader:
+                self.cardsNum = 3
+                for index in 1...cardsNum {
+                    selectedCards[index] = nil
+                }
+                select()
+                select()
+                select()
+                activePageIndex = 0
+                isSelected = true
+            case .CardOfTheDay:
+                self.cardsNum = 1
+                for index in 1...cardsNum {
+                    selectedCards[index] = nil
+                }
         }
-        selectedCards[selectedCardsNumber] = card
+    }
+    
+    func openCards() {
+        if selectedCardsNumber != cardsNum { return }
         withAnimation {
+            isSelected = true
+        }
+    }
+    
+    func select() {
+        if selectedCardsNumber == cardsNum { return }
+        
+        let index = (0...76).randomElement()!
+        withAnimation {
+            let item = self.cards.remove(at: index)
+            self.selectedCards[selectedCardsNumber] = item
             activePageIndex = selectedCardsNumber
         }
-       
+        
         selectedCardsNumber += 1
-      
+        
         if selectedCardsNumber == cardsNum {
+            isOpenCardsAvalable = true
         }
     }
 
@@ -65,53 +101,58 @@ class CardsTableViewModel: ObservableObject {
             return
         }
         var promt: String = ""
-        if cardsNum == 1 {
-            promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
-        } else {
-            promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+        
+        switch deckType {
+                
+            case .OneCard:
+                promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
+            case .ThreeCards:
+                promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+            case .TarotReader:
+                let storage = StorageService.shared
+                let key = SavingKeys.question.rawValue
+                guard let question = storage.loadQuestion(key: key) else {
+                    return
+                }
+                print("userQuestion:", question.userQuestion)
+                promt = """
+        Ты - женщина таролог, мистический маг.
+        Мой запрос: "\(question)".
+        Мне выпали карты: \(names).
+        Что эти карты вместе могут значить в рамках моего запроса?
+        Какой вывод из этого можно сделать?
+        """
+            case .CardOfTheDay:
+                promt = """
+        Я гадаю на картах таро. Мне выпала карта дня: "\(names)". Что эта карта дня может значить? Сделай вывод и рекомендации на день.
+        """
         }
-          //  text = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
-        isGPTloading = true
+        
+     
+        self.isGPTloading = true
+        
         gpt.test(promt: promt) { [weak self] result in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 switch result {
                 case .success(let content):
                     if content.isEmpty {
-                        self?.text = "Туман не рассеялся"
+                        self.text = "Туман не рассеялся"
                     } else {
-                        self?.text = content
-                        self?.isGPTloading = false
-                        self?.showModalView = true
+                        self.text = content
+                        self.isGPTloading = false
+                        self.showModalView = true
+                        if self.deckType == .TarotReader {
+                            StorageService.shared.clearSavedData()
+                        }
                     }
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
-                    self?.text = "Туман не рассеялся"
+                    self.text = "Туман не рассеялся"
                 }
             }
         }
     }
-
-    func addRandomCards() {
-        let randomCards = generateRandomCards()
-        selectedCardsNumber = 0
-        for card in randomCards {
-            select(card: card)
-        }
-        cards.append(contentsOf: randomCards)
-        var names: String = ""
-        selectedCards.forEach { (key: Int, value: Tarot?) in
-            names.append("\(value!.name),")
-        }
-    }
-
-
-    func generateRandomCards() -> [Tarot] {
-        guard let randomCard1 = tarotDB.randomElement(),
-              let randomCard2 = tarotDB.randomElement(),
-              let randomCard3 = tarotDB.randomElement() else { return [] }
-        return [randomCard1, randomCard2, randomCard3]
-    }
-
 }
 
 struct CardsTableView: View {
@@ -121,13 +162,45 @@ struct CardsTableView: View {
     var body: some View {
         ZStack {
             TaroDeckBackGroundView()
+            
             VStack(spacing: 0) {
                 Spacer()
                 HStack {
                     
                     VStack(spacing: -10) {
-                        H1TitleView(textColor: .accentColor,text: "Карта дня", alignment: .center)
-                        ArticleView(text: "Запрос во вселенную", alignment: .leading).opacity(0.6)
+                        switch model.deckType {
+                                
+                            case .OneCard:
+                                H1TitleView(textColor: .accentColor,text: "Одна карта", alignment: .center)
+                                if model.isOpenCardsAvalable == false {
+                                    ArticleView(text: "Выберите одну карту", alignment: .leading).opacity(0.6)
+                                } else {
+                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                }
+                                
+                            case .ThreeCards:
+                                H1TitleView(textColor: .accentColor,text: "Три карты", alignment: .center)
+                                if model.isOpenCardsAvalable == false {
+                                    ArticleView(text: "Выберите три карты", alignment: .leading).opacity(0.6)
+                                } else {
+                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                }
+                            case .TarotReader:
+                                H1TitleView(textColor: .accentColor,text: "Ваш расклад", alignment: .center)
+                                if model.isOpenCardsAvalable == false {
+                                    ArticleView(text: "Личный расклад таролога", alignment: .leading).opacity(0.6)
+                                } else {
+                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                }
+                            case .CardOfTheDay:
+                                H1TitleView(textColor: .accentColor,text: "Карта дня", alignment: .center)
+                                if model.isOpenCardsAvalable == false {
+                                    ArticleView(text: "Запрос во вселенную", alignment: .leading).opacity(0.6)
+                                } else {
+                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                }
+                        }
+                        
                     }
                     
                 }
@@ -141,12 +214,14 @@ struct CardsTableView: View {
                         ForEach(model.selectedCards.map({
                             return $1!
                         })) { card in
-    
-                    
                             CardFlipHero(isSelected: $model.isSelected,
-                                             text: "card\(card.number )")
-                            
-                                .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
+                                         text: card.image)
+                            .onTapGesture {
+                        
+                                    model.openCards()
+                                
+                            }
+                            .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
                         }
                         
                     }
@@ -162,27 +237,30 @@ struct CardsTableView: View {
                         ScrollView(.horizontal) {
                             HStack(spacing: -20) {
                                 ForEach(model.cards, id: \.id) { card in
-                                    if card != model.selectedCard {
+                                 
                                         FakeCardView()
                                             .onTapGesture {
-                                                model.select(card: card)
-                                                withAnimation {
-                                                    model.selectedCard = card
-                                                }
+                                                model.select()
+                                                
                                             }
-                                    }
+                                    
                                 }
                             }.frame(height: screenPart(4.2))
                         }.frame(height: screenPart(7.2)).scrollIndicators(.hidden)
                         SwipeCardsCardArtView()
                     }
                 } else {
-                    ZStack{
-                        Button(action: {
-                            model.getTaroInfo()
-                        }, label: {
-                            Text("Открыть предсказание")
-                        }).DefButtonStyle()
+                    VStack {
+                        Image("art_delimiter8").resizable().aspectRatio(contentMode: .fit).frame(height: 6)
+                        ZStack{
+                            Button(action: {
+                                model.getTaroInfo()
+                            }, label: {
+                                Text("Открыть предсказание")
+                            }).DefButtonStyle()
+                            
+                        }
+                        Image("art_delimiter8").resizable().aspectRatio(contentMode: .fit).frame(height: 6)
                     }.frame(height: screenPart(4))
                 }
                 Spacer()
@@ -218,6 +296,11 @@ struct CardsTableView: View {
             }
             .presentationCornerRadius(5)
             .presentationDetents([.medium, .large])
+        }).onAppear(perform: {
+            if model.deckType == .TarotReader {
+                UIApplication.shared.applicationIconBadgeNumber = 0
+                
+            }
         })
     }
 }
@@ -257,6 +340,6 @@ struct FakeCardView: View {
 
 #Preview {
     NavigationStack {
-        CardsTableView(model: CardsTableViewModel(cardsNum: 3))
+        CardsTableView(model: CardsTableViewModel(deckType: .ThreeCards))
     }.preferredColorScheme(.dark)
 }

@@ -82,9 +82,9 @@ struct HorMenuSnapCardView<Content>: View where Content: View {
                 }.padding(30)
             }.cornerRadius(25)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 25)
+                    RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.borderColor, lineWidth: 4))
-                .shadow(radius: 20)
+                
             
             VStack(alignment: .trailing, spacing: 0, content: {
                 HStack {
@@ -122,10 +122,10 @@ struct HorMenuSnap: View {
                 HorMenuSnapCardView(card: card) {
                     
                     switch activePageIndex {
-                        case 0 : CardsTableView(model: CardsTableViewModel(cardsNum: 1))
+                        case 0 : CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
                         case 1 : Tarologs()
-                        case 2 : CardsTableView(model: CardsTableViewModel(cardsNum: 1))
-                        case 3 : CardsTableView(model: CardsTableViewModel(cardsNum: 3))
+                        case 2 : CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
+                        case 3 : CardsTableView(model: CardsTableViewModel(deckType: .ThreeCards))
                         default: Text("Easter egg")
                     }
                  

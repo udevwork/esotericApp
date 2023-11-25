@@ -66,7 +66,6 @@
 		FA3815762B0EB64800CB1C1F /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3815752B0EB64800CB1C1F /* SmallWidget.swift */; };
 		FA3815772B0EB64800CB1C1F /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3815752B0EB64800CB1C1F /* SmallWidget.swift */; };
 		FA7664132B0D5706008437AB /* TarotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7664122B0D5706008437AB /* TarotModels.swift */; };
-		FAE4079F2B000943002A85D0 /* TarotSpreadReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,7 +142,6 @@
 		FA3815752B0EB64800CB1C1F /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
 		FA7664122B0D5706008437AB /* TarotModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotModels.swift; sourceTree = "<group>"; };
 		FA7664172B0D692C008437AB /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
-		FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotSpreadReady.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,7 +311,6 @@
 			children = (
 				FA27DA792AFF83DF0096D081 /* Tarologs.swift */,
 				FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */,
-				FAE4079E2B000943002A85D0 /* TarotSpreadReady.swift */,
 			);
 			path = Tarologs;
 			sourceTree = "<group>";
@@ -472,7 +469,6 @@
 				927A94612AF52F43007889A4 /* EmodjiIcon.swift in Sources */,
 				927A94632AF52F43007889A4 /* UIModification.swift in Sources */,
 				FA7664132B0D5706008437AB /* TarotModels.swift in Sources */,
-				FAE4079F2B000943002A85D0 /* TarotSpreadReady.swift in Sources */,
 				927A94732AF56236007889A4 /* GPTService.swift in Sources */,
 				927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */,
 				FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */,
@@ -653,7 +649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -686,7 +682,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;

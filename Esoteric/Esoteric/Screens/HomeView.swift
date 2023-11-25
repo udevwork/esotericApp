@@ -37,21 +37,60 @@ struct HomeView: View {
             if animate == false {
                 ScrollView(.vertical, showsIndicators: false) {
               
-                    Image("home_header_logo").resizable().frame(width: 120, height: 60)
+                   
                     VStack (alignment: .leading, spacing: 40) {
                         
                         HStack {
                             Spacer()
                             VStack(spacing: -10) {
-                                H1TitleView(textColor: .accentColor,text: "Tarot", alignment: .center)
+                                Image("home_header_logo").resizable().frame(width: 120, height: 60)
+                                H1TitleView(textColor: .accentColor,text: "ESOTERICA", alignment: .center)
                                 ArticleView(text: "Вселенная у вас в кармане", alignment: .leading).opacity(0.6)
                             }.offset(y: -15)
                             Spacer()
-                        }
+                        }.offset(y: 15)
                         
                         HorMenuSnap()
                         
                         if User.shared.isProUser == false {
+                            
+                            if let reader = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue) {
+                                ScreenContentView(color: .clear) {
+                                    VStack(alignment: .leading, spacing: 28) {
+                                        
+                                        if reader.time <= Date() {
+                                            VStack(alignment: .leading, spacing: 8) {
+                                                SectionTitleView(textColor: .white, text: "Расклад готов!!", alignment: .leading)
+                                                    .padding(.horizontal, horPadding)
+                                                ArticleView(textColor: .white, text: "Прочитайте его прямо сейчас!").padding(.horizontal, horPadding)
+                                            }
+                                            NavigationLink {
+                                                CardsTableView(model: CardsTableViewModel(deckType: .TarotReader))
+                                            } label: {
+                                                Text("Посмотреть расклад!")
+                                            }.DefButtonStyle()
+                                        } else {
+                                            VStack(alignment: .leading, spacing: 8) {
+                                                SectionTitleView(textColor: .white, text: "Расклад готовится", alignment: .leading)
+                                                    .padding(.horizontal, horPadding)
+                                                ArticleView(textColor: .white, text: "Вы получите уведомление когда таролог закончит расклад!").padding(.horizontal, horPadding)
+                                            }
+                                         
+                                        }
+                                       
+                                        
+                                        
+                                    }.background {
+                                        Image("esoteric")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .opacity(0.1)
+                                            .scaleEffect(0.9)
+                                            .offset(x:50, y: -40)
+                                    }
+                                }
+                            }
+                            
                             ScreenContentView(color: .clear) {
                                 VStack(alignment: .leading, spacing: 28) {
                                     VStack(alignment: .leading, spacing: 8) {
@@ -59,7 +98,19 @@ struct HomeView: View {
                                             .padding(.horizontal, horPadding)
                                         ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
                                     }
-                                 
+                                    
+                                    if let reader = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue) {
+                                        if reader.time <= Date() {
+                                            NavigationLink {
+                                                CardsTableView(model: CardsTableViewModel(deckType: .TarotReader))
+                                            } label: {
+                                                Text("Посмотреть расклад!")
+                                            }.DefButtonStyle()
+                                        } else {
+                                            ArticleView(text: "Ваш расклад скоро будет готов!", alignment: .leading)
+                                        }
+                                    }
+                                    
                                     Button {
                                         showingSheet.toggle()
                                     } label: {

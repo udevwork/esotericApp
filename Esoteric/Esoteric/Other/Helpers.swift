@@ -125,7 +125,7 @@ extension Color {
     
     static let lightGray = Color(uiColor: UIColor(hex: "E8F0FE")!)
 
-    static let buttonDefColor = Color(uiColor: UIColor(hex: "937E5A")!)
+    static let buttonDefColor = Color(uiColor: UIColor(hex: "BE9A58")!)
     static let buttonBlue = Color(uiColor: UIColor(hex: "5A9CFF")!)
     static let buttonGreen = Color(uiColor: UIColor(hex: "14D6A7")!)
     static let buttonRed = Color(uiColor: UIColor(hex: "E44561")!)

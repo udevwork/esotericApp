@@ -33,6 +33,7 @@ struct FlipView<FrontView: View, BackView: View>: View {
           ZStack() {
                 front
                   .frame(width: screenWidthPart(2.5), height: screenPart(3))
+                  .scaleEffect(x: -1, y: 1)
                   .modifier(FlipOpacity(percentage: showBack ? 1 : 0))
                   .rotation3DEffect(Angle.degrees(showBack ? 180 : 360), axis: (0,1,0))
                 back
@@ -40,13 +41,13 @@ struct FlipView<FrontView: View, BackView: View>: View {
                   .modifier(FlipOpacity(percentage: showBack ? 0 : 1))
                   .rotation3DEffect(Angle.degrees(showBack ? 0 : 180), axis: (0,1,0))
           }
-          .onTapGesture {
-              if showBack == false {
-                  withAnimation {
-                      self.showBack.toggle()
-                  }
-              }
-          }
+//          .onTapGesture {
+//              if showBack == false {
+//                  withAnimation {
+//                      self.showBack.toggle()
+//                  }
+//              }
+//          }
       }
 }
 

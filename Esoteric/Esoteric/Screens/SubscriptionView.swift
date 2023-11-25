@@ -42,28 +42,32 @@ struct SubscriptionView: View {
                 
                 ZStack{
                     VStack(alignment: .center) {
-                        SectionTitleView(text: "\("L_PremiumUppercase")", alignment: .center)
+                        H1TitleView(textColor: .accentColor, text: "\("ПРЕМИУМ")", alignment: .center).frame(height: 30)
+                            
+                        Image("art_delimiter7").resizable().aspectRatio(contentMode: .fit).frame(height: 10)
                         SubSectionTitleView(text: productDescription, alignment: .center)
                     }
-                    HStack() {
-                        Spacer()
-                        Button {
-                            dismiss()
-                        } label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .resizable()
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .opacity(0.3)
-                        }
-                    }
-                }
+//                    HStack() {
+//                        Spacer()
+//                        Button {
+//                            dismiss()
+//                        } label: {
+//                            Image(systemName: "xmark.circle.fill")
+//                                .resizable()
+//                                .frame(width: 20, height: 20, alignment: .center)
+//                                .opacity(0.3)
+//                        }
+//                    }
+                }.padding(EdgeInsets(top: 160, leading: 0, bottom: 0, trailing: 0))
                 
               
                    
                 VStack(spacing: 30) {
-                    
-                    ArticleView(text: "L_SubscribtionDescription", alignment: .leading).bold()
-                    
+                    VStack(spacing: 10) {
+                        ArticleView(text: "Безлимит на расклады", alignment: .leading).bold()
+                        ArticleView(text: "Доступ к онлайн тарологом", alignment: .leading).bold()
+                        ArticleView(text: "Подробные расшифровки", alignment: .leading).bold()
+                    }
                     HStack {
 
                         Text(priceText)
@@ -79,8 +83,13 @@ struct SubscriptionView: View {
                             Text(periodText).font(.system(.title3, design: .monospaced, weight: .heavy))
                         }
                         
-                    }.foregroundColor(.textColor)
-                        .LightGrayViewStyle()
+                    }.foregroundColor(.white)
+                        .padding(.vertical, 70)
+                        .padding(.horizontal, 60)
+                        .background(TarotReaderBackGroundView())
+                        .cornerRadius(20)
+                        .shadow(radius: 20)
+                    
                 }
                 
                 Button {
@@ -93,20 +102,20 @@ struct SubscriptionView: View {
                 
                     
                 } label: {
-                    Text("L_TryItForFreeLabel")
-                }.BlueButtonStyle().lightShadow()
+                    Text("Купить сейчас")
+                }.DefButtonStyle()
 
 
                 
-                Text("L_SubscribtionDetails")
+                Text("Нам вообще все всеравно что там у вас случилось. Все совпадения - случайность.")
                     .multilineTextAlignment(.center)
                     .font(.system(.footnote, design: .rounded, weight: .medium))
                     .foregroundColor(.textColor)
                 
                 
                 ConditionsTermsView()
-            }.padding(35)
-        }.background(BGColor)
+            }.padding(5)
+        }.background(SubscriptionBackGroundView())
             .onAppear{
                 setup()
                 AnalyticsWrapper.onScreanAppear("Subscription")
@@ -118,4 +127,9 @@ struct SubscriptionView: View {
     
 
     
+}
+
+
+#Preview {
+    SubscriptionView()
 }

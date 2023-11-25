@@ -22,16 +22,12 @@ struct EsotericApp: App {
         WindowGroup {
             ZStack {
                 if model.isLoadingComplete, model.needToPresentOnboarding == false {
-                    if model.needToPresentTarotSpread {
-                        NavigationStack {
-                            TarotSpreadReady(model: CardsTableViewModel(cardsNum: 3))
-                        }.transition(.opacity)
-                    } else {
+                  
                         NavigationStack {
                             HomeView()
                                 .environmentObject(model)
                         }.transition(.opacity)
-                    }
+                    
                 }
 
                 if model.isLoadingComplete,  model.needToPresentOnboarding {
@@ -108,7 +104,6 @@ class MainViewModel: ObservableObject {
     @Published var isLoadingComplete: Bool = false
     @Published var needToPresentOnboarding = false
     @Published var screenTransitionAnimation = false
-    @Published var needToPresentTarotSpread = false
     let storageService = StorageService.shared
 
     init() {
@@ -161,20 +156,11 @@ class MainViewModel: ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
                 self.isLoadingComplete = true
                 self.checkIfNeedToShowOnboarding()
-                self.checkIfNeedToShowSpread()
+                
                 self.screenTransitionAnimation.toggle()
             })
             
         }
-    }
-
-    func checkIfNeedToShowSpread() {
-        let currentTimeInterval = Date().timeIntervalSince1970
-        let storageTime = storageService.loadQuestion(key: SavingKeys.question.rawValue)?.time
-        let dataDiff = currentTimeInterval - (storageTime ?? 0)
-        guard let storageTime else { return }
-        needToPresentTarotSpread = dataDiff >= NotificationIntervals.fiveSec.rawValue
-        storageService.clearSavedData()
     }
 
     func checkIfNeedToShowOnboarding(){

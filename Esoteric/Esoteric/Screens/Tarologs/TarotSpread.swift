@@ -28,41 +28,60 @@ struct TarotWaitingCardView: View {
     }
 }
 
-
-struct TarotSpread: View {
-    @State private var questionText: String = ""
-    @State private var isQuestionSent: Bool = false
+class TarotSpreadModel: ObservableObject {
+    
+    @Published var questionText: String = ""
+    @Published var isQuestionSent: Bool = false
     let notificationCenter = UserNotifications.shared
     let storageService = StorageService.shared
+    
+    init() {
+        
+    }
+    
+    func sendQuestion(){
+        withAnimation {
+            isQuestionSent = true
+        }
+        notificationCenter.requestNotifications()
+        notificationCenter.sendTarotSpreadNotification(afterTime: .oneMin)
+        let currentTimeInterval = Date().dateByAdding(1, .minute).date
+        let tarotToSave = TarotModel(userQuestion: questionText, answer: "1", time: currentTimeInterval)
+        storageService.saveQuestion(text: tarotToSave, key: SavingKeys.question.rawValue)
+        
+        print(tarotToSave)
+    }
+}
 
+struct TarotSpread: View {
+    @StateObject var model: TarotSpreadModel = TarotSpreadModel()
+   
     var body: some View {
         ZStack {
             TarotReaderSpreadBackGroundView()
             VStack(alignment: .leading, spacing: 20) {
-                if !isQuestionSent {
+                if model.isQuestionSent == false {
                     SectionTitleView(textColor: .accentColor, text: "Какой вопрос вы хотите задать тарологу?", alignment: .leading)
                     ArticleView(text: "Запросить расклад прямо сейчас!", alignment: .leading).opacity(0.6)
-                    
-                    TextField("Ваш вопрос", text: $questionText, axis: .vertical)
+                    ArticleView(text: "Ваш таролог сделает расклад по вашему запросу и ответит вам. ", alignment: .leading).opacity(0.6)
+                    TextField("Ваш вопрос", text: $model.questionText, axis: .vertical)
                         .textFieldStyle(.roundedBorder)
-                    Button(action: {
-                        withAnimation {
-                            isQuestionSent = true
-                        }
-                        notificationCenter.requestNotifications()
-                        notificationCenter.sendTarotSpreadNotification(afterTime: .fiveSec)
-                        let currentTimeInterval = Date().timeIntervalSince1970
-                        storageService.saveQuestion(text: TarotModel(userQuestion: questionText, answer: "1", time: currentTimeInterval), key: SavingKeys.question.rawValue)
-                    }) {
+                    Button(action: model.sendQuestion) {
                         Text("Отправить вопрос")
                     }.DefButtonStyle()
                     
                 } else {
+                    
                     VStack {
-                        Text("Когда таролог ответит, мы пришлем вам уведомление")
-                            .font(.custom("ElMessiri-Bold", size: 25))
-                            .foregroundColor(.white)
-                            .padding()
+                        HStack {
+                            Spacer()
+                            VStack(spacing: -10) {
+                                H1TitleView(textColor: .accentColor,text: "Запрос отправлен!", alignment: .center)
+                                ArticleView(text: "Когда таролог ответит, мы пришлем вам уведомление", alignment: .leading).opacity(0.6)
+                            }.offset(y: -15)
+                            Spacer()
+                        }
+                       
 
                         HStack {
                             TarotWaitingCardView()

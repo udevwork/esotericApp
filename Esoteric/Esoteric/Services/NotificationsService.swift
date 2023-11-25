@@ -11,6 +11,7 @@ import UIKit
 enum NotificationIntervals: Double {
     case fiveSec = 5
     case tenSec = 10
+    case oneMin = 60
     case oneHour = 3_600
     case oneDay = 86_400
 }
