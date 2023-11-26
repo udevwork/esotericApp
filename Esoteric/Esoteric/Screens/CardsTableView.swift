@@ -217,7 +217,7 @@ struct CardsTableView: View {
                             CardFlipHero(isSelected: $model.isSelected,
                                          text: card.image)
                             .onTapGesture {
-                        
+                                Haptics.shared.play(.heavy)
                                     model.openCards()
                                 
                             }
@@ -241,8 +241,9 @@ struct CardsTableView: View {
                                         FakeCardView()
                                             .onTapGesture {
                                                 model.select()
-                                                
+                                                Haptics.shared.play(.heavy)
                                             }
+                                            
                                     
                                 }
                             }.frame(height: screenPart(4.2))
@@ -317,7 +318,7 @@ struct FakeCardView: View {
                                                            axis: (x: 0, y: 2, z: -1))
             
                 .offset(x: 0, y: self.offset(for: geo.frame(in: .global).midX))
-
+                
         }) .frame(width: 80, height: 110)
             .shadow(color: .black.opacity(0.6), radius: 5, x: -20, y: 0)
     }

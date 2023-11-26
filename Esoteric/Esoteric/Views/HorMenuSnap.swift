@@ -122,7 +122,7 @@ struct HorMenuSnap: View {
                 HorMenuSnapCardView(card: card) {
                     
                     switch activePageIndex {
-                        case 0 : CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
+                        case 0 : CardsTableView(model: CardsTableViewModel(deckType: .CardOfTheDay))
                         case 1 : Tarologs()
                         case 2 : CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
                         case 3 : CardsTableView(model: CardsTableViewModel(deckType: .ThreeCards))
@@ -280,21 +280,6 @@ struct PagingScrollView: View {
             )
     }
 }
-
-class Haptics {
-    static let shared = Haptics()
-    
-    private init() { }
-
-    func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle) {
-        UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred()
-    }
-    
-    func notify(_ feedbackType: UINotificationFeedbackGenerator.FeedbackType) {
-        UINotificationFeedbackGenerator().notificationOccurred(feedbackType)
-    }
-}
-
 
 #Preview {
     HorMenuSnap()

@@ -7,26 +7,6 @@
 
 import SwiftUI
 
-struct TarotWaitingCardView: View {
-    var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .frame(width: 200, height: 300)
-            .background(Image("5")
-                .resizable()
-                .frame(width: 200, height: 300)
-                        )
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(LinearGradient(gradient: Gradient(colors: [
-                        Color.brown,
-                        Color.red,
-                        Color.yellow,
-                        Color.blue
-                    ]), startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 4)
-            )
-            .opacity(0.4)
-    }
-}
 
 class TarotSpreadModel: ObservableObject {
     
@@ -48,8 +28,6 @@ class TarotSpreadModel: ObservableObject {
         let currentTimeInterval = Date().dateByAdding(1, .minute).date
         let tarotToSave = TarotModel(userQuestion: questionText, answer: "1", time: currentTimeInterval)
         storageService.saveQuestion(text: tarotToSave, key: SavingKeys.question.rawValue)
-        
-        print(tarotToSave)
     }
 }
 
@@ -58,43 +36,50 @@ struct TarotSpread: View {
    
     var body: some View {
         ZStack {
-            TarotReaderSpreadBackGroundView()
-            VStack(alignment: .leading, spacing: 20) {
-                if model.isQuestionSent == false {
-                    SectionTitleView(textColor: .accentColor, text: "Какой вопрос вы хотите задать тарологу?", alignment: .leading)
-                    ArticleView(text: "Запросить расклад прямо сейчас!", alignment: .leading).opacity(0.6)
-                    ArticleView(text: "Ваш таролог сделает расклад по вашему запросу и ответит вам. ", alignment: .leading).opacity(0.6)
-                    TextField("Ваш вопрос", text: $model.questionText, axis: .vertical)
-                        .textFieldStyle(.roundedBorder)
-                    Button(action: model.sendQuestion) {
-                        Text("Отправить вопрос")
-                    }.DefButtonStyle()
-                    
-                } else {
-                    
-                    VStack {
-                        HStack {
-                            Spacer()
-                            VStack(spacing: -10) {
-                                H1TitleView(textColor: .accentColor,text: "Запрос отправлен!", alignment: .center)
-                                ArticleView(text: "Когда таролог ответит, мы пришлем вам уведомление", alignment: .leading).opacity(0.6)
-                            }.offset(y: -15)
-                            Spacer()
-                        }
-                       
 
-                        HStack {
-                            TarotWaitingCardView()
-                        }
-
-                    }
+            if model.isQuestionSent == false {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        H1TitleView(textColor: .accentColor, text: "Задай вопрос тарологу", alignment: .leading)
+                        Image("art_delimiter9").resizable().aspectRatio(contentMode: .fit).frame(height: 11)
+                        ArticleView(text: "Ваш таролог сделает расклад по вашему запросу и ответит вам. ", alignment: .leading)
+                        TextField("Ваш вопрос", text: $model.questionText, axis: .vertical)
+                            .textFieldStyle(.plain)
+                            .padding()
+                            .cornerRadius(30)
+                            .overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.accentColor, lineWidth: 4))
+                        
+                        ArticleView(text: "Например: \"Хочу сменить работу\", \"Стоит ли сейчас уезжать в отпуск?\" или \"Подходящее время что бы рассказать секрет?\"", alignment: .leading).opacity(0.5)
+                        ArticleView(text: "Обычно ответ приходит через 10-15 минут. Вам прийдет уведомление!", alignment: .leading).opacity(0.5)
+                        Button(action: model.sendQuestion) {
+                            Text("Отправить вопрос")
+                        }.DefButtonStyle()
+                        
+                    }.padding(40)
                 }
-            }.padding(40)
-        }
+            } else {
+                VStack {
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 30) {
+                            H1TitleView(textColor: .accentColor,text: "Запрос отправлен!", alignment: .center)
+                            Image("Vector-3").resizable().aspectRatio(contentMode: .fit).frame(height: 200)
+                            ArticleView(text: "Когда таролог ответит, мы пришлем вам уведомление", alignment: .leading).opacity(0.6)
+                        }
+                        Spacer()
+                    }
+                }.padding(40)
+            }
+        }.background(  Image("BGimg_tarotReaderSpread")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .ignoresSafeArea())
     }
 }
 
 
 #Preview {
-    TarotSpread()
+    NavigationStack {
+        TarotSpread().preferredColorScheme(.dark)
+    }
 }

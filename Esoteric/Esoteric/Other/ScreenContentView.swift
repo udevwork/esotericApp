@@ -19,11 +19,12 @@ struct ScreenContentView<Content: View>: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 40) {
-            content
+            content.padding(.horizontal, 40)
+                .padding(.vertical, 24)
         }
-        .padding(.vertical, 40)
+ 
         .background(Color.contentBlock)
-        .cornerRadius(30)
+        .cornerRadius(15)
         .overlay(
             RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.borderColor, lineWidth: 4))

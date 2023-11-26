@@ -128,8 +128,11 @@ struct TarotReaderCell: View {
             animateBorderColorTarologImage()
         }
         .background(TarotReaderBackGroundView())
-        .cornerRadius(40)
-        .shadow(radius: 5)
+        .cornerRadius(15)
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color.borderColor, lineWidth: 4))
+        .padding(.horizontal, 8)
 
     }
 
@@ -182,27 +185,20 @@ struct Tarologs: View {
                 
                 LazyVGrid(columns: Array(repeating: GridItem(), count: 1), spacing: 25) {
                     ForEach(model.tarotReaders.sorted(by: { $0.isOnline() && !$1.isOnline() })) { tarotReader in
-                        
                         TarotReaderCell(tarotReader: tarotReader)
-                        
-                
                     }
                 }
-                .buttonStyle(PlainButtonStyle())
+             
                 .padding()
             }.background(BackGroundView())
 
         
     }
 
-    func returnBackground() -> String {
-        return ["1","2","3","4","5","6"].randomElement()!
-    }
 }
 
 #Preview {
     NavigationStack {
         Tarologs()
     }.preferredColorScheme(.dark)
-        
 }

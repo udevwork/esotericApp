@@ -42,13 +42,15 @@ struct HomeView: View {
                         
                         HStack {
                             Spacer()
-                            VStack(spacing: -10) {
+                            VStack(spacing: -1) {
                                 Image("home_header_logo").resizable().frame(width: 120, height: 60)
                                 H1TitleView(textColor: .accentColor,text: "ESOTERICA", alignment: .center)
-                                ArticleView(text: "Вселенная у вас в кармане", alignment: .leading).opacity(0.6)
-                            }.offset(y: -15)
+                                Image("art_delimiter9").resizable().aspectRatio(contentMode: .fit).offset(y: -6).frame(height: 10)
+                                ArticleView(text: "Карта дня 5 дней подряд!", alignment: .leading).bold()
+                            }
                             Spacer()
-                        }.offset(y: 15)
+                        }
+                  
                         
                         HorMenuSnap()
                         
@@ -60,9 +62,12 @@ struct HomeView: View {
                                         
                                         if reader.time <= Date() {
                                             VStack(alignment: .leading, spacing: 8) {
+                                                HStack {
+                                                    Image("Vector-1").resizable().aspectRatio(contentMode: .fit).frame(height: 140)
+                                                }.frame(maxWidth: .infinity)
                                                 SectionTitleView(textColor: .white, text: "Расклад готов!!", alignment: .leading)
-                                                    .padding(.horizontal, horPadding)
-                                                ArticleView(textColor: .white, text: "Прочитайте его прямо сейчас!").padding(.horizontal, horPadding)
+                                                Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
+                                                ArticleView(textColor: .white, text: "Прочитайте его прямо сейчас!")
                                             }
                                             NavigationLink {
                                                 CardsTableView(model: CardsTableViewModel(deckType: .TarotReader))
@@ -73,45 +78,57 @@ struct HomeView: View {
                                             VStack(alignment: .leading, spacing: 8) {
                                                 SectionTitleView(textColor: .white, text: "Расклад готовится", alignment: .leading)
                                                     .padding(.horizontal, horPadding)
+                                                Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
                                                 ArticleView(textColor: .white, text: "Вы получите уведомление когда таролог закончит расклад!").padding(.horizontal, horPadding)
                                             }
-                                         
                                         }
                                        
                                         
                                         
                                     }.background {
-                                        Image("esoteric")
+                                        Image("ScreenContentViewBG")
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
-                                            .opacity(0.1)
-                                            .scaleEffect(0.9)
-                                            .offset(x:50, y: -40)
+                                            .opacity(0.3)
+                                            .scaleEffect(1.1)
+                     
                                     }
                                 }
                             }
                             
                             ScreenContentView(color: .clear) {
                                 VStack(alignment: .leading, spacing: 28) {
-                                    VStack(alignment: .leading, spacing: 8) {
-                                        SectionTitleView(textColor: .white, text: "Гадание по одной карте", alignment: .leading)
-                                            .padding(.horizontal, horPadding)
-                                        ArticleView(textColor: .white, text: "самое четкое, поскольку не позволит вам отвлечься на посторонние мысли и идеи.").padding(.horizontal, horPadding)
-                                    }
-                                    
-                                    if let reader = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue) {
-                                        if reader.time <= Date() {
-                                            NavigationLink {
-                                                CardsTableView(model: CardsTableViewModel(deckType: .TarotReader))
-                                            } label: {
-                                                Text("Посмотреть расклад!")
-                                            }.DefButtonStyle()
-                                        } else {
-                                            ArticleView(text: "Ваш расклад скоро будет готов!", alignment: .leading)
+                                        VStack(alignment: .leading, spacing: 8) {
+                                            SectionTitleView(textColor: .white, text: "Виджеты!", alignment: .leading)
+                                            Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
+                                            ArticleView(textColor: .white, text: "Установи виджет на рабочий стол! Он будет напоминать о карте дня!")
                                         }
+                                       
+                                }.background {
+                                    Image("ScreenContentViewBG")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .opacity(0.3)
+                                        .scaleEffect(1.1)
+                                }
+                            }
+                            
+                            ScreenContentView(color: .clear) {
+                                VStack(alignment: .leading, spacing: 28) {
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        HStack {
+                                            Image("Vector").resizable().aspectRatio(contentMode: .fit).frame(height: 140)
+                                        }.frame(maxWidth: .infinity)
+                                        SectionTitleView(textColor: .white, text: "Врата загадочного мира", alignment: .leading)
+                                        Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
+                    
+                                        ArticleView(textColor: .white, text: """
+                                                    Специально для тебя мы предлагаем уникальную подписку, которая откроет доступ ко всем возможностям нашего магического уголка.
+                                                    """)
                                     }
                                     
                                     Button {
+                                        Haptics.shared.play(.medium)
                                         showingSheet.toggle()
                                     } label: {
                                         Text("Подписка")
@@ -119,47 +136,12 @@ struct HomeView: View {
                                         .sheet(isPresented: $showingSheet) {
                                             SubscriptionView()
                                         }
-                                        .padding(.horizontal, horPadding)
-                                }.background {
-                                    Image("esoteric")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .opacity(0.1)
-                                        .scaleEffect(0.9)
+                                       
                                 }
                             }
                         }
-                        VStack(alignment: .leading,spacing: 10) {
-                            SectionTitleView(text: "Прогноз на будущее", alignment: .leading)
-
-                            ArticleView(text: "Работа, отношения, путешествие, покупка, продажа и т.д", alignment: .leading)
-                        }.padding(.horizontal,35)
-                        ScreenContentView(color: .clear) {
-                            VStack(alignment: .leading, spacing: 20) {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    SectionTitleView(textColor: .white, text: "Есть вопросы?", alignment: .leading)
-                                        .padding(.horizontal, horPadding)
-                                }
-                                Button {
-                                    if let url = URL(string: "https://t.me/imbalanceFighter") {
-                                        openURL(url)
-                                    }
-                                } label: {
-                                    Text("Напиши нам!")
-                                }.DefButtonStyle()
-                                    .sheet(isPresented: $showingSheet) {
-                                        SubscriptionView()
-                                    }
-                                    .padding(.horizontal, horPadding)
-                            }.background {
-                                Image("Logo")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .opacity(0.2)
-                                    .scaleEffect(0.9)
-                            }
-
-                        }
+                   
+                       
                         ConditionsTermsView()
                     }
 
@@ -167,6 +149,9 @@ struct HomeView: View {
                     .navigationBarHidden(true)
                     .onAppear {
                         AnalyticsWrapper.onScreanAppear("Home")
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        SubscriptionView()
                     }
                 
             } else {
