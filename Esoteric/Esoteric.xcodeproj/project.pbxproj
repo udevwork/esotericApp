@@ -17,6 +17,10 @@
 		922B0D012B0D457500FF7241 /* StupidHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */; };
 		922B0D6E2B0E55B500FF7241 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */; };
 		92534FA82B132F2100395B75 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534FA72B132F2100395B75 /* Haptic.swift */; };
+		92534FA92B133F2C00395B75 /* ElMessiri-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */; };
+		92534FAA2B133F2C00395B75 /* ElMessiri-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955572AF7E46200BEA64D /* ElMessiri-Medium.ttf */; };
+		92534FAB2B133F2C00395B75 /* ElMessiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */; };
+		92534FAC2B133F2C00395B75 /* ElMessiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */; };
 		92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */; };
 		926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D74FA2AFD413400F9CF88 /* TarotDB.swift */; };
 		927A94122AF52857007889A4 /* EsotericApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94112AF52857007889A4 /* EsotericApp.swift */; };
@@ -458,7 +462,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92534FAA2B133F2C00395B75 /* ElMessiri-Medium.ttf in Resources */,
+				92534FAB2B133F2C00395B75 /* ElMessiri-Regular.ttf in Resources */,
 				FA38156C2B0EB5FC00CB1C1F /* Assets.xcassets in Resources */,
+				92534FA92B133F2C00395B75 /* ElMessiri-SemiBold.ttf in Resources */,
+				92534FAC2B133F2C00395B75 /* ElMessiri-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +661,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -686,7 +694,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -717,7 +725,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsotericWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EsotericWidget;
@@ -744,7 +752,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsotericWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EsotericWidget;

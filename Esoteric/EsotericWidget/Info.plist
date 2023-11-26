@@ -7,5 +7,12 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ElMessiri-Bold.ttf</string>
+		<string>ElMessiri-SemiBold.ttf</string>
+		<string>ElMessiri-Regular.ttf</string>
+		<string>ElMessiri-Medium.ttf</string>
+	</array>
 </dict>
 </plist>

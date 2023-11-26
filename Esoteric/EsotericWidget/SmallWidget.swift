@@ -11,19 +11,21 @@ struct SmallWidget: View {
     //    var count: Int
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)
-
+            Image("BGimg")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .ignoresSafeArea()
             VStack {
                 Spacer()
                 Text("Esoterica")
                     .multilineTextAlignment(.center)
-                    .font(.custom("ElMessiri-Regular", size: 17))
+                    .font(.custom("ElMessiri-Regular", size: 12))
                     .foregroundColor(.white)
                 Spacer()
-                Text("Ваша сила")
+                Text("Открыли карты")
                     .multilineTextAlignment(.center)
-                    .font(.custom("ElMessiri-Regular", size: 18))
-                    .foregroundColor(.white)
+                    .font(.custom("ElMessiri-Bold", size: 18))
+                    .foregroundColor(.accent)
                 Spacer()
 
                 Circle()
@@ -33,11 +35,12 @@ struct SmallWidget: View {
                         endPoint: .bottomTrailing
                     ))
                     .opacity(0.4)
-                    .frame(width: 50, height: 50)
+                    .frame(width: 30, height: 30)
                     .overlay(
                         Text("2")
                             .foregroundColor(.white)
-                            .font(.custom("ElMessiri-Regular", size: 18))
+                            .font(.custom("ElMessiri-Bold", size: 20))
+                            .offset(y:3)
                     )
 
                 Spacer()
@@ -60,5 +63,5 @@ struct BackGView: View {
 }
 
 #Preview {
-    SmallWidget()
+    SmallWidget().frame(width: 100, height: 100, alignment: .center)
 }
