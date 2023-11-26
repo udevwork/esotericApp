@@ -18,12 +18,10 @@ struct OneCardsLayouts: View {
     var body: some View {
         VStack(alignment: .center) {
             ZStack {
-                
                 if let card = model.selectedCards[0] {
                     CardFlipHero(isSelected: $isSelected,
                                  text: "card\(card?.number ?? 0)")
                         .shadow(color: .purple.opacity(0.5), radius: 40, x: 0, y: 0)
-                    
                 }
             }
         }

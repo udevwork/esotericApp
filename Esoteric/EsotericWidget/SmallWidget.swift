@@ -37,7 +37,7 @@ struct SmallWidget: View {
                     .opacity(0.4)
                     .frame(width: 30, height: 30)
                     .overlay(
-                        Text("2")
+                        Text("\(DayConterService().getDayCont())")
                             .foregroundColor(.white)
                             .font(.custom("ElMessiri-Bold", size: 20))
                             .offset(y:3)
