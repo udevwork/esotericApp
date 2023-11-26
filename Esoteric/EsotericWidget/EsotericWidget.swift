@@ -86,6 +86,7 @@ struct EsotericWidget: Widget {
         }
             .configurationDisplayName("Esoterica")
             .description("Youre power")
+            .contentMarginsDisabled()
     }
 }
 

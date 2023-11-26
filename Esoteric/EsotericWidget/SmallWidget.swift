@@ -13,7 +13,7 @@ struct SmallWidget: View {
         ZStack {
             Image("BGimg")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
             VStack {
                 Spacer()
@@ -22,7 +22,7 @@ struct SmallWidget: View {
                     .font(.custom("ElMessiri-Regular", size: 12))
                     .foregroundColor(.white)
                 Spacer()
-                Text("Открыли карты")
+                Text("Tarot\ndays:")
                     .multilineTextAlignment(.center)
                     .font(.custom("ElMessiri-Bold", size: 18))
                     .foregroundColor(.accent)
@@ -46,7 +46,7 @@ struct SmallWidget: View {
                 Spacer()
             }
             .padding()
-        }
+        } .ignoresSafeArea()
     }
 }
 
