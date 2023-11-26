@@ -46,7 +46,7 @@ struct HomeView: View {
                                 Image("home_header_logo").resizable().frame(width: 120, height: 60)
                                 H1TitleView(textColor: .accentColor,text: "ESOTERICA", alignment: .center)
                                 Image("art_delimiter9").resizable().aspectRatio(contentMode: .fit).offset(y: -6).frame(height: 10)
-                                ArticleView(text: "Карта дня 5 дней подряд!", alignment: .leading).bold()
+                                ArticleView(text: "Карта дня \(DayConterService().getDayStreak()) дней подряд!", alignment: .leading).bold()
                             }
                             Spacer()
                         }
