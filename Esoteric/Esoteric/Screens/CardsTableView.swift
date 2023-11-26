@@ -136,6 +136,8 @@ class CardsTableViewModel: ObservableObject {
                 guard let self = self else { return }
                 switch result {
                 case .success(let content):
+                        DayConterService().copleteThisDay()
+                        
                     if content.isEmpty {
                         self.text = "Туман не рассеялся"
                     } else {

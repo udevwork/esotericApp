@@ -21,6 +21,8 @@
 		92534FAA2B133F2C00395B75 /* ElMessiri-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955572AF7E46200BEA64D /* ElMessiri-Medium.ttf */; };
 		92534FAB2B133F2C00395B75 /* ElMessiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */; };
 		92534FAC2B133F2C00395B75 /* ElMessiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */; };
+		92534FAE2B1355EE00395B75 /* DayConterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534FAD2B1355EE00395B75 /* DayConterService.swift */; };
+		92534FB12B135AF000395B75 /* DayConterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534FAD2B1355EE00395B75 /* DayConterService.swift */; };
 		92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */; };
 		926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D74FA2AFD413400F9CF88 /* TarotDB.swift */; };
 		927A94122AF52857007889A4 /* EsotericApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94112AF52857007889A4 /* EsotericApp.swift */; };
@@ -109,6 +111,9 @@
 		922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StupidHeightHelper.swift; sourceTree = "<group>"; };
 		922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		92534FA72B132F2100395B75 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		92534FAD2B1355EE00395B75 /* DayConterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayConterService.swift; sourceTree = "<group>"; };
+		92534FAF2B13582900395B75 /* Esoteric.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Esoteric.entitlements; sourceTree = "<group>"; };
+		92534FB02B13584B00395B75 /* EsotericWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EsotericWidgetExtension.entitlements; sourceTree = "<group>"; };
 		92689F2D2AFBE80E0035590A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorMenuSnap.swift; sourceTree = "<group>"; };
 		926D74FA2AFD413400F9CF88 /* TarotDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotDB.swift; sourceTree = "<group>"; };
@@ -201,6 +206,7 @@
 		927A94052AF52857007889A4 = {
 			isa = PBXGroup;
 			children = (
+				92534FB02B13584B00395B75 /* EsotericWidgetExtension.entitlements */,
 				927A94102AF52857007889A4 /* Esoteric */,
 				FA3815662B0EB5FA00CB1C1F /* EsotericWidget */,
 				927A940F2AF52857007889A4 /* Products */,
@@ -221,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4CA17F2B137F9A0089072D /* Localisation */,
+				92534FAF2B13582900395B75 /* Esoteric.entitlements */,
 				92689F2D2AFBE80E0035590A /* Info.plist */,
 				FA7664172B0D692C008437AB /* TODO.md */,
 				927A946C2AF53DE1007889A4 /* Other */,
@@ -306,6 +313,7 @@
 				922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */,
 				922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */,
 				92534FA72B132F2100395B75 /* Haptic.swift */,
+				92534FAD2B1355EE00395B75 /* DayConterService.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -509,6 +517,7 @@
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
 				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
+				92534FAE2B1355EE00395B75 /* DayConterService.swift in Sources */,
 				920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */,
 				FA3815762B0EB64800CB1C1F /* SmallWidget.swift in Sources */,
 				FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */,
@@ -536,6 +545,7 @@
 				FA3815682B0EB5FA00CB1C1F /* EsotericWidgetBundle.swift in Sources */,
 				FA38156A2B0EB5FA00CB1C1F /* EsotericWidget.swift in Sources */,
 				FA3815772B0EB64800CB1C1F /* SmallWidget.swift in Sources */,
+				92534FB12B135AF000395B75 /* DayConterService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +685,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Esoteric/Esoteric.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
@@ -708,6 +719,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Esoteric/Esoteric.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
@@ -740,6 +752,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = EsotericWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X8KHXL86W5;
@@ -768,6 +781,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = EsotericWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X8KHXL86W5;
