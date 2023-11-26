@@ -58,8 +58,40 @@
 		FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA792AFF83DF0096D081 /* Tarologs.swift */; };
 		FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */; };
 		FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */; };
+		FA3815632B0EB5FA00CB1C1F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3815622B0EB5FA00CB1C1F /* WidgetKit.framework */; };
+		FA3815652B0EB5FA00CB1C1F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3815642B0EB5FA00CB1C1F /* SwiftUI.framework */; };
+		FA3815682B0EB5FA00CB1C1F /* EsotericWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3815672B0EB5FA00CB1C1F /* EsotericWidgetBundle.swift */; };
+		FA38156A2B0EB5FA00CB1C1F /* EsotericWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3815692B0EB5FA00CB1C1F /* EsotericWidget.swift */; };
+		FA38156C2B0EB5FC00CB1C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA38156B2B0EB5FC00CB1C1F /* Assets.xcassets */; };
+		FA3815702B0EB5FC00CB1C1F /* EsotericWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA3815612B0EB5FA00CB1C1F /* EsotericWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FA3815762B0EB64800CB1C1F /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3815752B0EB64800CB1C1F /* SmallWidget.swift */; };
+		FA3815772B0EB64800CB1C1F /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3815752B0EB64800CB1C1F /* SmallWidget.swift */; };
 		FA7664132B0D5706008437AB /* TarotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7664122B0D5706008437AB /* TarotModels.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA38156E2B0EB5FC00CB1C1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 927A94062AF52857007889A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA3815602B0EB5FA00CB1C1F;
+			remoteInfo = EsotericWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA3815712B0EB5FC00CB1C1F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FA3815702B0EB5FC00CB1C1F /* EsotericWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		920955542AF7C31900BEA64D /* BackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundView.swift; sourceTree = "<group>"; };
@@ -102,6 +134,14 @@
 		FA27DA792AFF83DF0096D081 /* Tarologs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarologs.swift; sourceTree = "<group>"; };
 		FA27DA7B2AFFADC80096D081 /* TarotSpread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotSpread.swift; sourceTree = "<group>"; };
 		FA27DA7E2AFFC1700096D081 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
+		FA3815612B0EB5FA00CB1C1F /* EsotericWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EsotericWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3815622B0EB5FA00CB1C1F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FA3815642B0EB5FA00CB1C1F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FA3815672B0EB5FA00CB1C1F /* EsotericWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsotericWidgetBundle.swift; sourceTree = "<group>"; };
+		FA3815692B0EB5FA00CB1C1F /* EsotericWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsotericWidget.swift; sourceTree = "<group>"; };
+		FA38156B2B0EB5FC00CB1C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA38156D2B0EB5FC00CB1C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3815752B0EB64800CB1C1F /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
 		FA7664122B0D5706008437AB /* TarotModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotModels.swift; sourceTree = "<group>"; };
 		FA7664172B0D692C008437AB /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +167,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA38155E2B0EB5FA00CB1C1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3815652B0EB5FA00CB1C1F /* SwiftUI.framework in Frameworks */,
+				FA3815632B0EB5FA00CB1C1F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -145,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				927A94102AF52857007889A4 /* Esoteric */,
+				FA3815662B0EB5FA00CB1C1F /* EsotericWidget */,
 				927A940F2AF52857007889A4 /* Products */,
 				927A94642AF53499007889A4 /* Frameworks */,
 			);
@@ -154,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				927A940E2AF52857007889A4 /* Esoteric.app */,
+				FA3815612B0EB5FA00CB1C1F /* EsotericWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +268,8 @@
 		927A94642AF53499007889A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA3815622B0EB5FA00CB1C1F /* WidgetKit.framework */,
+				FA3815642B0EB5FA00CB1C1F /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,6 +318,18 @@
 			path = Tarologs;
 			sourceTree = "<group>";
 		};
+		FA3815662B0EB5FA00CB1C1F /* EsotericWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FA3815752B0EB64800CB1C1F /* SmallWidget.swift */,
+				FA3815672B0EB5FA00CB1C1F /* EsotericWidgetBundle.swift */,
+				FA3815692B0EB5FA00CB1C1F /* EsotericWidget.swift */,
+				FA38156B2B0EB5FC00CB1C1F /* Assets.xcassets */,
+				FA38156D2B0EB5FC00CB1C1F /* Info.plist */,
+			);
+			path = EsotericWidget;
+			sourceTree = "<group>";
+		};
 		FA7664142B0D6896008437AB /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,10 +349,12 @@
 				927A940A2AF52857007889A4 /* Sources */,
 				927A940B2AF52857007889A4 /* Frameworks */,
 				927A940C2AF52857007889A4 /* Resources */,
+				FA3815712B0EB5FC00CB1C1F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FA38156F2B0EB5FC00CB1C1F /* PBXTargetDependency */,
 			);
 			name = Esoteric;
 			packageProductDependencies = (
@@ -309,6 +376,23 @@
 			productReference = 927A940E2AF52857007889A4 /* Esoteric.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FA3815602B0EB5FA00CB1C1F /* EsotericWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA3815742B0EB5FC00CB1C1F /* Build configuration list for PBXNativeTarget "EsotericWidgetExtension" */;
+			buildPhases = (
+				FA38155D2B0EB5FA00CB1C1F /* Sources */,
+				FA38155E2B0EB5FA00CB1C1F /* Frameworks */,
+				FA38155F2B0EB5FA00CB1C1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EsotericWidgetExtension;
+			productName = EsotericWidgetExtension;
+			productReference = FA3815612B0EB5FA00CB1C1F /* EsotericWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -320,6 +404,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					927A940D2AF52857007889A4 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					FA3815602B0EB5FA00CB1C1F = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
@@ -346,6 +433,7 @@
 			projectRoot = "";
 			targets = (
 				927A940D2AF52857007889A4 /* Esoteric */,
+				FA3815602B0EB5FA00CB1C1F /* EsotericWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -363,6 +451,14 @@
 				927A94682AF53CE9007889A4 /* GoogleService-Info-Debug.plist in Resources */,
 				9209555B2AF7E46200BEA64D /* ElMessiri-Medium.ttf in Resources */,
 				9209555C2AF7E46200BEA64D /* ElMessiri-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA38155F2B0EB5FA00CB1C1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA38156C2B0EB5FC00CB1C1F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +486,7 @@
 				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
 				920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */,
+				FA3815762B0EB64800CB1C1F /* SmallWidget.swift in Sources */,
 				FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */,
 				927A94122AF52857007889A4 /* EsotericApp.swift in Sources */,
 				FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */,
@@ -407,7 +504,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA38155D2B0EB5FA00CB1C1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3815682B0EB5FA00CB1C1F /* EsotericWidgetBundle.swift in Sources */,
+				FA38156A2B0EB5FA00CB1C1F /* EsotericWidget.swift in Sources */,
+				FA3815772B0EB64800CB1C1F /* SmallWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA38156F2B0EB5FC00CB1C1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA3815602B0EB5FA00CB1C1F /* EsotericWidgetExtension */;
+			targetProxy = FA38156E2B0EB5FC00CB1C1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		927A941A2AF52859007889A4 /* Debug */ = {
@@ -532,12 +647,13 @@
 		927A941D2AF52859007889A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = 87XM268947;
+				DEVELOPMENT_TEAM = X8KHXL86W5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -564,12 +680,13 @@
 		927A941E2AF52859007889A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = 87XM268947;
+				DEVELOPMENT_TEAM = X8KHXL86W5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -593,6 +710,60 @@
 			};
 			name = Release;
 		};
+		FA3815722B0EB5FC00CB1C1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8KHXL86W5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EsotericWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EsotericWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.Esoteric.Taro.EsotericWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA3815732B0EB5FC00CB1C1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8KHXL86W5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EsotericWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EsotericWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.Esoteric.Taro.EsotericWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,6 +781,15 @@
 			buildConfigurations = (
 				927A941D2AF52859007889A4 /* Debug */,
 				927A941E2AF52859007889A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA3815742B0EB5FC00CB1C1F /* Build configuration list for PBXNativeTarget "EsotericWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA3815722B0EB5FC00CB1C1F /* Debug */,
+				FA3815732B0EB5FC00CB1C1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
