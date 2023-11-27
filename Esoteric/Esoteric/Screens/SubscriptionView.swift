@@ -115,7 +115,7 @@ struct SubscriptionView: View {
 
 
                 
-                Text("Нам вообще все всеравно что там у вас случилось. Все совпадения - случайность.")
+                Text("Все совпадения - случайность.")
                     .multilineTextAlignment(.center)
                     .font(.system(.footnote, design: .rounded, weight: .medium))
                     .foregroundColor(.textColor)

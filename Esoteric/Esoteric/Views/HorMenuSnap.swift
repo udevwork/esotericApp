@@ -126,7 +126,7 @@ struct HorMenuSnap: View {
                         case 1 : Tarologs()
                         case 2 : CardsTableView(model: CardsTableViewModel(deckType: .OneCard))
                         case 3 : CardsTableView(model: CardsTableViewModel(deckType: .ThreeCards))
-                        default: Text("Easter egg")
+                        default: Text("")
                     }
                  
                 }
