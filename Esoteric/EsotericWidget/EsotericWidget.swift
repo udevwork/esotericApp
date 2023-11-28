@@ -19,16 +19,16 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
-        var entries: [SimpleEntry] = []
 
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: .now, power: 1)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        let now = Date()
+        let nextMidnight = calendar.nextDate(after: now, matching: DateComponents(hour: 0, minute: 0, second: 0), matchingPolicy: .nextTime)!
+        
+        let midnight = nextMidnight
+        let entry = SimpleEntry(date: midnight, power: 1)
+        let timeline = Timeline(entries: [entry], policy: .after(midnight))
+        
         completion(timeline)
     }
 }
