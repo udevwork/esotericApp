@@ -65,6 +65,49 @@ struct TarotReaderBackGroundView: View {
     }
 }
 
+struct ComplexBackGroundView: View {
+    var body: some View
+    {
+        ZStack {
+            Color(uiColor: UIColor(hex: "181818")!).ignoresSafeArea()
+            VStack(content: {
+                HStack(alignment:.top,content: {
+                    Image("top_left").resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 90)
+                    Spacer()
+                    
+                    Image("top_center").resizable().aspectRatio(contentMode: .fit)
+                        .offset(y:-10)
+                        .frame(width: 90)
+                    Spacer()
+                    Image("top_right").resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 90)
+                })
+                
+                Spacer()
+                HStack {
+                    Image("midle").resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 10)
+                        .offset(x:-2)
+                    Spacer()
+                    Image("midle").resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 10)
+                        .offset(x:2)
+                }
+                Spacer()
+                
+                HStack(content: {
+                    Image("bottom_left").resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 90)
+                    Spacer()
+                    Image("bottom_right").resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 90)
+                })
+            }).padding(10).foregroundColor(.accent)
+        }
+    }
+}
+
 struct SubscriptionBackGroundView: View {
     var body: some View
     {
@@ -89,5 +132,5 @@ struct SubscriptionBackGroundView: View {
 }
 
 #Preview {
-    SubscriptionBackGroundView()
+    ComplexBackGroundView()
 }

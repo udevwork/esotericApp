@@ -13,15 +13,15 @@ struct OnboardingView: View {
     @EnvironmentObject var model: MainViewModel
     
     let tabs: [(String, String, String, Int)] = [
-        ("animation1",
-         "L_Onboard_Title_1",
-         "L_Onboard_SubTitle_1", 0),
-        ("animation2",
-         "L_Onboard_Title_2",
-         "L_Onboard_SubTitle_2", 1),
-        ("animation3",
-         "L_Onboard_Title_3",
-         "L_Onboard_SubTitle_3", 2)
+        ("Vector-3",
+         "Тайны Таро: Гадание на картах!",
+         "Добро пожаловать в мир Таро! Погрузись в гадания на картах с уникальным смыслом каждой карты. Давай начнем с магии одной карты!", 0),
+        ("Vector-2",
+         "Открой дверь в будущее!",
+         "Открывай тайны каждый день с \"Картой Дня\". Позволь картам направлять твои шаги. Готов к захватывающей поездке в мир предсказаний?", 1),
+        ("Vector-1",
+         "Расклад Таролога: Исследуй будущее!",
+         "Закажи у таролога уникальный расклад. Исследуй тайные пути судьбы и получи ответы от экспертов. Погружайся в магию Таро!", 2)
     ]
     
     var body: some View {
@@ -36,7 +36,7 @@ struct OnboardingTabsView<Content: View>: View {
     
     @EnvironmentObject var model: MainViewModel
     @State private var selectedTab = 0
-    @State private var buttonText = "L_NEXT"
+    @State private var buttonText = "Далее"
     
     var body: some View {
         VStack() {
@@ -45,33 +45,32 @@ struct OnboardingTabsView<Content: View>: View {
                     content
                 }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 
-                HStack {
-                    Spacer()
+             
                     Button(action: buttonPressed) {
                         Text(buttonText)
-                    }.BlueButtonStyle()
-                }.padding(.horizontal, 30)
+                    }.DefButtonStyle().offset(y:-45)
+                
             }
         }
         .onChange(of: selectedTab, perform: change)
         .onAppear(perform: exampleFunction())
-        .background(BGColor)
+        .background(ComplexBackGroundView())
     }
     
     private func exampleFunction() -> (() -> Void)? {
         return {
-            UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(hex: "5A9CFF")!
-            UIPageControl.appearance().pageIndicatorTintColor = UIColor(hex: "5A9CFF")!.withAlphaComponent(0.2)
+            UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(hex: "BE9A58")!
+            UIPageControl.appearance().pageIndicatorTintColor = UIColor(hex: "BE9A58")!.withAlphaComponent(0.2)
             AnalyticsWrapper.onScreanAppear("Onboarding")
         }
     }
  
     private func change(newValue: (any Equatable)) {
         if (newValue as! Int) < 2 {
-            buttonText = "L_NEXT"
+            buttonText = "Дальше"
         }
         if (newValue as! Int) == 2 {
-            buttonText = "L_FINISH"
+            buttonText = "Погнали!"
         }
     }
     
@@ -101,7 +100,7 @@ struct OnboardingPageView: View {
     public var imageName: String
     public var title: String
     public  var subtitle: String
-    private var size = UIScreen.main.bounds.width/1.2
+    private var size = UIScreen.main.bounds.width/1.4
     
     public init(_ tuple: (String, String, String, Int)) {
         self.imageName = tuple.0
@@ -113,14 +112,17 @@ struct OnboardingPageView: View {
     var body: some View {
         VStack(alignment:.center, spacing: 10) {
             Image(imageName)
-                .opacity(0.5)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
                 .frame(width: size, height: size)
+         
             VStack(alignment:.center, spacing: 20) {
                 SectionTitleView(text: title, alignment: .center)
+                Image("art_delimiter8").resizable().aspectRatio(contentMode: .fit)
                 ArticleView(text: subtitle, alignment: .center)
             }.padding(.vertical, 30)
                 .padding(.horizontal, 20)
-                .LightGrayViewStyle()
+
             Spacer()
         }.padding(35).tag(index)
     }
