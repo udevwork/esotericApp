@@ -149,7 +149,7 @@ class PurchasesHelper {
     public static func configure() {
         
         Purchases.logLevel = .debug
-        Purchases.configure(withAPIKey: "appl_wuAXIwjhiGzZaJfIGEVpaiMltWW")
+        Purchases.configure(withAPIKey: "appl_iRuUvSXDGYrEZHEJNEYswanfCIF")
         
         // fetch subscription
         Purchases.shared.getOfferings { (offerings, error) in
@@ -160,12 +160,7 @@ class PurchasesHelper {
                     PurchasesHelper.package = firstPackage
                     PurchasesHelper.storeProduct = product
                     
-                    // get trial
-                    if let discount = product.discounts.first {
-                        Purchases.shared.getPromotionalOffer(forProductDiscount: discount, product: product) { (promoOffer, error) in
-                            PurchasesHelper.promoOffer = promoOffer
-                        }
-                    }
+                    
                 }
             }
         }
@@ -183,7 +178,7 @@ class PurchasesHelper {
     
     public static func isSubscribed(_ completion: @escaping (Bool)->()){
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
-            completion(customerInfo?.entitlements.all["PRO"]?.isActive ?? false)
+            completion(customerInfo?.entitlements.all["Premium accsess"]?.isActive ?? false)
         }
     }
     
