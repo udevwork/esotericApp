@@ -90,6 +90,7 @@ struct EsotericWidget: Widget {
     }
 }
 
+@available(iOS 17.0, *)
 #Preview(as: .systemSmall) {
     EsotericWidget()
 } timeline: {
