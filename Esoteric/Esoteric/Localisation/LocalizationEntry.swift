@@ -42,12 +42,15 @@ enum Texts {
         static var premiumWeekly: String { NSLocalizedString("premiumWeekly", comment: "") }
     }
 
-    enum LaunchScreenView {
-
-    }
-
     enum OnboardingView {
-
+        static var text1: String { NSLocalizedString("text1", comment: "") }
+        static var subtext1: String { NSLocalizedString("subtext1", comment: "") }
+        static var text2: String { NSLocalizedString("text2", comment: "") }
+        static var subtext2: String { NSLocalizedString("subtext2", comment: "") }
+        static var text3: String { NSLocalizedString("text3", comment: "") }
+        static var subtext3: String { NSLocalizedString("subtext3", comment: "") }
+        static var nextButton: String { NSLocalizedString("nextButton", comment: "") }
+        static var gogo: String { NSLocalizedString("gogo", comment: "") }
     }
 
     enum CardsTableView {
@@ -87,5 +90,11 @@ enum Texts {
         static var year: String { NSLocalizedString("year", comment: "") }
         static var yearSubt: String { NSLocalizedString("yearSubt", comment: "") }
         static var productDescription: String { NSLocalizedString("productDescription", comment: "") }
+    }
+
+    enum Widget {
+        static var goodJob: String { NSLocalizedString("goodJob", comment: "") }
+        static var mbDayOpen: String { NSLocalizedString("mbDayOpen", comment: "") }
+        static var dayCount: String { NSLocalizedString("dayCount", comment: "") }
     }
 }
