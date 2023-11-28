@@ -173,33 +173,33 @@ struct CardsTableView: View {
                         switch model.deckType {
                                 
                             case .OneCard:
-                                H1TitleView(textColor: .accentColor,text: "Одна карта", alignment: .center)
+                            H1TitleView(textColor: .accentColor,text: Texts.HomeView.oneCard, alignment: .center)
                                 if model.isOpenCardsAvalable == false {
-                                    ArticleView(text: "Выберите одну карту", alignment: .leading).opacity(0.6)
+                                    ArticleView(text: Texts.CardsTableView.chooseOneCard, alignment: .leading).opacity(0.6)
                                 } else {
-                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                    ArticleView(text: Texts.CardsTableView.tapToOpen, alignment: .leading)
                                 }
                                 
                             case .ThreeCards:
-                                H1TitleView(textColor: .accentColor,text: "Три карты", alignment: .center)
+                                H1TitleView(textColor: .accentColor,text: Texts.HomeView.threeCard, alignment: .center)
                                 if model.isOpenCardsAvalable == false {
-                                    ArticleView(text: "Выберите три карты", alignment: .leading).opacity(0.6)
+                                    ArticleView(text: Texts.CardsTableView.chooseThreeCard, alignment: .leading).opacity(0.6)
                                 } else {
-                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                    ArticleView(text: Texts.CardsTableView.tapToOpen, alignment: .leading)
                                 }
                             case .TarotReader:
-                                H1TitleView(textColor: .accentColor,text: "Ваш расклад", alignment: .center)
+                                H1TitleView(textColor: .accentColor,text: Texts.CardsTableView.yourTarotSpread, alignment: .center)
                                 if model.isOpenCardsAvalable == false {
-                                    ArticleView(text: "Личный расклад таролога", alignment: .leading).opacity(0.6)
+                                    ArticleView(text: Texts.CardsTableView.personalTarotReading, alignment: .leading).opacity(0.6)
                                 } else {
-                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                    ArticleView(text: Texts.CardsTableView.tapToOpen, alignment: .leading)
                                 }
                             case .CardOfTheDay:
-                                H1TitleView(textColor: .accentColor,text: "Карта дня", alignment: .center)
+                            H1TitleView(textColor: .accentColor,text: Texts.HomeView.cardOfDay, alignment: .center)
                                 if model.isOpenCardsAvalable == false {
-                                    ArticleView(text: "Запрос во вселенную", alignment: .leading).opacity(0.6)
+                                    ArticleView(text: Texts.CardsTableView.spaceRequest, alignment: .leading).opacity(0.6)
                                 } else {
-                                    ArticleView(text: "Нажмите что бы открыть!", alignment: .leading)
+                                    ArticleView(text: Texts.CardsTableView.tapToOpen, alignment: .leading)
                                 }
                         }
                         

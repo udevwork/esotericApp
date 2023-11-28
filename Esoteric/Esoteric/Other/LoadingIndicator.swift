@@ -62,7 +62,7 @@ struct LoadingIndicator: View {
               
                     VStack(spacing: -10) {
                        
-                        ArticleView(text: "Открываем двери к магии", alignment: .leading).opacity(0.6)
+                        ArticleView(text: Texts.CardsTableView.openMagicDoor, alignment: .leading).opacity(0.6)
                       
                     }
            

@@ -25,20 +25,20 @@ class HorMenuSnapData: ObservableObject {
     
     init() {
         cards = [
-            HorMenuSnapCard(title: "Карта Дня!",
-                            subTitle: "Выберите карту вашего дня!",
+            HorMenuSnapCard(title: Texts.HomeView.cardOfDay,
+                            subTitle: Texts.HomeView.cardOfDaySubTittle,
                             image: "hands_cards_art"),
             
-            HorMenuSnapCard(title: "Ваш таролог",
-                            subTitle: "Таролог ответит вам через несколько минут!",
+            HorMenuSnapCard(title: Texts.HomeView.yourTarolog,
+                            subTitle: Texts.HomeView.yourTarologSubTittle,
                             image: "sun_cards_art"),
             
-            HorMenuSnapCard(title: "Одна карта",
-                            subTitle: "Расклад с одной картой.",
+            HorMenuSnapCard(title: Texts.HomeView.oneCard,
+                            subTitle: Texts.HomeView.oneCardSubTittle,
                             image: "1_cards_art"),
             
-            HorMenuSnapCard(title: "Три Карты",
-                            subTitle: "Точный прогноз для вашего запроса!",
+            HorMenuSnapCard(title: Texts.HomeView.threeCard,
+                            subTitle: Texts.HomeView.threeCardSubTittle,
                             image: "3_cards_art")
         ]
     }

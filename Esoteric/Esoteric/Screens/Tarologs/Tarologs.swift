@@ -86,7 +86,7 @@ struct TarotReaderCell: View {
                                             } : nil
                                     )
                                 
-                                Text(tarotReader.isOnline() ? "В сети" : "Не в сети")
+                                Text(tarotReader.isOnline() ? Texts.TarologsView.onLine : Texts.TarologsView.offLine)
                                     .font(.footnote)
                                     .foregroundColor(tarotReader.isOnline() ? .green : .red)
                                     .padding(.leading, 5)
@@ -109,13 +109,13 @@ struct TarotReaderCell: View {
                 
                 
                 VStack(spacing: 0) {
-                    Text("Рейтинг: \(tarotReader.rating)")
+                    Text("\(Texts.TarologsView.rating): \(tarotReader.rating)")
                         .font(.subheadline)
                         .foregroundColor(.orange)
                 }
                 
                 NavigationLink(destination: TarotSpread()) {
-                    Text("Заказать расклад").bold().foregroundColor(.white)
+                    Text(Texts.TarologsView.getSpread).bold().foregroundColor(.white)
                 }.frame(height: 10).DefButtonStyle()
                     .disabled(!tarotReader.isOnline())
                 
@@ -154,8 +154,8 @@ struct Tarologs: View {
                 HStack {
                     Spacer()
                     VStack(spacing: -10) {
-                        H1TitleView(textColor: .accentColor,text: "Тарологи", alignment: .center)
-                        ArticleView(text: "Запросить расклад прямо сейчас!", alignment: .leading).opacity(0.6)
+                        H1TitleView(textColor: .accentColor,text: Texts.TarologsView.tarologs, alignment: .center)
+                        ArticleView(text: Texts.TarologsView.spreadRightNow, alignment: .leading).opacity(0.6)
                     }.offset(y: -15)
                     Spacer()
                 }
@@ -163,12 +163,12 @@ struct Tarologs: View {
                 ScreenContentView(color: .clear) {
                
                         VStack(alignment: .leading, spacing: 8) {
-                            SectionTitleView(textColor: .white, text: "Есть вопросы?", alignment: .leading)
-                              
+                            SectionTitleView(textColor: .white, text: Texts.HomeView.haveAQuestion, alignment: .leading)
+
                             Button {
                                 
                             } label: {
-                                Text("Напиши нам!")
+                                Text(Texts.TarologsView.writeUs)
                             }.DefButtonStyle()
                         }.padding(.horizontal, 40)
                     
