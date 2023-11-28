@@ -11,7 +11,23 @@
         }
       }
     },
-    "2" : {
+    "%@: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%1$@: %2$lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "%lld" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -27,6 +43,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Card of the day"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карта дня!"
           }
         }
       }
@@ -48,6 +70,38 @@
         }
       }
     },
+    "cardOfDayCounter1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Card of the day for"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карта дня"
+          }
+        }
+      }
+    },
+    "cardOfDayCounter2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "consecutive days!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "дней подряд!"
+          }
+        }
+      }
+    },
     "cardOfDaySubTittle" : {
       "localizations" : {
         "en" : {
@@ -60,6 +114,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выберите карту вашего дня!"
+          }
+        }
+      }
+    },
+    "chooseOneCard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select one card"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите карту"
+          }
+        }
+      }
+    },
+    "chooseThreeCard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select three cards"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите три карты"
+          }
+        }
+      }
+    },
+    "day" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DAY"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ДЕНЬ"
+          }
+        }
+      }
+    },
+    "daySubt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily subscription"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ежедневная подписка"
           }
         }
       }
@@ -80,6 +198,22 @@
         }
       }
     },
+    "getSpread" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To order a tarot reading"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заказать расклад"
+          }
+        }
+      }
+    },
     "haveAQuestion" : {
       "localizations" : {
         "en" : {
@@ -87,25 +221,11 @@
             "state" : "translated",
             "value" : "Do you have any questions?"
           }
-        }
-      }
-    },
-    "Hello, world!" : {
-      "localizations" : {
+        },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : ""
-          }
-        }
-      }
-    },
-    "Hello, World!" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Есть вопросы?"
           }
         }
       }
@@ -132,6 +252,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Лицензия"
+          }
+        }
+      }
+    },
+    "month" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MONTH"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "МЕСЯЦ"
+          }
+        }
+      }
+    },
+    "monthSubt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly subscription"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ежемесячная подписка"
+          }
+        }
+      }
+    },
+    "offLine" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offline"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не в сети"
           }
         }
       }
@@ -168,6 +336,150 @@
         }
       }
     },
+    "onLine" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В сети"
+          }
+        }
+      }
+    },
+    "openMagicDoor" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opening the doors to magic"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открываем двери к магии"
+          }
+        }
+      }
+    },
+    "personalTarotReading" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personal tarot reading by a tarot reader"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Личный расклад таролога"
+          }
+        }
+      }
+    },
+    "premium" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PREMIUM"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПРЕМИУМ"
+          }
+        }
+      }
+    },
+    "premiumAccess" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get access to premium user paid features!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получите доступ к платным функциям премиум-пользователя!"
+          }
+        }
+      }
+    },
+    "premiumDiffSpread" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diverse spreads: from love to career - choose what touches your soul."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разнообразные расклады: от любовных до карьерных - выбирай то, что трогает твою душу."
+          }
+        }
+      }
+    },
+    "premiumExclusive" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exclusive interpretations: discover the profound meaning of each card from our tarot experts."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эксклюзивные интерпретации: узнай глубинный смысл каждой карты от наших экспертов по таро."
+          }
+        }
+      }
+    },
+    "premiumWeekly" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily forecasts: keep your finger on the pulse of your destiny with personalized predictions every day."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ежедневные прогнозы: держи руку на пульсе своей судьбы с персонализированными прогнозами каждый день.\n\n"
+          }
+        }
+      }
+    },
+    "premiumWhatYoure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What you will receive:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Что тебя ждет:"
+          }
+        }
+      }
+    },
     "Privacy Policy" : {
       "localizations" : {
         "en" : {
@@ -184,6 +496,70 @@
         }
       }
     },
+    "productDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get access to premium user paid features!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получите доступ к платным премиум-функциям пользователя!"
+          }
+        }
+      }
+    },
+    "qSent" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Question sent!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вопрос отправлен!"
+          }
+        }
+      }
+    },
+    "rating" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rating"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рейтинг"
+          }
+        }
+      }
+    },
+    "recivePush" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When the tarot reader responds, we will send you a notification"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Когда таролог ответит, мы пришлем вам уведомление"
+          }
+        }
+      }
+    },
     "Restore purchase" : {
       "localizations" : {
         "en" : {
@@ -196,6 +572,118 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Восстановить покупку"
+          }
+        }
+      }
+    },
+    "seeSpreadReady" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the spread!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прочитайте его прямо сейчас!"
+          }
+        }
+      }
+    },
+    "simpleExample" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For example: \"I want to change jobs,\" \"Is it worth going on vacation now?\" or \"Is it a good time to share a secret?\""
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Например: \"Хочу сменить работу\", \"Стоит ли сейчас уезжать в отпуск?\" или \"Подходящее время что бы рассказать секрет?\"\n\n"
+          }
+        }
+      }
+    },
+    "spaceRequest" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request to the universe"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запрос во вселенную"
+          }
+        }
+      }
+    },
+    "spreadInProgress" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The spread is being prepared"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расклад готовится"
+          }
+        }
+      }
+    },
+    "spreadReady" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The spread is ready!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расклад готов!"
+          }
+        }
+      }
+    },
+    "spreadReadyRead" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read it right now!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Посмотреть расклад!"
+          }
+        }
+      }
+    },
+    "spreadRightNow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Order a tarot reading right now!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заказать расклад прямо сейчас!"
           }
         }
       }
@@ -222,6 +710,60 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Specially for you, we offer a unique subscription that unlocks access to all the possibilities of our magical corner."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Специально для вас мы предлагаем уникальную подписку, которая открывает доступ ко всем возможностям нашего волшебного уголка."
+          }
+        }
+      }
+    },
+    "takeQuestion" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask a question to the tarot reader"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Задай вопрос тарологу"
+          }
+        }
+      }
+    },
+    "tapToOpen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click to open!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите что бы открыть!"
+          }
+        }
+      }
+    },
+    "tarologs" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarologs"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тарологи"
           }
         }
       }
@@ -306,12 +848,82 @@
         }
       }
     },
+    "timeToResponce" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typically, the response comes within 10-15 minutes. You will receive a notification!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обычно ответ приходит через 10-15 минут. Вам прийдет уведомление!"
+          }
+        }
+      }
+    },
+    "week" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WEEK"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "НЕДЕЛЯ"
+          }
+        }
+      }
+    },
+    "weekSubt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weakly subscription"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Еженедельная подписка"
+          }
+        }
+      }
+    },
+    "weSendNotification" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will receive a notification when the tarot reader finishes the spread!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы получите уведомление когда таролог закончит расклад!"
+          }
+        }
+      }
+    },
     "widgets" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Widgets"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "виджет!"
           }
         }
       }
@@ -323,6 +935,76 @@
             "state" : "translated",
             "value" : "Install the widget on your desktop! It will remind you of the card of the day!"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установи виджет на рабочий стол! Он будет напоминать о карте дня!"
+          }
+        }
+      }
+    },
+    "writeUs" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write us!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напиши нам!"
+          }
+        }
+      }
+    },
+    "year" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YEAR"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ГОД"
+          }
+        }
+      }
+    },
+    "yearSubt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annual subscription"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ежегодная подписка"
+          }
+        }
+      }
+    },
+    "youreTGetAnswer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your tarot reader will create a spread based on your request and provide you with an answer."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш таролог сделает расклад по вашему запросу и ответит вам."
+          }
         }
       }
     },
@@ -332,6 +1014,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Your Tarot Reader"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш таролог"
           }
         }
       }
@@ -352,7 +1040,24 @@
         }
       }
     },
+    "yourTarotSpread" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your tarot spread"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш расклад"
+          }
+        }
+      }
+    },
     "В сети" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -417,6 +1122,7 @@
       }
     },
     "Заказать расклад" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -465,6 +1171,7 @@
       }
     },
     "Напиши нам!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -481,6 +1188,7 @@
       }
     },
     "Не в сети" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -561,6 +1269,7 @@
       }
     },
     "Посмотреть расклад!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -577,6 +1286,7 @@
       }
     },
     "Рейтинг: %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

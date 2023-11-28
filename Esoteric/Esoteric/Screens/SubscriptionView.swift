@@ -16,9 +16,9 @@ struct SubscriptionView: View {
     @Environment(\.dismiss) var dismiss
     @State var showLoading: Bool = false
     @State var priceText: String = "€ 2,99"
-    @State var periodText: String = "WEEK"
-    @State var productTitle: String = "Weakly subscription"
-    @State var productDescription: String = "Get access to premium user paid features!"
+    @State var periodText: String = Texts.Coast.week
+    @State var productTitle: String = Texts.Coast.weekSubt
+    @State var productDescription: String = ""
     
     init() {
        
@@ -42,8 +42,8 @@ struct SubscriptionView: View {
                 
                 ZStack{
                     VStack(alignment: .center) {
-                        H1TitleView(textColor: .accentColor, text: "\("ПРЕМИУМ")", alignment: .center).frame(height: 30)
-                            
+                        H1TitleView(textColor: .accentColor, text: "\(Texts.SubscriptionView.premium)", alignment: .center).frame(height: 30)
+
                         Image("art_delimiter7").resizable().aspectRatio(contentMode: .fit).frame(height: 10)
                         SubSectionTitleView(text: productDescription, alignment: .center)
                     }
@@ -65,13 +65,13 @@ struct SubscriptionView: View {
                 VStack(spacing: 30) {
                     VStack(spacing: 10) {
                         ArticleView(text: """
-🔮 Что тебя ждет:
+🔮 \(Texts.SubscriptionView.premiumWhatYoure)
 
-✨ Разнообразные расклады: от любовных до карьерных - выбирай то, что трогает твою душу.
+✨ \(Texts.SubscriptionView.premiumDiffSpread)
 
-✨ Эксклюзивные интерпретации: узнай глубинный смысл каждой карты от наших экспертов по таро.
+✨ \(Texts.SubscriptionView.premiumExclusive)
 
-✨ Ежедневные прогнозы: держи руку на пульсе своей судьбы с персонализированными прогнозами каждый день.
+✨ \(Texts.SubscriptionView.premiumWeekly)
 
 """, alignment: .leading).bold()
          

@@ -37,7 +37,7 @@ struct Previews_ScreenContentView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             ScreenContentView {
-                Text("Hello, World!").padding(.horizontal,30)
+                Text("").padding(.horizontal,30)
             }
         }.frame(width: 1000, height: 500).background(BGColor)
     }

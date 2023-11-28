@@ -46,12 +46,11 @@ struct HomeView: View {
                                 Image("home_header_logo").resizable().frame(width: 120, height: 60)
                                 H1TitleView(textColor: .accentColor,text: "ESOTERICA", alignment: .center)
                                 Image("art_delimiter9").resizable().aspectRatio(contentMode: .fit).offset(y: -6).frame(height: 10)
-                                ArticleView(text: "Карта дня \(DayConterService().getDayStreak()) дней подряд!", alignment: .leading).bold()
+                                ArticleView(text: "\(Texts.HomeView.cardOfDayCounter1) \(DayConterService().getDayStreak()) \(Texts.HomeView.cardOfDayCounter2)", alignment: .leading).bold()
                             }
                             Spacer()
                         }
                   
-                        
                         HorMenuSnap()
                         
                         if User.shared.isProUser == false {
@@ -65,21 +64,21 @@ struct HomeView: View {
                                                 HStack {
                                                     Image("Vector-1").resizable().aspectRatio(contentMode: .fit).frame(height: 140)
                                                 }.frame(maxWidth: .infinity)
-                                                SectionTitleView(textColor: .white, text: "Расклад готов!!", alignment: .leading)
+                                                SectionTitleView(textColor: .white, text: Texts.HomeView.spreadReady, alignment: .leading)
                                                 Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
-                                                ArticleView(textColor: .white, text: "Прочитайте его прямо сейчас!")
+                                                ArticleView(textColor: .white, text: Texts.HomeView.seeSpreadReady)
                                             }
                                             NavigationLink {
                                                 CardsTableView(model: CardsTableViewModel(deckType: .TarotReader))
                                             } label: {
-                                                Text("Посмотреть расклад!")
+                                                Text(Texts.HomeView.spreadReadyRead)
                                             }.DefButtonStyle()
                                         } else {
                                             VStack(alignment: .leading, spacing: 8) {
-                                                SectionTitleView(textColor: .white, text: "Расклад готовится", alignment: .leading)
+                                                SectionTitleView(textColor: .white, text: Texts.HomeView.spreadInProgress, alignment: .leading)
                                                     .padding(.horizontal, horPadding)
                                                 Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
-                                                ArticleView(textColor: .white, text: "Вы получите уведомление когда таролог закончит расклад!").padding(.horizontal, horPadding)
+                                                ArticleView(textColor: .white, text: Texts.HomeView.weSendNotification).padding(.horizontal, horPadding)
                                             }
                                         }
                                        
@@ -99,9 +98,9 @@ struct HomeView: View {
                             ScreenContentView(color: .clear) {
                                 VStack(alignment: .leading, spacing: 28) {
                                         VStack(alignment: .leading, spacing: 8) {
-                                            SectionTitleView(textColor: .white, text: "Виджеты!", alignment: .leading)
+                                            SectionTitleView(textColor: .white, text: Texts.HomeView.widgets, alignment: .leading)
                                             Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
-                                            ArticleView(textColor: .white, text: "Установи виджет на рабочий стол! Он будет напоминать о карте дня!")
+                                            ArticleView(textColor: .white, text: Texts.HomeView.widgetsSubTittle)
                                         }
                                        
                                 }.background {
@@ -119,12 +118,10 @@ struct HomeView: View {
                                         HStack {
                                             Image("Vector").resizable().aspectRatio(contentMode: .fit).frame(height: 140)
                                         }.frame(maxWidth: .infinity)
-                                        SectionTitleView(textColor: .white, text: "Врата загадочного мира", alignment: .leading)
+                                        SectionTitleView(textColor: .white, text: Texts.HomeView.subscipt, alignment: .leading)
                                         Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
                     
-                                        ArticleView(textColor: .white, text: """
-                                                    Специально для тебя мы предлагаем уникальную подписку, которая откроет доступ ко всем возможностям нашего магического уголка.
-                                                    """)
+                                        ArticleView(textColor: .white, text: Texts.HomeView.subsciptSubTittle)
                                     }
                                     
                                     Button {

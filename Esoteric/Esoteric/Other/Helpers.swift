@@ -267,13 +267,13 @@ extension SubscriptionPeriod {
     func periodToText() -> String {
         switch self.unit {
             case .day:
-                return "L_day"
+            return Texts.Coast.day
             case .week:
-                return "L_week"
+            return Texts.Coast.week
             case .month:
-                return "L_month"
+            return Texts.Coast.month
             case .year:
-                return "L_year"
+            return Texts.Coast.year
         }
     }
 }

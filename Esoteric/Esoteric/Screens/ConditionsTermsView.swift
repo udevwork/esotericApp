@@ -20,7 +20,7 @@ struct ConditionsTermsView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     VStack(alignment: .leading, spacing: 20) {
                         VStack(alignment: .leading, spacing: 8) {
-                            SectionTitleView(textColor: .white, text: "Есть вопросы?", alignment: .leading)
+                            SectionTitleView(textColor: .white, text: Texts.HomeView.haveAQuestion, alignment: .leading)
                             Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
                         }
                         Button {
