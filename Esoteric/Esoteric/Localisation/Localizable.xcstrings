@@ -183,6 +183,7 @@
       }
     },
     "Esoterica" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -785,6 +786,7 @@
       }
     },
     "Tarot\ndays:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1204,6 +1206,9 @@
         }
       }
     },
+    "Откроем карту дня?" : {
+
+    },
     "Открыть" : {
       "localizations" : {
         "en" : {
@@ -1317,6 +1322,12 @@
           }
         }
       }
+    },
+    "серия дней" : {
+
+    },
+    "Так держать!" : {
+
     }
   },
   "version" : "1.0"

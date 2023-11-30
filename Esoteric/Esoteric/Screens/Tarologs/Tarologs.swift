@@ -32,10 +32,19 @@ struct TarotReader: Identifiable {
 class TarologsModel: ObservableObject {
     
     @Published var tarotReaders: [TarotReader] = [
-        TarotReader("isMorning", "face3", rating: 4, workTime: .isMorning),
-        TarotReader("isAfternoon", "face2", rating: 3, workTime: .isAfternoon),
-        TarotReader("isEvening", "face1", rating: 5, workTime: .isEvening),
-        TarotReader("isNight", "face1", rating: 5, workTime: .isNight)
+        TarotReader("Ариана", "tarot-reader-12", rating: 4, workTime: .isMorning),
+        TarotReader("Серена", "tarot-reader-11", rating: 4, workTime: .isMorning),
+        TarotReader("Луна", "tarot-reader-10", rating: 5, workTime: .isMorning),
+        TarotReader("Изабелла", "tarot-reader-9", rating: 4, workTime: .isEvening),
+        TarotReader("Вивиана", "tarot-reader-8", rating: 3, workTime: .isEvening),
+        TarotReader("Марго", "tarot-reader-7", rating: 5, workTime: .isEvening),
+        TarotReader("Элизабет", "tarot-reader-6", rating: 5, workTime: .isAfternoon),
+        TarotReader("Феодора", "tarot-reader-5", rating: 4, workTime: .isAfternoon),
+        TarotReader("Аурелия", "tarot-reader-4", rating: 5, workTime: .isAfternoon),
+        TarotReader("Сабина", "tarot-reader-3", rating: 4, workTime: .isNight),
+        TarotReader("Джулиана", "tarot-reader-2", rating: 3, workTime: .isNight),
+        TarotReader("Лорена", "tarot-reader-1", rating: 5, workTime: .isNight),
+        TarotReader("Эвелина", "tarot-reader-0", rating: 5, workTime: .isNight)
     ]
 
     init() {
