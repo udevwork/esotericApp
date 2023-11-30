@@ -691,7 +691,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -725,7 +725,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Esoteric/Info.plist;
@@ -757,7 +757,7 @@
 				CODE_SIGN_ENTITLEMENTS = EsotericWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsotericWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EsotericWidget;
@@ -786,7 +786,7 @@
 				CODE_SIGN_ENTITLEMENTS = EsotericWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8KHXL86W5;
+				DEVELOPMENT_TEAM = 87XM268947;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsotericWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EsotericWidget;

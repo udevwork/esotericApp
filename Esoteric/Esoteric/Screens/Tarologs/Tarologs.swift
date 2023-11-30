@@ -34,7 +34,6 @@ class TarologsModel: ObservableObject {
     @Published var tarotReaders: [TarotReader] = [
         TarotReader(Texts.TarotReadesNames.ariana, "tarot-reader-12", rating: 4, workTime: .isMorning),
         TarotReader(Texts.TarotReadesNames.serena, "tarot-reader-11", rating: 4, workTime: .isMorning),
-        TarotReader(Texts.TarotReadesNames.luna, "tarot-reader-10", rating: 5, workTime: .isMorning),
         TarotReader(Texts.TarotReadesNames.isabella, "tarot-reader-9", rating: 4, workTime: .isEvening),
         TarotReader(Texts.TarotReadesNames.viviana, "tarot-reader-8", rating: 3, workTime: .isEvening),
         TarotReader(Texts.TarotReadesNames.margot, "tarot-reader-7", rating: 5, workTime: .isEvening),
