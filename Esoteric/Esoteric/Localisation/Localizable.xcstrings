@@ -37,6 +37,40 @@
         }
       }
     },
+    "ariana" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ariana"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ариана"
+          }
+        }
+      }
+    },
+    "aurelia" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aurelia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аурелия"
+          }
+        }
+      }
+    },
     "cardOfDay" : {
       "localizations" : {
         "en" : {
@@ -198,6 +232,23 @@
         }
       }
     },
+    "elizabeth" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elizabeth"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Элизабет"
+          }
+        }
+      }
+    },
     "Esoterica" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -211,6 +262,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Esoterica"
+          }
+        }
+      }
+    },
+    "evelina" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evelina"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эвелина"
           }
         }
       }
@@ -279,6 +347,40 @@
         }
       }
     },
+    "isabella" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isabella"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изабелла"
+          }
+        }
+      }
+    },
+    "juliana" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juliana"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Джулиана"
+          }
+        }
+      }
+    },
     "L_PER" : {
       "localizations" : {
         "ru" : {
@@ -301,6 +403,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Лицензия"
+          }
+        }
+      }
+    },
+    "lorena" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lorena"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лорена"
+          }
+        }
+      }
+    },
+    "luna" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luna"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Луна"
+          }
+        }
+      }
+    },
+    "margot" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Margot"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Марго"
           }
         }
       }
@@ -657,6 +810,23 @@
         }
       }
     },
+    "sabina" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sabina"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сабина"
+          }
+        }
+      }
+    },
     "seeSpreadReady" : {
       "localizations" : {
         "en" : {
@@ -669,6 +839,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Прочитайте его прямо сейчас!"
+          }
+        }
+      }
+    },
+    "serena" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serena"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Серена"
           }
         }
       }
@@ -994,6 +1181,23 @@
         }
       }
     },
+    "theodora" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Theodora"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Феодора"
+          }
+        }
+      }
+    },
     "threeCard" : {
       "localizations" : {
         "en" : {
@@ -1038,6 +1242,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обычно ответ приходит через 10-15 минут. Вам прийдет уведомление!"
+          }
+        }
+      }
+    },
+    "viviana" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Viviana"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вивиана"
           }
         }
       }

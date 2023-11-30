@@ -97,4 +97,20 @@ enum Texts {
         static var mbDayOpen: String { NSLocalizedString("mbDayOpen", comment: "") }
         static var dayCount: String { NSLocalizedString("dayCount", comment: "") }
     }
+    
+    enum TarotReadesNames {
+        static var ariana: String { NSLocalizedString("ariana", comment: "") }
+        static var serena: String { NSLocalizedString("serena", comment: "") }
+        static var luna: String { NSLocalizedString("luna", comment: "") }
+        static var isabella: String { NSLocalizedString("isabella", comment: "") }
+        static var viviana: String { NSLocalizedString("viviana", comment: "") }
+        static var margot: String { NSLocalizedString("margot", comment: "") }
+        static var elizabeth: String { NSLocalizedString("elizabeth", comment: "") }
+        static var theodora: String { NSLocalizedString("theodora", comment: "") }
+        static var aurelia: String { NSLocalizedString("aurelia", comment: "") }
+        static var sabina: String { NSLocalizedString("sabina", comment: "") }
+        static var juliana: String { NSLocalizedString("juliana", comment: "") }
+        static var lorena: String { NSLocalizedString("lorena", comment: "") }
+        static var evelina: String { NSLocalizedString("evelina", comment: "") }
+    }
 }
