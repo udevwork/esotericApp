@@ -75,6 +75,7 @@
 		FA4CA1812B137FF30089072D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FA4CA1802B137FF30089072D /* Localizable.xcstrings */; };
 		FA4CA1832B1382CB0089072D /* LocalizationEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CA1822B1382CB0089072D /* LocalizationEntry.swift */; };
 		FA7664132B0D5706008437AB /* TarotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7664122B0D5706008437AB /* TarotModels.swift */; };
+		FAA0D06C2B1678F300188609 /* LocalizationEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CA1822B1382CB0089072D /* LocalizationEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -546,6 +547,7 @@
 				FA38156A2B0EB5FA00CB1C1F /* EsotericWidget.swift in Sources */,
 				FA3815772B0EB64800CB1C1F /* SmallWidget.swift in Sources */,
 				92534FB12B135AF000395B75 /* DayConterService.swift in Sources */,
+				FAA0D06C2B1678F300188609 /* LocalizationEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

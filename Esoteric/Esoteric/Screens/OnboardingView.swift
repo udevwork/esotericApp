@@ -14,14 +14,14 @@ struct OnboardingView: View {
     
     let tabs: [(String, String, String, Int)] = [
         ("Vector-3",
-         "Тайны Таро: Гадание на картах!",
-         "Добро пожаловать в мир Таро! Погрузись в гадания на картах с уникальным смыслом каждой карты. Давай начнем с магии одной карты!", 0),
+         Texts.OnboardingView.text1,
+         Texts.OnboardingView.subtext1, 0),
         ("Vector-2",
-         "Открой дверь в будущее!",
-         "Открывай тайны каждый день с \"Картой Дня\". Позволь картам направлять твои шаги. Готов к захватывающей поездке в мир предсказаний?", 1),
+         Texts.OnboardingView.text2,
+         Texts.OnboardingView.subtext2, 1),
         ("Vector-1",
-         "Расклад Таролога: Исследуй будущее!",
-         "Закажи у таролога уникальный расклад. Исследуй тайные пути судьбы и получи ответы от экспертов. Погружайся в магию Таро!", 2)
+         Texts.OnboardingView.text3,
+         Texts.OnboardingView.subtext3, 2)
     ]
     
     var body: some View {
@@ -36,8 +36,8 @@ struct OnboardingTabsView<Content: View>: View {
     
     @EnvironmentObject var model: MainViewModel
     @State private var selectedTab = 0
-    @State private var buttonText = "Далее"
-    
+    @State private var buttonText = Texts.OnboardingView.nextButton
+
     var body: some View {
         VStack() {
             ZStack(alignment: .bottom) {
@@ -67,10 +67,10 @@ struct OnboardingTabsView<Content: View>: View {
  
     private func change(newValue: (any Equatable)) {
         if (newValue as! Int) < 2 {
-            buttonText = "Дальше"
+            buttonText = Texts.OnboardingView.nextButton
         }
         if (newValue as! Int) == 2 {
-            buttonText = "Погнали!"
+            buttonText = Texts.OnboardingView.gogo
         }
     }
     

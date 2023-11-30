@@ -166,6 +166,22 @@
         }
       }
     },
+    "dayCount" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "series of days"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "серия дней"
+          }
+        }
+      }
+    },
     "daySubt" : {
       "localizations" : {
         "en" : {
@@ -215,6 +231,38 @@
         }
       }
     },
+    "gogo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let's go!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Поехали!"
+          }
+        }
+      }
+    },
+    "goodJob" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep it up!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Так держать!"
+          }
+        }
+      }
+    },
     "haveAQuestion" : {
       "localizations" : {
         "en" : {
@@ -257,6 +305,22 @@
         }
       }
     },
+    "mbDayOpen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shall we reveal the card of the day?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Откроем карту дня?"
+          }
+        }
+      }
+    },
     "month" : {
       "localizations" : {
         "en" : {
@@ -285,6 +349,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ежемесячная подписка"
+          }
+        }
+      }
+    },
+    "nextButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дальше"
           }
         }
       }
@@ -721,6 +801,54 @@
         }
       }
     },
+    "subtext1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to the world of Tarot! Immerse yourself in card divination with the unique meaning of each card. Let's get started with the magic of one card!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добро пожаловать в мир Таро! Погрузись в гадания на картах с уникальным смыслом каждой карты. Давай начнем с магии одной карты!"
+          }
+        }
+      }
+    },
+    "subtext2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discover mysteries every day with the Map of the Day. Let the cards guide your steps. Ready for a thrill ride into the world of fortune telling?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открывай тайны каждый день с \"Картой Дня\". Позволь картам направлять твои шаги. Готов к захватывающей поездке в мир предсказаний?"
+          }
+        }
+      }
+    },
+    "subtext3" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Order a unique reading from a tarotologist. Explore the secret paths of fate and get answers from experts. Immerse yourself in the magic of Tarot!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закажи у таролога уникальный расклад. Исследуй тайные пути судьбы и получи ответы от экспертов. Погружайся в магию Таро!"
+          }
+        }
+      }
+    },
     "takeQuestion" : {
       "localizations" : {
         "en" : {
@@ -814,6 +942,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Условия и положения"
+          }
+        }
+      }
+    },
+    "text1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secrets of the Tarot: Divination by cards!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тайны Таро: Гадание на картах!"
+          }
+        }
+      }
+    },
+    "text2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open the door to the future!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открой дверь в будущее!"
+          }
+        }
+      }
+    },
+    "text3" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarotologist's Discourse: Explore the future!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расклад Таролога: Исследуй будущее!"
           }
         }
       }

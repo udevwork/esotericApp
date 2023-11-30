@@ -17,12 +17,12 @@ struct SmallWidget: View {
           
            
                 if DayConterService().isThisDayCompleted() {
-                    Text("Так держать!")
+                    Text(Texts.Widget.goodJob)
                         .multilineTextAlignment(.center)
                         .lineLimit(4)
                         .foregroundColor(.accent)
                 } else {
-                    Text("Откроем карту дня?")
+                    Text(Texts.Widget.mbDayOpen)
                         .multilineTextAlignment(.center)
                         .lineLimit(4)
                         .foregroundColor(.accent)
@@ -33,7 +33,7 @@ struct SmallWidget: View {
                     .font(.custom("ElMessiri-Bold", size: 40))
                     .offset(y:4)
                 
-                Text("серия дней")
+                Text(Texts.Widget.dayCount)
                     .multilineTextAlignment(.center)
                     .lineLimit(4)
                     .foregroundColor(.white)
