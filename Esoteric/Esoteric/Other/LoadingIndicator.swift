@@ -1,10 +1,3 @@
-//
-//  LoadingIndicator.swift
-//  Esoteric
-//
-//  Created by Denis Kotelnikov on 22.11.2023.
-//
-
 import SwiftUI
 
 struct LoadingIndicator: View {

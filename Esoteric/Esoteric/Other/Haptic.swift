@@ -1,10 +1,3 @@
-//
-//  Haptic.swift
-//  Esoteric
-//
-//  Created by Denis Kotelnikov on 26.11.2023.
-//
-
 import Foundation
 import UIKit
 

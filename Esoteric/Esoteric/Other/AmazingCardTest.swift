@@ -1,10 +1,3 @@
-//
-//  AmazingCardTest.swift
-//  Esoteric
-//
-//  Created by Denis Kotelnikov on 15.11.2023.
-//
-
 import SwiftUI
 import CoreMotion
 

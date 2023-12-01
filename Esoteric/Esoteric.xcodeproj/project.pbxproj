@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9206CF462B19C8ED006D637E /* DayConterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534FAD2B1355EE00395B75 /* DayConterService.swift */; };
+		9206CF4A2B19F515006D637E /* WidgetBunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF492B19F515006D637E /* WidgetBunner.swift */; };
+		9206CF4C2B19F598006D637E /* TarotReaderResponseBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF4B2B19F598006D637E /* TarotReaderResponseBanner.swift */; };
+		9206CF4E2B19F644006D637E /* SubscriptionBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF4D2B19F644006D637E /* SubscriptionBanner.swift */; };
+		9206CF502B19F6DC006D637E /* TopLogoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF4F2B19F6DC006D637E /* TopLogoBanner.swift */; };
+		9206CF532B1A0007006D637E /* AdvantagesBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF522B1A0007006D637E /* AdvantagesBanner.swift */; };
+		9206CF562B1A006A006D637E /* SubscriptionPriceBunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF552B1A006A006D637E /* SubscriptionPriceBunner.swift */; };
+		9206CF582B1A01B7006D637E /* SubscribeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF572B1A01B7006D637E /* SubscribeButton.swift */; };
+		9206CF5A2B1A02B8006D637E /* BillingTextNoteBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF592B1A02B8006D637E /* BillingTextNoteBanner.swift */; };
+		9206CF5C2B1A046A006D637E /* ResizebleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF5B2B1A046A006D637E /* ResizebleImage.swift */; };
+		9206CF5E2B1A05BE006D637E /* TopGrandTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF5D2B1A05BE006D637E /* TopGrandTitle.swift */; };
+		9206CF622B1A0A62006D637E /* FakeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9206CF612B1A0A62006D637E /* FakeCardView.swift */; };
 		920955532AF7C17C00BEA64D /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 920955522AF7C17C00BEA64D /* FLAnimatedImage */; };
 		920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920955542AF7C31900BEA64D /* BackGroundView.swift */; };
 		9209555B2AF7E46200BEA64D /* ElMessiri-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955572AF7E46200BEA64D /* ElMessiri-Medium.ttf */; };
@@ -103,6 +114,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9206CF492B19F515006D637E /* WidgetBunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBunner.swift; sourceTree = "<group>"; };
+		9206CF4B2B19F598006D637E /* TarotReaderResponseBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotReaderResponseBanner.swift; sourceTree = "<group>"; };
+		9206CF4D2B19F644006D637E /* SubscriptionBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBanner.swift; sourceTree = "<group>"; };
+		9206CF4F2B19F6DC006D637E /* TopLogoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLogoBanner.swift; sourceTree = "<group>"; };
+		9206CF522B1A0007006D637E /* AdvantagesBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantagesBanner.swift; sourceTree = "<group>"; };
+		9206CF552B1A006A006D637E /* SubscriptionPriceBunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPriceBunner.swift; sourceTree = "<group>"; };
+		9206CF572B1A01B7006D637E /* SubscribeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeButton.swift; sourceTree = "<group>"; };
+		9206CF592B1A02B8006D637E /* BillingTextNoteBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingTextNoteBanner.swift; sourceTree = "<group>"; };
+		9206CF5B2B1A046A006D637E /* ResizebleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizebleImage.swift; sourceTree = "<group>"; };
+		9206CF5D2B1A05BE006D637E /* TopGrandTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGrandTitle.swift; sourceTree = "<group>"; };
+		9206CF612B1A0A62006D637E /* FakeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCardView.swift; sourceTree = "<group>"; };
 		920955542AF7C31900BEA64D /* BackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundView.swift; sourceTree = "<group>"; };
 		920955572AF7E46200BEA64D /* ElMessiri-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Medium.ttf"; sourceTree = "<group>"; };
 		920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Regular.ttf"; sourceTree = "<group>"; };
@@ -194,6 +216,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9206CF482B19F485006D637E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9206CF492B19F515006D637E /* WidgetBunner.swift */,
+				9206CF4B2B19F598006D637E /* TarotReaderResponseBanner.swift */,
+				9206CF4D2B19F644006D637E /* SubscriptionBanner.swift */,
+				9206CF4F2B19F6DC006D637E /* TopLogoBanner.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9206CF512B19FFBC006D637E /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				927A94512AF52F43007889A4 /* SubscriptionView.swift */,
+				9206CF542B1A002D006D637E /* Views */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		9206CF542B1A002D006D637E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9206CF522B1A0007006D637E /* AdvantagesBanner.swift */,
+				9206CF552B1A006A006D637E /* SubscriptionPriceBunner.swift */,
+				9206CF572B1A01B7006D637E /* SubscribeButton.swift */,
+				9206CF592B1A02B8006D637E /* BillingTextNoteBanner.swift */,
+				9206CF5D2B1A05BE006D637E /* TopGrandTitle.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9206CF5F2B1A0A31006D637E /* TarotDeck */ = {
+			isa = PBXGroup;
+			children = (
+				927A94742AF569EF007889A4 /* CardsTableView.swift */,
+				9206CF602B1A0A4C006D637E /* Views */,
+			);
+			path = TarotDeck;
+			sourceTree = "<group>";
+		};
+		9206CF602B1A0A4C006D637E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9206CF612B1A0A62006D637E /* FakeCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		920955562AF7E46200BEA64D /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,14 +328,12 @@
 		927A944D2AF52F43007889A4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				92F8BB5E2B052C3000DF3ADA /* New Group */,
-				927A944E2AF52F43007889A4 /* ConditionsTermsView.swift */,
-				927A944F2AF52F43007889A4 /* HomeView.swift */,
-				927A94512AF52F43007889A4 /* SubscriptionView.swift */,
+				9206CF5F2B1A0A31006D637E /* TarotDeck */,
+				9206CF512B19FFBC006D637E /* Subscription */,
+				92F8BB5E2B052C3000DF3ADA /* Home */,
+				FA27DA7D2AFFADD40096D081 /* Tarologs */,
 				927A94522AF52F43007889A4 /* LaunchScreenView.swift */,
 				927A94532AF52F43007889A4 /* OnboardingView.swift */,
-				927A94742AF569EF007889A4 /* CardsTableView.swift */,
-				FA27DA7D2AFFADD40096D081 /* Tarologs */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -279,6 +348,8 @@
 				92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */,
 				927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */,
 				922B0CFE2B0D26E200FF7241 /* ChooseYourCardArtView.swift */,
+				927A944E2AF52F43007889A4 /* ConditionsTermsView.swift */,
+				9206CF5B2B1A046A006D637E /* ResizebleImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,6 +378,7 @@
 			children = (
 				920955562AF7E46200BEA64D /* fonts */,
 				927A94132AF52857007889A4 /* TestView.swift */,
+				92F8BB5F2B052C4200DF3ADA /* AmazingCardTest.swift */,
 				927A944C2AF52F43007889A4 /* Helpers.swift */,
 				927A94502AF52F43007889A4 /* ScreenContentView.swift */,
 				927A946D2AF540FC007889A4 /* CardsSample.swift */,
@@ -318,12 +390,13 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		92F8BB5E2B052C3000DF3ADA /* New Group */ = {
+		92F8BB5E2B052C3000DF3ADA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				92F8BB5F2B052C4200DF3ADA /* AmazingCardTest.swift */,
+				927A944F2AF52F43007889A4 /* HomeView.swift */,
+				9206CF482B19F485006D637E /* Views */,
 			);
-			path = "New Group";
+			path = Home;
 			sourceTree = "<group>";
 		};
 		FA27DA7D2AFFADD40096D081 /* Tarologs */ = {
@@ -508,17 +581,27 @@
 				927A94632AF52F43007889A4 /* UIModification.swift in Sources */,
 				FA7664132B0D5706008437AB /* TarotModels.swift in Sources */,
 				927A94732AF56236007889A4 /* GPTService.swift in Sources */,
+				9206CF622B1A0A62006D637E /* FakeCardView.swift in Sources */,
 				927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */,
 				FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */,
 				927A945D2AF52F43007889A4 /* ScreenContentView.swift in Sources */,
+				9206CF5E2B1A05BE006D637E /* TopGrandTitle.swift in Sources */,
 				922B0D012B0D457500FF7241 /* StupidHeightHelper.swift in Sources */,
 				92F8BB602B052C4200DF3ADA /* AmazingCardTest.swift in Sources */,
 				927A946E2AF540FC007889A4 /* CardsSample.swift in Sources */,
+				9206CF562B1A006A006D637E /* SubscriptionPriceBunner.swift in Sources */,
 				927A94142AF52857007889A4 /* TestView.swift in Sources */,
+				9206CF5A2B1A02B8006D637E /* BillingTextNoteBanner.swift in Sources */,
 				92E414DB2B0AA9C4000393EF /* TextFieldCustomStyle.swift in Sources */,
+				9206CF4E2B19F644006D637E /* SubscriptionBanner.swift in Sources */,
+				9206CF532B1A0007006D637E /* AdvantagesBanner.swift in Sources */,
 				922B0D6E2B0E55B500FF7241 /* LoadingIndicator.swift in Sources */,
+				9206CF4A2B19F515006D637E /* WidgetBunner.swift in Sources */,
+				9206CF582B1A01B7006D637E /* SubscribeButton.swift in Sources */,
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
+				9206CF5C2B1A046A006D637E /* ResizebleImage.swift in Sources */,
 				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
+				9206CF4C2B19F598006D637E /* TarotReaderResponseBanner.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
 				92534FAE2B1355EE00395B75 /* DayConterService.swift in Sources */,
 				920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */,
@@ -533,6 +616,7 @@
 				92534FA82B132F2100395B75 /* Haptic.swift in Sources */,
 				927A94582AF52F43007889A4 /* User.swift in Sources */,
 				FA4CA1832B1382CB0089072D /* LocalizationEntry.swift in Sources */,
+				9206CF502B19F6DC006D637E /* TopLogoBanner.swift in Sources */,
 				92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */,
 				927A94622AF52F43007889A4 /* UIThemeView.swift in Sources */,
 				9292464A2B18EAFB0082D089 /* FreeUsetageService.swift in Sources */,

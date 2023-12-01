@@ -609,6 +609,9 @@
         }
       }
     },
+    "Periodic billing. Cancel at any time. The subscription is automatically activated." : {
+
+    },
     "personalTarotReading" : {
       "localizations" : {
         "en" : {
@@ -1496,6 +1499,7 @@
       }
     },
     "Все совпадения - случайность." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

@@ -1,10 +1,3 @@
-//
-//  StupidHeightHelper.swift
-//  Esoteric
-//
-//  Created by Denis Kotelnikov on 21.11.2023.
-//
-
 import Foundation
 import UIKit
 

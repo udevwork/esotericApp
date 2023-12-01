@@ -1,10 +1,3 @@
-//
-//  ScreenContentView.swift
-//  esotericApp
-//
-//  Created by Denis Kotelnikov on 03.11.2023.
-//
-
 import Foundation
 import SwiftUI
 

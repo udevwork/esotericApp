@@ -1,10 +1,3 @@
-//
-//  TextFieldCustomStyle.swift
-//  Esoteric
-//
-//  Created by Denis Kotelnikov on 19.11.2023.
-//
-
 import SwiftUI
 
 struct FSTextFieldStyle: TextFieldStyle {

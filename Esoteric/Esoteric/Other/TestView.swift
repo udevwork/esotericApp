@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Esoteric
-//
-//  Created by Denis Kotelnikov on 03.11.2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {

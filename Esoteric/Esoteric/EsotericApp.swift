@@ -1,10 +1,3 @@
-//
-//  APP.swift
-//  esotericApp
-//
-//  Created by Denis Kotelnikov on 03.11.2023.
-//
-
 import SwiftUI
 import FirebaseCore
 import FirebaseRemoteConfig
@@ -12,42 +5,33 @@ import RevenueCat
 
 @main
 struct EsotericApp: App {
-
+    
     @StateObject var model = MainViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    
     init() { }
-
+    
     var body: some Scene {
         WindowGroup {
             ZStack {
                 if model.isLoadingComplete, model.needToPresentOnboarding == false {
-                  
-                        NavigationStack {
-                            HomeView()
-                                .environmentObject(model)
-                        }.transition(.opacity)
-                    
+                    NavigationStack {
+                        HomeView()
+                    }.transition(.opacity)
                 }
-
+                
                 if model.isLoadingComplete,  model.needToPresentOnboarding {
                     OnboardingView().environmentObject(model).transition(.opacity)
                 }
-
+                
                 if model.isLoadingComplete == false {
                     LaunchScreenView()
                         .transition(.opacity)
                         .environmentObject(model)
                 }
-
-
+                
             }.preferredColorScheme(.dark)
                 .animation(.easeInOut, value: model.screenTransitionAnimation)
-                .onAppear {
-                    let user = User.shared
-                    user.getTime()
-                    user.saveTime()
-                }
         }
     }
 }
@@ -70,53 +54,25 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
         FirebaseApp.configure(options: options)
         PurchasesHelper.configure()
-        
         PurchasesHelper.isSubscribed {
             User.shared.isProUser = $0
         }
         return true
     }
-
-//    func applicationDidBecomeActive(_ application: UIApplication) {
-//        checkApplicationState(application.applicationState)
-//    }
-
-//    func checkApplicationState(_ applicationState: UIApplication.State) {
-//        switch applicationState {
-//        case .background:
-//            break
-//        case .inactive:
-//            break
-//        case .active:
-//            UIApplication.shared.applicationIconBadgeNumber = 0
-//        @unknown default:
-//            break
-//        }
-//    }
 }
 
 class MainViewModel: ObservableObject {
     
-    let githubfetcher = GithubFetcher()
-    @Published var git: GithubAppData? = nil
-    var isGitFetchComplete: Bool = false
+    @Published var isLoadingComplete        : Bool = false
+    @Published var needToPresentOnboarding  : Bool = false
+    @Published var screenTransitionAnimation: Bool = false
+    
     var isFirebaseFetchComplete: Bool = false
-    @Published var isLoadingComplete: Bool = false
-    @Published var needToPresentOnboarding = false
-    @Published var screenTransitionAnimation = false
     let storageService = StorageService.shared
 
     init() {
-        Task {
-            try await startFetching()
-        }
-        githubfetcher.getRawTextFromGithub { [weak self] data in
-            DispatchQueue.main.async {
-                self?.git = data
-                self?.isGitFetchComplete = true
-                self?.checkIfEveryLoadingCompleted()
-            }
-        }
+        Task { try await startFetching() }
+        DayConterService().checkIfMissDay()
     }
     
     private func startFetching() async throws {
@@ -131,14 +87,11 @@ class MainViewModel: ObservableObject {
             switch config {
                 case .successFetchedFromRemote:
                     print( rc.configValue(forKey: "appLink").stringValue as Any)
-                 
                     self.isFirebaseFetchComplete = true
                     self.checkIfEveryLoadingCompleted()
-                    
                     return
                 case .successUsingPreFetchedData:
                     print( rc.configValue(forKey: "appLink").stringValue as Any)
-                
                     self.isFirebaseFetchComplete = true
                     self.checkIfEveryLoadingCompleted()
                     return
@@ -152,14 +105,12 @@ class MainViewModel: ObservableObject {
     }
     
     func checkIfEveryLoadingCompleted(){
-        if isGitFetchComplete && isFirebaseFetchComplete {
+        if isFirebaseFetchComplete {
             DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
                 self.isLoadingComplete = true
                 self.checkIfNeedToShowOnboarding()
-                
                 self.screenTransitionAnimation.toggle()
             })
-            
         }
     }
 
@@ -169,5 +120,4 @@ class MainViewModel: ObservableObject {
             needToPresentOnboarding = true
         }
     }
-    
 }
