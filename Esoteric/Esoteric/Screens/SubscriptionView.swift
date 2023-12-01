@@ -21,108 +21,96 @@ struct SubscriptionView: View {
     @State var productDescription: String = ""
     
     init() {
-       
+        
     }
     
     func setup(){
         guard let product = PurchasesHelper.storeProduct,
-        let period = product.subscriptionPeriod else { return }
+              let period = product.subscriptionPeriod else { return }
         
         productTitle = product.localizedTitle // "Weakly subscription "
         productDescription = product.localizedDescription // "Get access to premium user paid features!"
         priceText = product.localizedPriceString // "€ 2,99"
         periodText = period.periodToText().uppercased() // "week"
-    
+        
     }
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            
-            VStack(alignment: .center ,spacing: 20) {
+            Image("subscription_bg_top")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .ignoresSafeArea()
+            VStack(alignment: .center ,spacing: 0) {
                 
                 ZStack{
                     VStack(alignment: .center) {
                         H1TitleView(textColor: .accentColor, text: "\(Texts.SubscriptionView.premium)", alignment: .center).frame(height: 30)
-
-                        Image("art_delimiter7").resizable().aspectRatio(contentMode: .fit).frame(height: 10)
                         SubSectionTitleView(text: productDescription, alignment: .center)
+                        Image("art_delimiter7").resizable().aspectRatio(contentMode: .fit).frame(height: 10)
                     }
-//                    HStack() {
-//                        Spacer()
-//                        Button {
-//                            dismiss()
-//                        } label: {
-//                            Image(systemName: "xmark.circle.fill")
-//                                .resizable()
-//                                .frame(width: 20, height: 20, alignment: .center)
-//                                .opacity(0.3)
-//                        }
-//                    }
-                }.padding(EdgeInsets(top: 160, leading: 0, bottom: 0, trailing: 0))
+                    
+                }.padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
                 
-              
-                   
-                VStack(spacing: 30) {
-                    VStack(spacing: 10) {
-                        ArticleView(text: """
-🔮 \(Texts.SubscriptionView.premiumWhatYoure)
-
-✨ \(Texts.SubscriptionView.premiumDiffSpread)
-
-✨ \(Texts.SubscriptionView.premiumExclusive)
-
-✨ \(Texts.SubscriptionView.premiumWeekly)
-
-""", alignment: .leading).bold()
-         
-                    }.padding(.horizontal,20)
-                    HStack {
-
-                        Text(priceText)
-                            .multilineTextAlignment(.leading)
-                            .frame(alignment: .leading)
-                            .font(.system(size: 50, weight: .heavy, design: .rounded))
-                            
+                
+                
+                VStack(spacing: 0) {
+                    VStack(spacing: 0) {
                         
-                        Rectangle().foregroundColor(.textColor).frame(width: 4, height: 40, alignment: .center)
-                        
-                        VStack(alignment: .leading) {
-                            Text("L_PER").font(.system(.body, design: .monospaced, weight: .heavy))
-                            Text(periodText).font(.system(.title3, design: .monospaced, weight: .heavy))
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(Texts.SubscriptionView.premiumWhatYoure)
+                                .font(.custom("ElMessiri-Bold", size: 22))
+                                .foregroundColor(.accent)
+                            Text(Image(systemName: "star.fill")) +
+                            Text(Texts.SubscriptionView.premiumDiffSpread).bold()
+                            Text(Image(systemName: "star.fill")) +
+                            Text(Texts.SubscriptionView.premiumExclusive).bold()
+                            Text(Image(systemName: "star.fill")) +
+                            Text(Texts.SubscriptionView.premiumWeekly).bold()
                         }
                         
+                        HStack {
+                            Text(priceText)
+                                .multilineTextAlignment(.center)
+                                .frame(alignment: .center)
+                                .font(.custom("ElMessiri-Bold", size: 50))
+                            Rectangle().foregroundColor(.textColor).frame(width: 2, height: 40, alignment: .center)
+                                .rotationEffect(Angle(degrees: 10))
+                            VStack(alignment: .leading) {
+                                Text(Texts.SubscriptionView.per).font(.system(.body, design: .monospaced, weight: .heavy))
+                                Text(periodText).font(.system(.title3, design: .monospaced, weight: .heavy))
+                            }
+                        }.frame(height: 50)
+                            .offset(y:-20)
+                        
+                        Button {
+                            showLoading = true
+                            User.shared.subscribe { success in
+                                showLoading = false
+                            }
+                        } label: {
+                            Text("Купить Подписку").font(.custom("ElMessiri-Bold", size: 26)).padding(10)
+                        }.ProButtonStyle()
+                        
+                        Text("Все совпадения - случайность.")
+                            .multilineTextAlignment(.center)
+                            .font(.system(.footnote, design: .rounded, weight: .medium))
+                            .foregroundColor(.textColor)
+                        
                     }.foregroundColor(.white)
-                        .padding(.vertical, 70)
-                        .padding(.horizontal, 60)
-                        .background(TarotReaderBackGroundView())
-                        .cornerRadius(20)
-                        .shadow(radius: 20)
-                    
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 30)
                 }
-                
-                Button {
-                   
-                    showLoading = true
 
-                    User.shared.subscribe { success in
-                        showLoading = false
-                    }
-                
-                    
-                } label: {
-                    Text("Купить сейчас")
-                }.DefButtonStyle()
-
-
-                
-                Text("Все совпадения - случайность.")
-                    .multilineTextAlignment(.center)
-                    .font(.system(.footnote, design: .rounded, weight: .medium))
-                    .foregroundColor(.textColor)
-                
-                
                 ConditionsTermsView()
-            }.padding(5)
+                
+            }
+            
+            Image("subscription_bg_bottom")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .ignoresSafeArea()
+            
         }.background(SubscriptionBackGroundView())
             .onAppear{
                 setup()
@@ -132,12 +120,9 @@ struct SubscriptionView: View {
                 AlertToast(type: .loading)
             }
     }
-    
-
-    
 }
 
 
 #Preview {
-    SubscriptionView()
+    SubscriptionView().preferredColorScheme(.dark)
 }

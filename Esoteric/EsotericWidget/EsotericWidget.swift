@@ -26,6 +26,7 @@ struct Provider: TimelineProvider {
         let nextMidnight = calendar.nextDate(after: now, matching: DateComponents(hour: 0, minute: 0, second: 0), matchingPolicy: .nextTime)!
         
         let midnight = nextMidnight
+        DayConterService().checkIfMissDay()
         let entry = SimpleEntry(date: midnight, power: 1)
         let timeline = Timeline(entries: [entry], policy: .after(midnight))
         

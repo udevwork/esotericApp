@@ -45,14 +45,15 @@ class HorMenuSnapData: ObservableObject {
 }
 
 struct HorMenuSnapCardView<Content>: View where Content: View {
-    
+    @Binding public var openSubscriptionSheet: Bool
     var card: HorMenuSnapCard
     
     let content: Content
 
-    init(card: HorMenuSnapCard, @ViewBuilder _ content: @escaping () -> Content) {
+    init(openSubscriptionSheet: Binding<Bool>, card: HorMenuSnapCard, @ViewBuilder _ content: @escaping () -> Content) {
         self.card = card
         self.content = content()
+        self._openSubscriptionSheet = openSubscriptionSheet
     }
     
     var body: some View {
@@ -74,10 +75,17 @@ struct HorMenuSnapCardView<Content>: View where Content: View {
                             .opacity(0.7)
                     }.foregroundColor(.textColor)
                     
-                    NavigationLink(destination: content) {
-                        Text("Открыть").bold().foregroundColor(.white)
-                    }.frame(height: 10).DefButtonStyle()
-                        
+                    if FreeUsetageService.shared.isFreeUseEnd() == false {
+                        NavigationLink(destination: content) {
+                            Text("Открыть").bold().foregroundColor(.white)
+                        }.frame(height: 10).DefButtonStyle()
+                    } else {
+                        Button {
+                            self.openSubscriptionSheet.toggle()
+                        } label: {
+                            Text("Открыть").bold().foregroundColor(.white)
+                        }.frame(height: 10).DefButtonStyle()
+                    }
                     
                 }.padding(30)
             }.cornerRadius(25)
@@ -104,7 +112,7 @@ struct HorMenuSnapCardView<Content>: View where Content: View {
 
 
 struct HorMenuSnap: View {
-    
+    @Binding public var openSubscriptionSheet: Bool
     @State public var activePageIndex: Int = 0
     let onboardData = HorMenuSnapData()
     
@@ -119,7 +127,7 @@ struct HorMenuSnap: View {
                          tilePadding      : tilePadding) {
             
             ForEach(onboardData.cards) { card in
-                HorMenuSnapCardView(card: card) {
+                HorMenuSnapCardView(openSubscriptionSheet: $openSubscriptionSheet, card: card) {
                     
                     switch activePageIndex {
                         case 0 : CardsTableView(model: CardsTableViewModel(deckType: .CardOfTheDay))
@@ -282,5 +290,5 @@ struct PagingScrollView: View {
 }
 
 #Preview {
-    HorMenuSnap()
+    HorMenuSnap(openSubscriptionSheet: .constant(false))
 }

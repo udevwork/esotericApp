@@ -28,6 +28,7 @@
       }
     },
     "%lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -383,10 +384,16 @@
     },
     "L_PER" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "per"
+          }
+        },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : ""
+            "state" : "translated",
+            "value" : "за"
           }
         }
       }
@@ -1537,7 +1544,11 @@
         }
       }
     },
+    "Купить Подписку" : {
+
+    },
     "Купить сейчас" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

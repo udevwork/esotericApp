@@ -16,6 +16,7 @@ class DayConterService {
                 if hasMissedADay(lastVisitDate: lastVisitDate, currentDate: currentDate) {
                     // Если пропущен день, обнуляем счетчик
                     resetStreak()
+                    increaseStreak()
                 } else {
                     // Иначе увеличиваем счетчик
                     increaseStreak()
@@ -50,6 +51,21 @@ class DayConterService {
         let calendar = Calendar.current
         let daysBetween = calendar.dateComponents([.day], from: lastVisitDate, to: currentDate).day ?? 0
         return daysBetween > 1
+    }
+    
+    public func checkIfMissDay() {
+        let currentDate = Date()
+        
+        if let lastVisitDate = db.value(forKey: lastVisitKey) as? Date {
+            if !Calendar.current.isDateInToday(lastVisitDate) {
+                if hasMissedADay(lastVisitDate: lastVisitDate, currentDate: currentDate) {
+                    resetStreak()
+                }
+            }
+        }
+        // Сохраняем текущую дату как последнюю дату визита пользователя
+        db.set(currentDate, forKey: lastVisitKey)
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func getDayStreak() -> Int {

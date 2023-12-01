@@ -40,6 +40,7 @@ enum Texts {
         static var premiumDiffSpread: String { NSLocalizedString("premiumDiffSpread", comment: "") }
         static var premiumExclusive: String { NSLocalizedString("premiumExclusive", comment: "") }
         static var premiumWeekly: String { NSLocalizedString("premiumWeekly", comment: "") }
+        static var per: String { NSLocalizedString("L_PER", comment: "") }
     }
 
     enum OnboardingView {

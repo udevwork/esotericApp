@@ -137,7 +137,7 @@ class CardsTableViewModel: ObservableObject {
                 switch result {
                 case .success(let content):
                         DayConterService().copleteThisDay()
-                        
+                        FreeUsetageService.shared.incrementCounter()
                     if content.isEmpty {
                         self.text = "Туман не рассеялся"
                     } else {

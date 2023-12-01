@@ -18,7 +18,7 @@ class HomeModel: ObservableObject {
         User.shared.$isProUser.sink {_ in
             self.objectWillChange.send()
         }.store(in: &subscriptions)
-        
+        DayConterService().checkIfMissDay()
     }
 }
 
@@ -51,7 +51,7 @@ struct HomeView: View {
                             Spacer()
                         }
                   
-                        HorMenuSnap()
+                        HorMenuSnap(openSubscriptionSheet: $showingSheet)
                         
                         if User.shared.isProUser == false {
                             
@@ -169,6 +169,7 @@ struct HomeView_Previews: PreviewProvider {
             NavigationStack {
                 HomeView()
                     .environmentObject(model)
+                    .preferredColorScheme(.dark)
             }.transition(.opacity)
 
         }.preferredColorScheme(.dark)

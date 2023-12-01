@@ -159,8 +159,6 @@ class PurchasesHelper {
                     let product = firstPackage.storeProduct
                     PurchasesHelper.package = firstPackage
                     PurchasesHelper.storeProduct = product
-                    
-                    
                 }
             }
         }

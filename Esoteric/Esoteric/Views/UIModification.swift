@@ -46,7 +46,7 @@ struct RoundedViewModifier: ViewModifier {
 
 struct GradientViewModifier: ViewModifier {
     
-    let colors = [Color(uiColor: UIColor(hex: "FF6A6A")!),Color(uiColor: UIColor(hex: "FFD25F")!)]
+    let colors = [Color(uiColor: UIColor(hex: "FF6A6A")!),Color(uiColor: .purple)]
     
     func body(content: Content) -> some View {
         content
@@ -109,7 +109,7 @@ extension View {
     }
     
     func ProButtonStyle() -> some View {
-        modifier(GradientViewModifier()).modifier(FooterFont())
+        modifier(GradientViewModifier()).modifier(ButtonFont())
     }
     
     // shadow
