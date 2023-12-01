@@ -11,6 +11,7 @@ struct LaunchScreenView: View {
                     .foregroundColor(.accentColor)
                     .frame(height: 90)
                 ResizebleImage("home_header_logo")
+
             }.padding()
         }
     }

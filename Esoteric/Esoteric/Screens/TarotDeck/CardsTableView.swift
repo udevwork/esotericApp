@@ -27,7 +27,7 @@ class CardsTableViewModel: ObservableObject {
     
     init(deckType: CardsTableViewModel.DeckType) {
         self.deckType = deckType
-        self.cards = tarotDB.shuffled()
+        User.language == "ru" ? (cards = tarotDB.shuffled()) : (cards = tarotDBEN.shuffled())
         switch deckType {
             case .OneCard:
                 self.cardsNum = 1
