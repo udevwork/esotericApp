@@ -15,9 +15,13 @@ class User {
     
     @Published public var isProUser: Bool = false
     
-    private init(){
-       
+    static var language: String {
+        get {
+            Locale.current.language.languageCode?.identifier ?? "en"
+        }
     }
+    
+    private init() { }
     
     func subscribe(_ completion: @escaping (Bool)->()) {
         PurchasesHelper.eligibility { eligibility in

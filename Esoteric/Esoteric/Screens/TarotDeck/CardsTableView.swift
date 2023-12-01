@@ -94,31 +94,51 @@ class CardsTableViewModel: ObservableObject {
             return
         }
         var promt: String = ""
-        
+                
         switch deckType {
                 
             case .OneCard:
-                promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
+                if  User.language == "ru" {
+                    promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
+                } else {
+                    promt = "I got the tarot card: \(names).  What does this card mean? Answer in a couple of sentences."
+                }
             case .ThreeCards:
-                promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+                if  User.language == "ru" {
+                    promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+                } else {
+                    promt = "I got the few tarot cards from the deck: \(names). What could these cards together mean?"
+                }
             case .TarotReader:
                 let storage = StorageService.shared
                 let key = SavingKeys.question.rawValue
                 guard let question = storage.loadQuestion(key: key) else {
                     return
                 }
-                print("userQuestion:", question.userQuestion)
-                promt = """
+
+                if  User.language == "ru" {
+                    promt = """
         Ты - женщина таролог, мистический маг.
         Мой запрос: "\(question)".
         Мне выпали карты: \(names).
         Что эти карты вместе могут значить в рамках моего запроса?
         Какой вывод из этого можно сделать?
         """
-            case .CardOfTheDay:
-                promt = """
-        Я гадаю на картах таро. Мне выпала карта дня: "\(names)". Что эта карта дня может значить? Сделай вывод и рекомендации на день.
+                } else {
+                    promt = """
+        You are a female tarologist, a mystical magician.
+        My query is "\(question)".
+        I got the cards: \(names).
+        What can these cards together mean as part of my request?
+        What conclusion can be drawn from this?
         """
+                }
+            case .CardOfTheDay:
+                if  User.language == "ru" {
+                    promt = "Я гадаю на картах таро. Мне выпала карта дня: \(names). Что эта карта дня может значить? Сделай вывод и рекомендации на день."
+                } else {
+                    promt = "I'm reading tarot cards. I got the card of the day: \(names). What does this map of the day mean? Make a conclusion and recommendations for the day."
+                }
         }
         
      
