@@ -94,18 +94,18 @@ class CardsTableViewModel: ObservableObject {
             return
         }
         var promt: String = ""
-                
+        
         switch deckType {
                 
             case .OneCard:
                 if  User.language == "ru" {
-                    promt = "мне выпала \(names). Что эта карта может значить? Ответь в паре предложений."
+                    promt = "мне выпала карта таро \(names). Что эта карта может значить? Ответь в паре предложений."
                 } else {
                     promt = "I got the tarot card: \(names).  What does this card mean? Answer in a couple of sentences."
                 }
             case .ThreeCards:
                 if  User.language == "ru" {
-                    promt = "мне выпали \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+                    promt = "мне выпали карты таро \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
                 } else {
                     promt = "I got the few tarot cards from the deck: \(names). What could these cards together mean?"
                 }
@@ -115,12 +115,12 @@ class CardsTableViewModel: ObservableObject {
                 guard let question = storage.loadQuestion(key: key) else {
                     return
                 }
-
+                
                 if  User.language == "ru" {
                     promt = """
         Ты - женщина таролог, мистический маг.
         Мой запрос: "\(question)".
-        Мне выпали карты: \(names).
+        Мне выпали карты таро: \(names).
         Что эти карты вместе могут значить в рамках моего запроса?
         Какой вывод из этого можно сделать?
         """
@@ -128,7 +128,7 @@ class CardsTableViewModel: ObservableObject {
                     promt = """
         You are a female tarologist, a mystical magician.
         My query is "\(question)".
-        I got the cards: \(names).
+        I got the tarot cards: \(names).
         What can these cards together mean as part of my request?
         What conclusion can be drawn from this?
         """
