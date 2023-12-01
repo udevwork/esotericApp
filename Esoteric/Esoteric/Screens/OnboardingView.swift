@@ -1,10 +1,3 @@
-//
-//  OnboardingView.swift
-//  esotericApp
-//
-//  Created by Denis Kotelnikov on 03.11.2023.
-//
-
 import Foundation
 import SwiftUI
 
@@ -118,6 +111,7 @@ struct OnboardingPageView: View {
          
             VStack(alignment:.center, spacing: 20) {
                 SectionTitleView(text: title, alignment: .center)
+                    .minimumScaleFactor(0.5)
                 Image("art_delimiter8").resizable().aspectRatio(contentMode: .fit)
                 ArticleView(text: subtitle, alignment: .center)
             }.padding(.vertical, 30)

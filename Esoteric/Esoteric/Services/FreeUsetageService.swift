@@ -1,10 +1,3 @@
-//
-//  FreeUsetageService.swift
-//  Esoteric
-//
-//  Created by Denis Kotelnikov on 30.11.2023.
-//
-
 import Foundation
 
 class FreeUsetageService {
@@ -12,8 +5,8 @@ class FreeUsetageService {
     static let shared = FreeUsetageService()
     private var userDefaultsKey = "FreeUsetageCounter"
     private var counter: Int = 0
-    private var free: Int = 3
-    
+    private var free: Int = 30
+
     private init() {
         if let savedCounter = UserDefaults.standard.value(forKey: userDefaultsKey) as? Int {
             self.counter = savedCounter

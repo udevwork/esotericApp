@@ -1,10 +1,3 @@
-//
-//  ConditionsTermsView.swift
-//  esotericApp
-//
-//  Created by Denis Kotelnikov on 03.11.2023.
-//
-
 import Foundation
 import SwiftUI
 import RevenueCat
@@ -21,7 +14,8 @@ struct ConditionsTermsView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         VStack(alignment: .leading, spacing: 8) {
                             SectionTitleView(textColor: .white, text: Texts.HomeView.haveAQuestion, alignment: .leading)
-                            Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
+                            Image("art_delimiter8").resizable().aspectRatio(contentMode: .fit)
+                                .frame(height: 10)
                         }
                         Button {
                             if let url = URL(string: "https://t.me/imbalanceFighter") {
@@ -83,7 +77,7 @@ struct ConditionsTermsView: View {
                 }
                 
             }.frame(maxWidth: .infinity)
-            
+
             
         }
     }
