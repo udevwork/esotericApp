@@ -46,15 +46,19 @@ class GPTService {
     func ask(promt: String, completion: @escaping (Result<String, Error>) -> ()) {
         Task {
             do {
-                let url = URL(string: "https://gpterica.space/ask/?promt=\(promt)")
-                let request = URLRequest(url: url!)
-                let data = try await URLSession.shared.data(for: request).0
+                guard let urlString = "https://gpterica.space/ask/?promt=\(promt)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                      let url = URL(string: urlString) else {
+                    completion(.failure(GPTErrorType.error("Invalid URL")))
+                    return
+                }
+                let request = URLRequest(url: url)
+                let (data, _) = try await URLSession.shared.data(for: request)
                 let fetchedData = try JSONDecoder().decode(Response.self, from: data)
                 completion(.success(fetchedData.message))
-            } catch let err {
-                completion(.failure(GPTErrorType.error(err.localizedDescription) ))
-                return
+            } catch {
+                completion(.failure(GPTErrorType.error(error.localizedDescription)))
             }
         }
     }
+
 }
