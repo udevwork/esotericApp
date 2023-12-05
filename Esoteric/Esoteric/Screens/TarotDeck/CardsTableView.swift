@@ -144,7 +144,7 @@ class CardsTableViewModel: ObservableObject {
      
         self.isGPTloading = true
         
-        gpt.test(promt: promt) { [weak self] result in
+        gpt.ask(promt: promt) { [weak self] result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
