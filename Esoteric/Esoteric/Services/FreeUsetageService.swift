@@ -5,7 +5,7 @@ class FreeUsetageService {
     static let shared = FreeUsetageService()
     private var userDefaultsKey = "FreeUsetageCounter"
     private var counter: Int = 0
-    private var free: Int = 30
+    private var free: Int = 9
 
     private init() {
         if let savedCounter = UserDefaults.standard.value(forKey: userDefaultsKey) as? Int {
@@ -23,6 +23,13 @@ class FreeUsetageService {
     }
     
     func isFreeUseEnd() -> Bool {
-        return counter == free
+        if counter >= free {
+            if User.shared.isProUser == false {
+                return true
+            } else {
+                return false
+            }
+        }
+        return false
     }
 }

@@ -13,6 +13,7 @@ struct HorMenuSnapCard: Codable, Identifiable, Equatable {
     var title: String
     var subTitle: String
     var image: String
+    var isFree: Bool
 }
 
 class HorMenuSnapData: ObservableObject {
@@ -27,19 +28,23 @@ class HorMenuSnapData: ObservableObject {
         cards = [
             HorMenuSnapCard(title: Texts.HomeView.cardOfDay,
                             subTitle: Texts.HomeView.cardOfDaySubTittle,
-                            image: "hands_cards_art"),
+                            image: "hands_cards_art",
+                            isFree: true),
             
             HorMenuSnapCard(title: Texts.HomeView.yourTarolog,
                             subTitle: Texts.HomeView.yourTarologSubTittle,
-                            image: "sun_cards_art"),
+                            image: "sun_cards_art",
+                            isFree: false),
             
             HorMenuSnapCard(title: Texts.HomeView.oneCard,
                             subTitle: Texts.HomeView.oneCardSubTittle,
-                            image: "1_cards_art"),
+                            image: "1_cards_art",
+                            isFree: false),
             
             HorMenuSnapCard(title: Texts.HomeView.threeCard,
                             subTitle: Texts.HomeView.threeCardSubTittle,
-                            image: "3_cards_art")
+                            image: "3_cards_art",
+                            isFree: false)
         ]
     }
 }
@@ -75,7 +80,8 @@ struct HorMenuSnapCardView<Content>: View where Content: View {
                             .opacity(0.7)
                     }.foregroundColor(.textColor)
                     
-                    if FreeUsetageService.shared.isFreeUseEnd() == false {
+                    
+                    if FreeUsetageService.shared.isFreeUseEnd() == false || card.isFree {
                         NavigationLink(destination: content) {
                             Text("Открыть").bold().foregroundColor(.white)
                         }.frame(height: 10).DefButtonStyle()

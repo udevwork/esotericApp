@@ -154,7 +154,7 @@ struct TarotReaderCell: View {
 
 
 struct Tarologs: View {
-  
+    @Environment(\.openURL) var openURL
     @StateObject var model = TarologsModel()
 
     var body: some View {
@@ -174,11 +174,13 @@ struct Tarologs: View {
                             SectionTitleView(textColor: .white, text: Texts.HomeView.haveAQuestion, alignment: .leading)
 
                             Button {
-                                
+                                if let url = URL(string: "telegram".remote()) {
+                                    openURL(url)
+                                }
                             } label: {
                                 Text(Texts.TarologsView.writeUs)
                             }.DefButtonStyle()
-                        }.padding(.horizontal, 40)
+                        }
                     
                       .background {
                         Image("Logo")

@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct TopLogoBanner: View {
+    
+    @State var daysStreakCount: Int
+    
     var body: some View {
         HStack {
             Spacer()
             VStack(spacing: -1) {
                 Image("home_header_logo").resizable().frame(width: 120, height: 60)
-                H1TitleView(textColor: .accentColor,text: "ESOTERICA", alignment: .center)
+                H1TitleView(textColor: .accentColor,text: "TAROT", alignment: .center)
                 Image("art_delimiter9").resizable().aspectRatio(contentMode: .fit).offset(y: -6).frame(height: 10)
-                ArticleView(text: "\(Texts.HomeView.cardOfDayCounter1) \(DayConterService().getDayStreak()) \(Texts.HomeView.cardOfDayCounter2)", alignment: .leading).bold()
+                ArticleView(text: "\(Texts.HomeView.cardOfDayCounter1) \(daysStreakCount) \(Texts.HomeView.cardOfDayCounter2)", alignment: .leading).bold()
             }
             Spacer()
         }
@@ -23,5 +26,5 @@ struct TopLogoBanner: View {
 }
 
 #Preview {
-    TopLogoBanner()
+    TopLogoBanner(daysStreakCount: 12)
 }

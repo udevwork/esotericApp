@@ -8,14 +8,6 @@
 import UserNotifications
 import UIKit
 
-enum NotificationIntervals: Double {
-    case fiveSec = 5
-    case tenSec = 10
-    case oneMin = 60
-    case oneHour = 3_600
-    case oneDay = 86_400
-}
-
 protocol UserNotificationsDelegate: AnyObject {
     func openSpread()
 }
@@ -44,13 +36,13 @@ class UserNotifications: NSObject {
         notificationCenter.delegate = self
     }
 
-    func sendTarotSpreadNotification(afterTime: NotificationIntervals) {
+    func sendTarotSpreadNotification(afterTime: TimeInterval) {
         let content = UNMutableNotificationContent()
         content.title = "Tarot App"
         content.body = "Таролог прислал ваш расклад, проверьте в приложении"
         content.sound = UNNotificationSound.default
         content.badge = (UIApplication.shared.applicationIconBadgeNumber + 1) as NSNumber
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: afterTime.rawValue, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: afterTime, repeats: false)
         let request = UNNotificationRequest(identifier: NotificationIdentifieres.tarotSpread.rawValue, content: content, trigger: trigger)
         notificationCenter.add(request) { error in
             print(error?.localizedDescription ?? "")

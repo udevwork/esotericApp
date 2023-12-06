@@ -1,5 +1,6 @@
 import Foundation
 import WidgetKit
+import SwiftDate
 
 class DayConterService {
     
@@ -8,11 +9,10 @@ class DayConterService {
     private let streakCountKey = "streakCount"
     private let lastVisitKey = "lastVisitDate"
     
-    func copleteThisDay() {
-        let currentDate = Date()
-        
+    func copleteThisDay(currentDate: Date = Date()) {
         if let lastVisitDate = db.value(forKey: lastVisitKey) as? Date {
-            if !Calendar.current.isDateInToday(lastVisitDate) {
+           
+            if  lastVisitDate.day != currentDate.day {
                 if hasMissedADay(lastVisitDate: lastVisitDate, currentDate: currentDate) {
                     // Если пропущен день, обнуляем счетчик
                     resetStreak()
@@ -46,25 +46,20 @@ class DayConterService {
         }
     }
     
-    private func hasMissedADay(lastVisitDate: Date, currentDate: Date) -> Bool {
+    func hasMissedADay(lastVisitDate: Date, currentDate: Date) -> Bool {
         // Проверяем, был ли пропущен хотя бы один день между lastVisitDate и currentDate
-        let calendar = Calendar.current
-        let daysBetween = calendar.dateComponents([.day], from: lastVisitDate, to: currentDate).day ?? 0
-        return daysBetween > 1
+        let daysBetween = currentDate - lastVisitDate
+        return (daysBetween.day ?? 0) > 1
     }
     
-    public func checkIfMissDay() {
-        let currentDate = Date()
-        
+    public func checkIfMissDay(currentDate: Date = Date()) {
+      
         if let lastVisitDate = db.value(forKey: lastVisitKey) as? Date {
-            if !Calendar.current.isDateInToday(lastVisitDate) {
-                if hasMissedADay(lastVisitDate: lastVisitDate, currentDate: currentDate) {
-                    resetStreak()
-                }
+            if hasMissedADay(lastVisitDate: lastVisitDate, currentDate: currentDate) {
+                resetStreak()
             }
         }
-        // Сохраняем текущую дату как последнюю дату визита пользователя
-        db.set(currentDate, forKey: lastVisitKey)
+      
         WidgetCenter.shared.reloadAllTimelines()
     }
     
@@ -74,5 +69,10 @@ class DayConterService {
     
     func resetStreak() {
         db.set(0, forKey: streakCountKey)
+    }
+    
+    func deleteAllData() {
+        db.removeObject(forKey: streakCountKey)
+        db.removeObject(forKey: lastVisitKey)
     }
 }

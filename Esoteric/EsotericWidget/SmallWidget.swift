@@ -14,10 +14,14 @@ struct SmallWidget: View {
             Image("BGimg").resizable().aspectRatio(contentMode: .fill)
                 
             VStack(alignment:.center, spacing: 0) {
-          
-           
+                
                 if DayConterService().isThisDayCompleted() {
                     Text(Texts.Widget.goodJob)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(4)
+                        .foregroundColor(.accent)
+                } else if DayConterService().getDayStreak() == 0 {
+                    Text(Texts.Widget.mbDayOpen)
                         .multilineTextAlignment(.center)
                         .lineLimit(4)
                         .foregroundColor(.accent)

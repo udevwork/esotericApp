@@ -18,14 +18,14 @@ struct ConditionsTermsView: View {
                                 .frame(height: 10)
                         }
                         Button {
-                            if let url = URL(string: "https://t.me/imbalanceFighter") {
+                            if let url = URL(string: "telegram".remote()) {
                                 openURL(url)
                             }
                         } label: {
                             HStack(spacing: 10) {
                                 Image(systemName: "envelope.fill")
                               
-                                Text("Написать нам").multilineTextAlignment(.leading)
+                                Text(Texts.TarologsView.writeUs).multilineTextAlignment(.leading)
                                 
                                 Spacer()
                                 Image(systemName: "chevron.right")
@@ -72,13 +72,8 @@ struct ConditionsTermsView: View {
                             Text("Restore purchase")
                         }.font(.custom("ElMessiri-Bold", size: 18)).foregroundColor(.buttonRed)
                     }
-                    
-                    
                 }
-                
             }.frame(maxWidth: .infinity)
-
-            
         }
     }
 }

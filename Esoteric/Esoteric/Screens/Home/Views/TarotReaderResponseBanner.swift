@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct TarotReaderResponseBanner: View {
+    
+    @State var tarotReady: Bool
+    
     var body: some View {
-        if let reader = StorageService.shared.loadQuestion(key: SavingKeys.question.rawValue) {
+     
             ScreenContentView(color: .clear) {
                 VStack(alignment: .leading, spacing: 28) {
                     
-                    if reader.time <= Date() {
+                    if tarotReady {
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
                                 Image("Vector-1").resizable().aspectRatio(contentMode: .fit).frame(height: 140)
@@ -30,9 +33,9 @@ struct TarotReaderResponseBanner: View {
                     } else {
                         VStack(alignment: .leading, spacing: 8) {
                             SectionTitleView(textColor: .white, text: Texts.HomeView.spreadInProgress, alignment: .leading)
-                                .padding(.horizontal, horPadding)
+                                
                             Image("art_delimiter8").resizable().aspectRatio(contentMode: .fill)
-                            ArticleView(textColor: .white, text: Texts.HomeView.weSendNotification).padding(.horizontal, horPadding)
+                            ArticleView(textColor: .white, text: Texts.HomeView.weSendNotification)
                         }
                     }
                     
@@ -47,10 +50,10 @@ struct TarotReaderResponseBanner: View {
                     
                 }
             }
-        }
+        
     }
 }
 
 #Preview {
-    TarotReaderResponseBanner()
+    TarotReaderResponseBanner(tarotReady: true)
 }

@@ -36,6 +36,10 @@
 		92534FAE2B1355EE00395B75 /* DayConterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534FAD2B1355EE00395B75 /* DayConterService.swift */; };
 		92689F2F2AFBF5B10035590A /* HorMenuSnap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */; };
 		926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D74FA2AFD413400F9CF88 /* TarotDB.swift */; };
+		9277DB792B20523400C21D09 /* EsotericTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277DB782B20523400C21D09 /* EsotericTests.swift */; };
+		9277DB7F2B20540500C21D09 /* DayConterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92534FAD2B1355EE00395B75 /* DayConterService.swift */; };
+		9277DB812B206D0500C21D09 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 9277DB802B206D0500C21D09 /* SwiftDate */; };
+		9277DB822B2092BE00C21D09 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FA4CA1802B137FF30089072D /* Localizable.xcstrings */; };
 		927A94122AF52857007889A4 /* EsotericApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94112AF52857007889A4 /* EsotericApp.swift */; };
 		927A94142AF52857007889A4 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A94132AF52857007889A4 /* TestView.swift */; };
 		927A94162AF52859007889A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927A94152AF52859007889A4 /* Assets.xcassets */; };
@@ -90,6 +94,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9277DB7A2B20523400C21D09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 927A94062AF52857007889A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 927A940D2AF52857007889A4;
+			remoteInfo = Esoteric;
+		};
 		FA38156E2B0EB5FC00CB1C1F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 927A94062AF52857007889A4 /* Project object */;
@@ -140,6 +151,8 @@
 		92689F2D2AFBE80E0035590A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92689F2E2AFBF5B10035590A /* HorMenuSnap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorMenuSnap.swift; sourceTree = "<group>"; };
 		926D74FA2AFD413400F9CF88 /* TarotDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotDB.swift; sourceTree = "<group>"; };
+		9277DB762B20523400C21D09 /* EsotericTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsotericTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9277DB782B20523400C21D09 /* EsotericTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsotericTests.swift; sourceTree = "<group>"; };
 		927A940E2AF52857007889A4 /* Esoteric.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esoteric.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927A94112AF52857007889A4 /* EsotericApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsotericApp.swift; sourceTree = "<group>"; };
 		927A94132AF52857007889A4 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -184,6 +197,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9277DB732B20523400C21D09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		927A940B2AF52857007889A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -210,6 +230,7 @@
 			files = (
 				FA3815652B0EB5FA00CB1C1F /* SwiftUI.framework in Frameworks */,
 				FA3815632B0EB5FA00CB1C1F /* WidgetKit.framework in Frameworks */,
+				9277DB812B206D0500C21D09 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,12 +297,21 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		9277DB772B20523400C21D09 /* EsotericTests */ = {
+			isa = PBXGroup;
+			children = (
+				9277DB782B20523400C21D09 /* EsotericTests.swift */,
+			);
+			path = EsotericTests;
+			sourceTree = "<group>";
+		};
 		927A94052AF52857007889A4 = {
 			isa = PBXGroup;
 			children = (
 				92534FB02B13584B00395B75 /* EsotericWidgetExtension.entitlements */,
 				927A94102AF52857007889A4 /* Esoteric */,
 				FA3815662B0EB5FA00CB1C1F /* EsotericWidget */,
+				9277DB772B20523400C21D09 /* EsotericTests */,
 				927A940F2AF52857007889A4 /* Products */,
 				927A94642AF53499007889A4 /* Frameworks */,
 			);
@@ -292,6 +322,7 @@
 			children = (
 				927A940E2AF52857007889A4 /* Esoteric.app */,
 				FA3815612B0EB5FA00CB1C1F /* EsotericWidgetExtension.appex */,
+				9277DB762B20523400C21D09 /* EsotericTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,6 +475,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9277DB752B20523400C21D09 /* EsotericTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9277DB7E2B20523400C21D09 /* Build configuration list for PBXNativeTarget "EsotericTests" */;
+			buildPhases = (
+				9277DB722B20523400C21D09 /* Sources */,
+				9277DB732B20523400C21D09 /* Frameworks */,
+				9277DB742B20523400C21D09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9277DB7B2B20523400C21D09 /* PBXTargetDependency */,
+			);
+			name = EsotericTests;
+			productName = EsotericTests;
+			productReference = 9277DB762B20523400C21D09 /* EsotericTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		927A940D2AF52857007889A4 /* Esoteric */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 927A941C2AF52859007889A4 /* Build configuration list for PBXNativeTarget "Esoteric" */;
@@ -491,6 +540,9 @@
 			dependencies = (
 			);
 			name = EsotericWidgetExtension;
+			packageProductDependencies = (
+				9277DB802B206D0500C21D09 /* SwiftDate */,
+			);
 			productName = EsotericWidgetExtension;
 			productReference = FA3815612B0EB5FA00CB1C1F /* EsotericWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -505,6 +557,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					9277DB752B20523400C21D09 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 927A940D2AF52857007889A4;
+					};
 					927A940D2AF52857007889A4 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -537,11 +593,19 @@
 			targets = (
 				927A940D2AF52857007889A4 /* Esoteric */,
 				FA3815602B0EB5FA00CB1C1F /* EsotericWidgetExtension */,
+				9277DB752B20523400C21D09 /* EsotericTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9277DB742B20523400C21D09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		927A940C2AF52857007889A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,6 +628,7 @@
 			files = (
 				92534FAA2B133F2C00395B75 /* ElMessiri-Medium.ttf in Resources */,
 				92534FAB2B133F2C00395B75 /* ElMessiri-Regular.ttf in Resources */,
+				9277DB822B2092BE00C21D09 /* Localizable.xcstrings in Resources */,
 				FA38156C2B0EB5FC00CB1C1F /* Assets.xcassets in Resources */,
 				92534FA92B133F2C00395B75 /* ElMessiri-SemiBold.ttf in Resources */,
 				92534FAC2B133F2C00395B75 /* ElMessiri-Bold.ttf in Resources */,
@@ -573,6 +638,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9277DB722B20523400C21D09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9277DB792B20523400C21D09 /* EsotericTests.swift in Sources */,
+				9277DB7F2B20540500C21D09 /* DayConterService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		927A940A2AF52857007889A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -640,6 +714,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9277DB7B2B20523400C21D09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 927A940D2AF52857007889A4 /* Esoteric */;
+			targetProxy = 9277DB7A2B20523400C21D09 /* PBXContainerItemProxy */;
+		};
 		FA38156F2B0EB5FC00CB1C1F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA3815602B0EB5FA00CB1C1F /* EsotericWidgetExtension */;
@@ -648,6 +727,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		9277DB7C2B20523400C21D09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87XM268947;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.EsotericTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Esoteric.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Esoteric";
+			};
+			name = Debug;
+		};
+		9277DB7D2B20523400C21D09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87XM268947;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.EsotericTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Esoteric.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Esoteric";
+			};
+			name = Release;
+		};
 		927A941A2AF52859007889A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -775,7 +892,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Esoteric/Esoteric.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
 				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
@@ -812,7 +929,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Esoteric/Esoteric.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Esoteric/Preview Content\"";
 				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
@@ -908,6 +1025,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9277DB7E2B20523400C21D09 /* Build configuration list for PBXNativeTarget "EsotericTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9277DB7C2B20523400C21D09 /* Debug */,
+				9277DB7D2B20523400C21D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		927A94092AF52857007889A4 /* Build configuration list for PBXProject "Esoteric" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -993,6 +1119,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 920955512AF7C17C00BEA64D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
 			productName = FLAnimatedImage;
+		};
+		9277DB802B206D0500C21D09 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92FBD3CF2B07F06400BD1446 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 		927A94202AF5297B007889A4 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -19,15 +19,18 @@ class TarotSpreadModel: ObservableObject {
         
     }
     
-    func sendQuestion(){
+    func sendQuestion() {
         withAnimation {
             isQuestionSent = true
         }
+
+        let randomMinutes = Int.random(in: (4...15))
         notificationCenter.requestNotifications()
-        notificationCenter.sendTarotSpreadNotification(afterTime: .oneMin)
-        let currentTimeInterval = Date().dateByAdding(1, .minute).date
+        notificationCenter.sendTarotSpreadNotification(afterTime: TimeInterval(60*randomMinutes))
+        let currentTimeInterval = Date().dateByAdding(randomMinutes, .minute).date
         let tarotToSave = TarotModel(userQuestion: questionText, answer: "1", time: currentTimeInterval)
         storageService.saveQuestion(text: tarotToSave, key: SavingKeys.question.rawValue)
+
     }
 }
 

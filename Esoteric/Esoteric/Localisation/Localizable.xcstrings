@@ -28,7 +28,6 @@
       }
     },
     "%lld" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -251,7 +250,6 @@
       }
     },
     "Esoterica" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1332,7 +1330,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "виджет!"
+            "value" : "Виджет!"
           }
         }
       }
@@ -1400,6 +1398,9 @@
           }
         }
       }
+    },
+    "Youre power" : {
+
     },
     "youreTGetAnswer" : {
       "localizations" : {
@@ -1549,7 +1550,20 @@
       }
     },
     "Купить Подписку" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscribe!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Купить Подписку"
+          }
+        }
+      }
     },
     "Купить сейчас" : {
       "extractionState" : "stale",
@@ -1569,6 +1583,7 @@
       }
     },
     "Написать нам" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
