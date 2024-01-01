@@ -99,15 +99,15 @@ class CardsTableViewModel: ObservableObject {
                 
             case .OneCard:
                 if  User.language == "ru" {
-                    promt = "мне выпала карта таро \(names). Что эта карта может значить? Ответь в паре предложений."
+                    promt = "мне выпала карта таро \(names). Что эта карта может значить? Максимум 150 слов."
                 } else {
-                    promt = "I got the tarot card: \(names).  What does this card mean? Answer in a couple of sentences."
+                    promt = "I got the tarot card: \(names).  What does this card mean? Maximum 150 words"
                 }
             case .ThreeCards:
                 if  User.language == "ru" {
-                    promt = "мне выпали карты таро \(names). Что эти карты вместе могут значить? Ответь в паре предложений."
+                    promt = "мне выпали карты таро \(names). Что эти карты вместе могут значить? Максимум 150 слов."
                 } else {
-                    promt = "I got the few tarot cards from the deck: \(names). What could these cards together mean?"
+                    promt = "I got the few tarot cards from the deck: \(names). What could these cards together mean? Maximum 150 words"
                 }
             case .TarotReader:
                 let storage = StorageService.shared
@@ -135,9 +135,9 @@ class CardsTableViewModel: ObservableObject {
                 }
             case .CardOfTheDay:
                 if  User.language == "ru" {
-                    promt = "Я гадаю на картах таро. Мне выпала карта дня: \(names). Что эта карта дня может значить? Сделай вывод и рекомендации на день."
+                    promt = "Я гадаю на картах таро. Мне выпала карта дня: \(names). Что эта карта дня может значить? Сделай вывод и рекомендации на день. Максимум 150 слов."
                 } else {
-                    promt = "I'm reading tarot cards. I got the card of the day: \(names). What does this map of the day mean? Make a conclusion and recommendations for the day."
+                    promt = "I'm reading tarot cards. I got the card of the day: \(names). What does this map of the day mean? Make a conclusion and recommendations for the day. Maximum 150 words"
                 }
         }
         
@@ -186,17 +186,17 @@ struct CardsTableView: View {
                         switch model.deckType {
                                 
                             case .OneCard:
-                            H1TitleView(textColor: .accentColor,text: Texts.HomeView.oneCard, alignment: .center)
+                           // H1TitleView(textColor: .accentColor,text: Texts.HomeView.oneCard, alignment: .center)
                                 if model.isOpenCardsAvalable == false {
-                                    ArticleView(text: Texts.CardsTableView.chooseOneCard, alignment: .leading).opacity(0.6)
+                                  //  ArticleView(text: Texts.CardsTableView.chooseOneCard, alignment: .leading).opacity(0.6)
                                 } else {
-                                    ArticleView(text: Texts.CardsTableView.tapToOpen, alignment: .leading)
+                                  //  ArticleView(text: Texts.CardsTableView.tapToOpen, alignment: .leading)
                                 }
                                 
                             case .ThreeCards:
-                                H1TitleView(textColor: .accentColor,text: Texts.HomeView.threeCard, alignment: .center)
+                             //   H1TitleView(textColor: .accentColor,text: Texts.HomeView.threeCard, alignment: .center)
                                 if model.isOpenCardsAvalable == false {
-                                    ArticleView(text: Texts.CardsTableView.chooseThreeCard, alignment: .leading).opacity(0.6)
+                                  //  ArticleView(text: Texts.CardsTableView.chooseThreeCard, alignment: .leading).opacity(0.6)
                                 } else {
                                     ArticleView(text: Texts.CardsTableView.tapToOpen, alignment: .leading)
                                 }
@@ -305,6 +305,13 @@ struct CardsTableView: View {
                     
                     ArticleView(text: model.text)
                     
+                    Button {
+                        let pasteboard = UIPasteboard.general
+                        pasteboard.string = model.text
+                    } label: {
+                        Text("share")
+                    }
+
                 }.padding(.horizontal, 40).padding(.vertical, 50)
             })
             .presentationBackground(alignment: .bottom) {

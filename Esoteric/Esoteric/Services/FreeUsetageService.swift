@@ -5,7 +5,7 @@ class FreeUsetageService {
     static let shared = FreeUsetageService()
     private var userDefaultsKey = "FreeUsetageCounter"
     private var counter: Int = 0
-    private var free: Int = 9
+    private var free: Int = 9999
 
     private init() {
         if let savedCounter = UserDefaults.standard.value(forKey: userDefaultsKey) as? Int {

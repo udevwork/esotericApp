@@ -53,6 +53,7 @@ struct HomeView: View {
                 WidgetBunner()
                 SubscriptionBanner(showingSheet: $model.showingSheet)
                 ConditionsTermsView()
+                Text("❤️ U 🐷").frame(maxWidth: .infinity)
             }
         }.background(BackGroundView())
             .navigationBarHidden(true)

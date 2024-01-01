@@ -64,7 +64,7 @@ class DayConterService {
     }
     
     func getDayStreak() -> Int {
-        return db.integer(forKey: streakCountKey)
+        return 65 //db.integer(forKey: streakCountKey)
     }
     
     func resetStreak() {
