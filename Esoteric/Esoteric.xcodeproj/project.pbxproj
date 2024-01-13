@@ -25,6 +25,9 @@
 		9209555C2AF7E46200BEA64D /* ElMessiri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */; };
 		9209555D2AF7E46200BEA64D /* ElMessiri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */; };
 		9209555E2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */; };
+		9216FD8E2B4D42260064488E /* DataPrettyPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216FD8D2B4D42250064488E /* DataPrettyPrint.swift */; };
+		9216FD912B4D64480064488E /* JokeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216FD902B4D64480064488E /* JokeResponse.swift */; };
+		9216FD932B4D65C40064488E /* Codable+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216FD922B4D65C40064488E /* Codable+EXT.swift */; };
 		922B0CFF2B0D26E200FF7241 /* ChooseYourCardArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0CFE2B0D26E200FF7241 /* ChooseYourCardArtView.swift */; };
 		922B0D012B0D457500FF7241 /* StupidHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */; };
 		922B0D6E2B0E55B500FF7241 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */; };
@@ -73,6 +76,7 @@
 		927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */; };
 		927CC2302AFEBA2900A77B20 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = 927CC22F2AFEBA2900A77B20 /* Shiny */; };
 		9292464A2B18EAFB0082D089 /* FreeUsetageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929246492B18EAFB0082D089 /* FreeUsetageService.swift */; };
+		92CF659B2B4A9BD500D89A6D /* ChatHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CF659A2B4A9BD500D89A6D /* ChatHome.swift */; };
 		92E414D92B0A5776000393EF /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E414D82B0A5776000393EF /* StorageService.swift */; };
 		92E414DB2B0AA9C4000393EF /* TextFieldCustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E414DA2B0AA9C4000393EF /* TextFieldCustomStyle.swift */; };
 		92F8BB602B052C4200DF3ADA /* AmazingCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8BB5F2B052C4200DF3ADA /* AmazingCardTest.swift */; };
@@ -141,6 +145,9 @@
 		920955582AF7E46200BEA64D /* ElMessiri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Regular.ttf"; sourceTree = "<group>"; };
 		920955592AF7E46200BEA64D /* ElMessiri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-Bold.ttf"; sourceTree = "<group>"; };
 		9209555A2AF7E46200BEA64D /* ElMessiri-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ElMessiri-SemiBold.ttf"; sourceTree = "<group>"; };
+		9216FD8D2B4D42250064488E /* DataPrettyPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrettyPrint.swift; sourceTree = "<group>"; };
+		9216FD902B4D64480064488E /* JokeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeResponse.swift; sourceTree = "<group>"; };
+		9216FD922B4D65C40064488E /* Codable+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+EXT.swift"; sourceTree = "<group>"; };
 		922B0CFE2B0D26E200FF7241 /* ChooseYourCardArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseYourCardArtView.swift; sourceTree = "<group>"; };
 		922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StupidHeightHelper.swift; sourceTree = "<group>"; };
 		922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
@@ -176,6 +183,7 @@
 		927A94742AF569EF007889A4 /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
 		927CC22C2AFEA0AB00A77B20 /* CardsLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLayouts.swift; sourceTree = "<group>"; };
 		929246492B18EAFB0082D089 /* FreeUsetageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsetageService.swift; sourceTree = "<group>"; };
+		92CF659A2B4A9BD500D89A6D /* ChatHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHome.swift; sourceTree = "<group>"; };
 		92E414D82B0A5776000393EF /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		92E414DA2B0AA9C4000393EF /* TextFieldCustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomStyle.swift; sourceTree = "<group>"; };
 		92F8BB5F2B052C4200DF3ADA /* AmazingCardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingCardTest.swift; sourceTree = "<group>"; };
@@ -297,6 +305,14 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		9216FD8F2B4D64190064488E /* Responces */ = {
+			isa = PBXGroup;
+			children = (
+				9216FD902B4D64480064488E /* JokeResponse.swift */,
+			);
+			path = Responces;
+			sourceTree = "<group>";
+		};
 		9277DB772B20523400C21D09 /* EsotericTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +375,7 @@
 		927A944D2AF52F43007889A4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				92CF65992B4A9BAF00D89A6D /* ChatHome */,
 				9206CF5F2B1A0A31006D637E /* TarotDeck */,
 				9206CF512B19FFBC006D637E /* Subscription */,
 				92F8BB5E2B052C3000DF3ADA /* Home */,
@@ -397,6 +414,7 @@
 		927A946B2AF53DCB007889A4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9216FD8F2B4D64190064488E /* Responces */,
 				927A944A2AF52F43007889A4 /* User.swift */,
 				926D74FA2AFD413400F9CF88 /* TarotDB.swift */,
 				FA7664122B0D5706008437AB /* TarotModels.swift */,
@@ -417,8 +435,18 @@
 				922B0D002B0D457500FF7241 /* StupidHeightHelper.swift */,
 				922B0D6D2B0E55B500FF7241 /* LoadingIndicator.swift */,
 				92534FA72B132F2100395B75 /* Haptic.swift */,
+				9216FD8D2B4D42250064488E /* DataPrettyPrint.swift */,
+				9216FD922B4D65C40064488E /* Codable+EXT.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		92CF65992B4A9BAF00D89A6D /* ChatHome */ = {
+			isa = PBXGroup;
+			children = (
+				92CF659A2B4A9BD500D89A6D /* ChatHome.swift */,
+			);
+			path = ChatHome;
 			sourceTree = "<group>";
 		};
 		92F8BB5E2B052C3000DF3ADA /* Home */ = {
@@ -656,6 +684,7 @@
 				FA7664132B0D5706008437AB /* TarotModels.swift in Sources */,
 				927A94732AF56236007889A4 /* GPTService.swift in Sources */,
 				9206CF622B1A0A62006D637E /* FakeCardView.swift in Sources */,
+				9216FD912B4D64480064488E /* JokeResponse.swift in Sources */,
 				927CC22D2AFEA0AB00A77B20 /* CardsLayouts.swift in Sources */,
 				FA27DA7A2AFF83DF0096D081 /* Tarologs.swift in Sources */,
 				927A945D2AF52F43007889A4 /* ScreenContentView.swift in Sources */,
@@ -671,16 +700,19 @@
 				9206CF532B1A0007006D637E /* AdvantagesBanner.swift in Sources */,
 				922B0D6E2B0E55B500FF7241 /* LoadingIndicator.swift in Sources */,
 				9206CF4A2B19F515006D637E /* WidgetBunner.swift in Sources */,
+				92CF659B2B4A9BD500D89A6D /* ChatHome.swift in Sources */,
 				9206CF582B1A01B7006D637E /* SubscribeButton.swift in Sources */,
 				927A945E2AF52F43007889A4 /* SubscriptionView.swift in Sources */,
 				9206CF5C2B1A046A006D637E /* ResizebleImage.swift in Sources */,
 				926D74FB2AFD413400F9CF88 /* TarotDB.swift in Sources */,
 				9206CF4C2B19F598006D637E /* TarotReaderResponseBanner.swift in Sources */,
+				9216FD8E2B4D42260064488E /* DataPrettyPrint.swift in Sources */,
 				927A945C2AF52F43007889A4 /* HomeView.swift in Sources */,
 				92534FAE2B1355EE00395B75 /* DayConterService.swift in Sources */,
 				920955552AF7C31900BEA64D /* BackGroundView.swift in Sources */,
 				FA27DA7F2AFFC1700096D081 /* NotificationsService.swift in Sources */,
 				927A94122AF52857007889A4 /* EsotericApp.swift in Sources */,
+				9216FD932B4D65C40064488E /* Codable+EXT.swift in Sources */,
 				FA27DA7C2AFFADC80096D081 /* TarotSpread.swift in Sources */,
 				92E414D92B0A5776000393EF /* StorageService.swift in Sources */,
 				927A945F2AF52F43007889A4 /* LaunchScreenView.swift in Sources */,

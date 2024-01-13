@@ -33,7 +33,7 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack (alignment: .leading, spacing: 40) {
+            VStack (alignment: .leading, spacing: 20) {
                 
                 HStack {
                     Spacer()

@@ -16,7 +16,7 @@ struct EsotericApp: App {
             ZStack {
                 if model.isLoadingComplete, model.needToPresentOnboarding == false {
                     NavigationStack {
-                        HomeView()
+                        ChatHome()
                     }.transition(.opacity)
                 }
                 
@@ -29,7 +29,6 @@ struct EsotericApp: App {
                         .transition(.opacity)
                         .environmentObject(model)
                 }
-                
             }.preferredColorScheme(.dark)
                 .animation(.easeInOut, value: model.screenTransitionAnimation)
         }

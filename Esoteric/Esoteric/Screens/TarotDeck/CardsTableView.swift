@@ -143,30 +143,7 @@ class CardsTableViewModel: ObservableObject {
         
      
         self.isGPTloading = true
-        
-        gpt.ask(promt: promt) { [weak self] result in
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                switch result {
-                case .success(let content):
-                        DayConterService().copleteThisDay()
-                        FreeUsetageService.shared.incrementCounter()
-                    if content.isEmpty {
-                        self.text = "Туман не рассеялся"
-                    } else {
-                        self.text = content
-                        self.isGPTloading = false
-                        self.showModalView = true
-                        if self.deckType == .TarotReader {
-                            StorageService.shared.clearSavedData()
-                        }
-                    }
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                    self.text = "Туман не рассеялся"
-                }
-            }
-        }
+
     }
 }
 
